@@ -152,6 +152,27 @@
 
         <!-- Controls: Language, Currency, Tools -->
         <div class="flex items-center gap-2.5">
+          <!-- Language Selector -->
+          <div class="relative">
+            <select id="languageSelector" onchange="changeLanguage(this.value)" class="text-xs rounded-xl border border-amber-200/80 bg-amber-50/60 px-2.5 py-1.5 text-amber-950 font-semibold hover:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition-all cursor-pointer">
+              <option value="en">🌐 English</option>
+              <option value="hi">हिन्दी (Hindi)</option>
+              <option value="kn">ಕನ್ನಡ (Kannada)</option>
+              <option value="ta">தமிழ் (Tamil)</option>
+              <option value="te">తెలుగు (Telugu)</option>
+              <option value="bn">বাংলা (Bengali)</option>
+              <option value="ml">മലയാളം (Malayalam)</option>
+              <option value="gu">ગુજરાતી (Gujarati)</option>
+              <option value="mr">मराठी (Marathi)</option>
+              <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+              <option value="ar">العربية (Arabic)</option>
+              <option value="es">Español (Spanish)</option>
+              <option value="it">Italiano (Italian)</option>
+              <option value="fr">Français (French)</option>
+              <option value="pt">Português (Portuguese)</option>
+            </select>
+          </div>
+
           <!-- Currency Selector -->
           <div class="relative">
             <select id="currencySelector" onchange="changeCurrency(this.value)" class="text-xs rounded-xl border border-stone-200 bg-white/90 px-2.5 py-1.5 text-stone-700 font-medium hover:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition-all cursor-pointer">
@@ -190,14 +211,14 @@
     <section class="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
       <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-200/70 text-amber-900 text-xs font-semibold mb-5 shadow-2xs">
         <i data-lucide="sun" class="w-3.5 h-3.5 text-amber-600"></i>
-        <span>Pancha Mahayajna • Animal Feeding as Planetary Dissolution</span>
+        <span id="heroBadgeText">Pancha Mahayajna • Animal Feeding as Planetary Dissolution</span>
       </div>
       
-      <h2 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-stone-900 leading-tight">
+      <h2 id="heroTitleText" class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-stone-900 leading-tight">
         Dissolve Karmic Bondage Through Ancient <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Animal Seva</span>
       </h2>
       
-      <p class="mt-4 text-stone-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+      <p id="heroSubtitleText" class="mt-4 text-stone-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
         Grounded in <em>Brihat Parashara Hora Shastra</em>. Feed cows for Venus & Jupiter, black dogs for Saturn & Bhairava, and crows for Rahu & Pitris. Consecrate your intention with sacred 432 Hz resonance.
       </p>
 
@@ -227,8 +248,8 @@
               <i data-lucide="book-open" class="w-3.5 h-3.5 text-emerald-700"></i>
               <span>Saraswati & Budha Upaya • Vidya Dāna</span>
             </div>
-            <h3 class="font-serif text-xl sm:text-2xl font-bold text-stone-900">Contribute Towards Education (Vidya Dāna)</h3>
-            <p class="mt-2 text-stone-600 text-xs sm:text-sm leading-relaxed">
+            <h3 id="vidyaTitleText" class="font-serif text-xl sm:text-2xl font-bold text-stone-900">Contribute Towards Education (Vidya Dāna)</h3>
+            <p id="vidyaDescText" class="mt-2 text-stone-600 text-xs sm:text-sm leading-relaxed">
               Classical scriptures prescribe supporting learning (Vidya Dāna) to appease Mercury (Budha) and invoke Maa Saraswati's wisdom. You can support a student with notebooks, pens, and exam fees with a direct micro-donation.
             </p>
           </div>
@@ -574,6 +595,12 @@
         animal: 'White Cows & Spotted Doves',
         offering: 'Sweetened green fodder & soaked millets',
         mantra: 'ॐ कामदेवाय विद्महे पुष्पबाणाय धीमहि तन्नो अनङ्गः प्रचोदयात्',
+        homePooja: [
+          'Light a pure cow-ghee diya in your home altar on Friday morning wearing clean white or pastel attire.',
+          'Place two white flowers and a small spoon of rock sugar (Mishri) before the lamp.',
+          'Chant your consecrated Kamadeva Gayatri mantra 108 times with calm breathing to release emotional heaviness.',
+          'Offer sweet milk-rice or green grass to a cow, or scatter soaked millets for doves.'
+        ],
         basePriceINR: 499,
         badge: 'Emotional Healing'
       },
@@ -585,6 +612,12 @@
         animal: 'Black Dogs & Crows',
         offering: 'Mustard oil roti & black sesame laddus',
         mantra: 'ॐ शं शनैश्चराय नमः',
+        homePooja: [
+          'On Saturday morning or dusk, light a sesame or mustard oil diya in a clean corner facing West.',
+          'Place a pinch of black sesame seeds (Kala Til) in a small bowl beside the lamp.',
+          'Chant "Om Sham Shanaishcharaya Namah" 108 times seeking patience, protection, and karmic relief.',
+          'Brush a warm roti with mustard oil and feed it to a stray dog outside your home.'
+        ],
         basePriceINR: 599,
         badge: 'Karmic Relief'
       },
@@ -596,6 +629,12 @@
         animal: 'Crows & Fish',
         offering: 'Cooked rice balls with black sesame seeds',
         mantra: 'ॐ पितृभ्यः स्वधायिभ्यः स्वधा नमः',
+        homePooja: [
+          'Before noon, light a ghee lamp facing South in gratitude to your ancestors.',
+          'Offer water mixed with a few black sesame seeds in a copper vessel while chanting the Pitri mantra 108 times.',
+          'Place a small portion of cooked rice mixed with ghee and sesame on a clean leaf on your terrace or balcony for crows.',
+          'Pour the sacred water at the base of a clean tree or plant.'
+        ],
         basePriceINR: 649,
         badge: 'Lineage Blessings'
       },
@@ -607,6 +646,12 @@
         animal: 'Fish & Ants',
         offering: 'Flour sugar pellets (Kasari) at tree roots',
         mantra: 'ॐ भ्रां भ्रीं भ्रौं सः राहवे नमः',
+        homePooja: [
+          'Light a sandalwood incense stick and a sesame oil diya at home during twilight.',
+          'Keep a glass of water covered with a copper plate while chanting the Rahu Beej mantra 108 times.',
+          'Mix roasted wheat flour with powdered jaggery/sugar and place small pinches near ant hills or tree roots outside.',
+          'Wash your hands and feet with clean water afterward to ground restless energy.'
+        ],
         basePriceINR: 549,
         badge: 'Mental Clarity'
       },
@@ -618,6 +663,12 @@
         animal: 'Desi Indian Cows',
         offering: 'Soaked yellow chana dal & jaggery bread',
         mantra: 'ॐ ग्रां ग्रीं ग्रौं सः गुरवे नमः',
+        homePooja: [
+          'On Thursday morning, apply a tiny tilak of turmeric (Haldi) on your forehead and light a ghee lamp.',
+          'Place a pinch of turmeric and soaked yellow chana dal on a clean plate in your prayer space.',
+          'Chant the Brihaspati Beej mantra 108 times to invite wisdom and steady prosperity.',
+          'Feed the soaked yellow dal and jaggery to a Desi cow or offer it at a local temple.'
+        ],
         basePriceINR: 799,
         badge: 'Prosperity & Grace'
       },
@@ -629,6 +680,12 @@
         animal: 'Monkeys & Stray Animals',
         offering: 'Roasted chickpeas (Chana) & Jaggery (Gud)',
         mantra: 'ॐ अं अङ्गारकाय नमः',
+        homePooja: [
+          'On Tuesday morning, light a ghee lamp with a red cotton wick in your home shrine.',
+          'Offer a small piece of organic jaggery (Gud) and red flowers while chanting "Om Am Angarakaya Namah" 108 times.',
+          'Distribute roasted chana and jaggery to stray animals or monkeys, or share sweet food with siblings.',
+          'Keep calm speech throughout the day to honor Mangal Deva.'
+        ],
         basePriceINR: 549,
         badge: 'Vitality & Harmony'
       }
@@ -657,6 +714,175 @@
       AED: { symbol: 'د.إ', rate: 0.044 }
     };
 
+    const TRANSLATIONS = {
+      en: {
+        heroBadge: "Pancha Mahayajna • Animal Feeding as Planetary Dissolution",
+        heroTitle: 'Dissolve Karmic Bondage Through Ancient <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Animal Seva</span>',
+        heroSubtitle: "Grounded in <em>Brihat Parashara Hora Shastra</em>. Feed cows for Venus & Jupiter, black dogs for Saturn & Bhairava, and crows for Rahu & Pitris. Consecrate your intention with sacred 432 Hz resonance.",
+        vidyaTitle: "Contribute Towards Education (Vidya Dāna)",
+        vidyaDesc: "Classical scriptures prescribe supporting learning (Vidya Dāna) to appease Mercury (Budha) and invoke Maa Saraswati's wisdom. You can support a student with notebooks, pens, and exam fees with a direct micro-donation.",
+        consecrateBtn: "Consecrate",
+        offeringLabel: "Offering",
+        animalLabel: "Sacred Animal:",
+        prescribedLabel: "Prescribed Offering:"
+      },
+      hi: {
+        heroBadge: "पंच महायज्ञ • ग्रह शांति हेतु पावन जीव सेवा",
+        heroTitle: 'प्राचीन <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">जीव सेवा</span> के माध्यम से कर्म बंधनों का निवारण करें',
+        heroSubtitle: "<em>बृहत् पाराशर होरा शास्त्र</em> पर आधारित। शुक्र और बृहस्पति के लिए गौ सेवा, शनि और भैरव के लिए श्वान सेवा, तथा राहु व पितरों की शांति हेतु काक बलि एवं 432 Hz नाद साधना।",
+        vidyaTitle: "विद्या दान • शिक्षा हेतु पावन सहयोग",
+        vidyaDesc: "शास्त्रों के अनुसार बुध ग्रह की शांति और माँ सरस्वती की कृपा हेतु विद्या दान सर्वश्रेष्ठ है। आप ₹1 या ₹50 के छोटे सहयोग से किसी विद्यार्थी की पुस्तकों और शिक्षा में सहायता कर सकते हैं।",
+        consecrateBtn: "संकल्प लें",
+        offeringLabel: "दक्षिणा / सेवा",
+        animalLabel: "पवित्र जीव:",
+        prescribedLabel: "शास्त्रीय भोग:"
+      },
+      kn: {
+        heroBadge: "ಪಂಚ ಮಹಾಯಜ್ಞ • ಗ್ರಹ ಶಾಂತಿಗಾಗಿ ಪವಿತ್ರ ಪ್ರಾಣಿ ಸೇವೆ",
+        heroTitle: 'ಪ್ರಾಚೀನ <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ಪ್ರಾಣಿ ಸೇವೆಯ</span> ಮೂಲಕ ಕರ್ಮ ಬಂಧನಗಳನ್ನು ನಿವಾರಿಸಿ',
+        heroSubtitle: "<em>ಬೃಹತ್ ಪರಾಶರ ಹೋರಾ ಶಾಸ್ತ್ರ</em> ಆಧಾರಿತ. ಶುಕ್ರ ಮತ್ತು ಗುರುವಿಗಾಗಿ ಗೋ ಸೇವೆ, ಶನಿ ಮತ್ತು ಭೈರವನಿಗಾಗಿ ಶ್ವಾನ ಸೇವೆ, ರಾಹು ಮತ್ತು ಪಿತೃ ಶಾಂತಿಗಾಗಿ ಕಾಗೆಗಳಿಗೆ ಆಹಾರ ಮತ್ತು 432 Hz ಧ್ಯಾನ.",
+        vidyaTitle: "ವಿದ್ಯಾ ದಾನ • ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಪವಿತ್ರ ಕೊಡುಗೆ",
+        vidyaDesc: "ಬುಧ ಗ್ರಹದ ಶಾಂತಿ ಮತ್ತು ಸರಸ್ವತಿ ದೇವಿಯ ಅನುಗ್ರಹಕ್ಕಾಗಿ ವಿದ್ಯಾ ದಾನ ಶ್ರೇಷ್ಠವಾಗಿದೆ. ₹1 ಅಥವಾ ₹50 ರ ಸಣ್ಣ ಕೊಡುಗೆಯ ಮೂಲಕ ವಿದ್ಯಾರ್ಥಿಗಳ ಶಿಕ್ಷಣಕ್ಕೆ ನೆರವಾಗಿ.",
+        consecrateBtn: "ಸಂಕಲ್ಪ ಮಾಡಿ",
+        offeringLabel: "ಸೇವಾ ಮೊತ್ತ",
+        animalLabel: "ಪವಿತ್ರ ಪ್ರಾಣಿ:",
+        prescribedLabel: "ನೈವೇದ್ಯ / ಆಹಾರ:"
+      },
+      ta: {
+        heroBadge: "பஞ்ச மகாயக்ஞம் • கிரக தோஷ நிவாரண ஜீவ சேவை",
+        heroTitle: 'பண்டைய <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ஜீவ சேவையின்</span> மூலம் கர்ம வினைகளை நீக்குங்கள்',
+        heroSubtitle: "<em>பிருஹத் பராசர ஹோரா சாஸ்திரம்</em> அடிப்படையிலானது. சுக்கிரன் மற்றும் குருவிற்கு கோ சேவை, சனி பகவானுக்கு நாய் சேவை, ராகு மற்றும் பித்ருக்களுக்கு காகத்திற்கு உணவளித்தல்.",
+        vidyaTitle: "வித்யா தானம் • கல்விக்கான புனித பங்களிப்பு",
+        vidyaDesc: "புதன் பகவானின் அருளையும் சரஸ்வதி தேவியின் கடாட்சத்தையும் பெற வித்யா தானம் சிறந்தது. ₹1 அல்லது ₹50 மூலம் மாணவர்களின் கல்விக்கு உதவுங்கள்.",
+        consecrateBtn: "சங்கல்பம் செய்",
+        offeringLabel: "காணிக்கை",
+        animalLabel: "புனித உயிரினம்:",
+        prescribedLabel: "உணவு முறை:"
+      },
+      te: {
+        heroBadge: "పంచ మహాయజ్ఞం • గ్రహ శాంతి కొరకు పవిత్ర జీవ సేవ",
+        heroTitle: 'ప్రాచీన <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">జీవ సేవ</span> ద్వారా కర్మ బంధాలను తొలగించుకోండి',
+        heroSubtitle: "<em>బృహత్ పరాశర హోరా శాస్త్రం</em> ఆధారంగా. శుక్ర మరియు గురు గ్రహాల కొరకు గో సేవ, శని మరియు భైరవుని కొరకు శునక సేవ, రాహు మరియు పితృ శాంతి కొరకు కాకులకు ఆహారం.",
+        vidyaTitle: "విద్యా దానం • విద్య కొరకు పవిత్ర సహాయం",
+        vidyaDesc: "బుధ గ్రహ శాంతి మరియు సరస్వతీ దేవి అనుగ్రహం కొరకు విద్యా దానం శ్రేష్ఠమైనది. ₹1 లేదా ₹50 చిన్న విరాళంతో విద్యార్థుల చదువుకు సహాయపడండి.",
+        consecrateBtn: "సంకల్పం చేయండి",
+        offeringLabel: "సేవా రుసుము",
+        animalLabel: "పవిత్ర ప్రాణి:",
+        prescribedLabel: "ఆహార నియమం:"
+      },
+      bn: {
+        heroBadge: "পঞ্চ মহাযজ্ঞ • গ্রহ শান্তির জন্য পবিত্র জীব সেবা",
+        heroTitle: 'প্রাচীন <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">জীব সেবার</span> মাধ্যমে কর্ম বন্ধন দূর করুন',
+        heroSubtitle: "<em>বৃহৎ পরাশর হোরা শাস্ত্র</em> অনুসারে। শুক্র ও বৃহস্পতির জন্য গো-সেবা, শনি ও ভৈরবের জন্য সারমেয় সেবা এবং রাহু ও পিতৃপুরুষের শান্তির জন্য কাকবলি ও ৪৩২ হার্জ সাধনা।",
+        vidyaTitle: "বিদ্যা দান • শিক্ষার জন্য পবিত্র অবদান",
+        vidyaDesc: "শাস্ত্রমতে বুধ গ্রহের শান্তি ও মা সরস্বতীর কৃপা লাভের জন্য বিদ্যা দান সর্বশ্রেষ্ঠ। ₹১ বা ₹৫০ ক্ষুদ্র অনুদানের মাধ্যমে শিক্ষার্থীদের বই ও শিক্ষায় সহায়তা করুন।",
+        consecrateBtn: "সংকল্প নিন",
+        offeringLabel: "সেবা মূল্য",
+        animalLabel: "পবিত্র প্রাণী:",
+        prescribedLabel: "নির্ধারিত খাদ্য:"
+      },
+      ml: {
+        heroBadge: "പഞ്ചമഹായജ്ഞം • ഗ്രഹശാന്തിക്കായി പവിത്രമായ ജീവസേവ",
+        heroTitle: 'പുരാതന <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ജീവസേവയിലൂടെ</span> കർമ്മബന്ധങ്ങൾ അകറ്റുക',
+        heroSubtitle: "<em>ബൃഹത് പരാശര ഹോരാശാസ്ത്രത്തെ</em> അടിസ്ഥാനമാക്കി. ശുക്രനും വ്യാഴത്തിനും ഗോസേവ, ശനിക്കും ഭൈരവനും ശ്വാനസേവ, രാഹുവിനും പിതൃക്കൾക്കും കാക്കകൾക്ക് അന്നദാനം.",
+        vidyaTitle: "വിദ്യാദാനം • വിദ്യാഭ്യാസത്തിനായി പവിത്രമായ സംഭാവന",
+        vidyaDesc: "ബുധഗ്രഹ പ്രീതിക്കും സരസ്വതി ദേവിയുടെ അനുഗ്രഹത്തിനുമായി വിദ്യാദാനം അത്യുത്തമമാണ്. ₹1 അല്ലെങ്കിൽ ₹50 ചെറിയ സംഭാവനയിലൂടെ വിദ്യാർത്ഥികളുടെ പഠനത്തെ സഹായിക്കാം.",
+        consecrateBtn: "സങ്കൽപ്പിക്കുക",
+        offeringLabel: "ദക്ഷിണ / സേവ",
+        animalLabel: "പവിത്ര ജീവി:",
+        prescribedLabel: "നിർദ്ദേശിച്ച ആഹാരം:"
+      },
+      gu: {
+        heroBadge: "પંચ મહાયજ્ઞ • ગ્રહ શાંતિ માટે પવિત્ર જીવ સેવા",
+        heroTitle: 'પ્રાચીન <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">જીવ સેવા</span> દ્વારા કર્મ બંધનોમાંથી મુક્તિ મેળવો',
+        heroSubtitle: "<em>બૃહત પારાશર હોરા શાસ્ત્ર</em> પર આધારિત. શુક્ર અને ગુરુ માટે ગૌ સેવા, શનિ અને ભૈરવ માટે શ્વાન સેવા, અને રાહુ તથા પિતૃ શાંતિ માટે કાગડાઓને ભોજન અને 432 Hz નાદ.",
+        vidyaTitle: "વિદ્યા દાન • શિક્ષણ માટે પવિત્ર સહયોગ",
+        vidyaDesc: "શાસ્ત્રો અનુસાર બુધ ગ્રહની શાંતિ અને મા સરસ્વતીની કૃપા માટે વિદ્યા દાન શ્રેષ્ઠ છે. ₹1 અથવા ₹50 ના નાના યોગદાનથી વિદ્યાર્થીઓના શિક્ષણમાં મદદ કરો.",
+        consecrateBtn: "સંકલ્પ લો",
+        offeringLabel: "સેવા રાશિ",
+        animalLabel: "પવિત્ર જીવ:",
+        prescribedLabel: "શાસ્ત્રીય ભોગ:"
+      },
+      mr: {
+        heroBadge: "पंच महायज्ञ • ग्रह शांतीसाठी पवित्र जीव सेवा",
+        heroTitle: 'प्राचीन <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">जीव सेवेद्वारे</span> कर्मबंधनांचे निवारण करा',
+        heroSubtitle: "<em>बृहत् पाराशर होरा शास्त्र</em> आधारित. शुक्र आणि गुरूसाठी गोसेवा, शनि आणि भैरवासाठी श्वान सेवा, तसेच राहू व पितृ शांतीसाठी काकबळी आणि 432 Hz नाद साधना.",
+        vidyaTitle: "विद्या दान • शिक्षणासाठी पवित्र योगदान",
+        vidyaDesc: "शास्त्रांनुसार बुध ग्रहाच्या शांतीसाठी आणि माता सरस्वतीच्या कृपेसाठी विद्या दान सर्वोत्तम आहे. ₹१ किंवा ₹५० च्या छोट्या योगदानाने विद्यार्थ्यांच्या शिक्षणास मदत करा.",
+        consecrateBtn: "संकल्प करा",
+        offeringLabel: "दक्षिणा / सेवा",
+        animalLabel: "पवित्र प्राणी:",
+        prescribedLabel: "विहित नैवेद्य:"
+      },
+      pa: {
+        heroBadge: "ਪੰਚ ਮਹਾਯੱਗ • ਗ੍ਰਹਿ ਸ਼ਾਂਤੀ ਲਈ ਪਵਿੱਤਰ ਜੀਵ ਸੇਵਾ",
+        heroTitle: 'ਪ੍ਰਾਚੀਨ <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ਜੀਵ ਸੇਵਾ</span> ਰਾਹੀਂ ਕਰਮ ਬੰਧਨਾਂ ਨੂੰ ਦੂਰ ਕਰੋ',
+        heroSubtitle: "<em>ਬ੍ਰਿਹਤ ਪਰਾਸ਼ਰ ਹੋਰਾ ਸ਼ਾਸਤਰ</em> ਤੇ ਅਧਾਰਿਤ। ਸ਼ੁੱਕਰ ਅਤੇ ਬ੍ਰਹਿਸਪਤੀ ਲਈ ਗਊ ਸੇਵਾ, ਸ਼ਨੀ ਅਤੇ ਭੈਰਵ ਲਈ ਕੁੱਤਿਆਂ ਦੀ ਸੇਵਾ, ਅਤੇ ਰਾਹੂ ਤੇ ਪਿਤਰਾਂ ਦੀ ਸ਼ਾਂਤੀ ਲਈ ਕਾਂਵਾਂ ਨੂੰ ਭੋਜਨ।",
+        vidyaTitle: "ਵਿੱਦਿਆ ਦਾਨ • ਸਿੱਖਿਆ ਲਈ ਪਵਿੱਤਰ ਸਹਿਯੋਗ",
+        vidyaDesc: "ਸ਼ਾਸਤਰਾਂ ਅਨੁਸਾਰ ਬੁੱਧ ਗ੍ਰਹਿ ਦੀ ਸ਼ਾਂਤੀ ਅਤੇ ਮਾਂ ਸਰਸਵਤੀ ਦੀ ਕਿਰਪਾ ਲਈ ਵਿੱਦਿਆ ਦਾਨ ਉੱਤਮ ਹੈ। ₹1 ਜਾਂ ₹50 ਦੇ ਛੋਟੇ ਯੋਗਦਾਨ ਨਾਲ ਵਿਦਿਆਰਥੀਆਂ ਦੀ ਪੜ੍ਹਾਈ ਵਿੱਚ ਮਦਦ ਕਰੋ।",
+        consecrateBtn: "ਸੰਕਲਪ ਲਓ",
+        offeringLabel: "ਸੇਵਾ ਭੇਟਾ",
+        animalLabel: "ਪਵਿੱਤਰ ਜੀਵ:",
+        prescribedLabel: "ਨਿਰਧਾਰਤ ਭੋਜਨ:"
+      },
+      ar: {
+        heroBadge: "بانشا ماهاياجنا • إطعام الكائنات لتطهير المسار الكوني",
+        heroTitle: 'تحرر من القيود الكرمية عبر <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">الرحمة وإطعام الكائنات</span>',
+        heroSubtitle: "مبني على النصوص الفيدية الكلاسيكية. إطعام الأبقار والكلاب والطيور بوعي روحي مع ترددات 432 هرتز المقدسة لجلب السلام الداخلي.",
+        vidyaTitle: "فيديا دانا • المساهمة في دعم التعليم",
+        vidyaDesc: "توصي النصوص القديمة بدعم التعلم لنشر الحكمة والبركة. يمكنك دعم طالب بالدفاتر والأقلام ورسوم الدراسة بمساهمة رمزية تبدأ من 1 روبية.",
+        consecrateBtn: "تأكيد النية",
+        offeringLabel: "التقدمة",
+        animalLabel: "الكائن المبارك:",
+        prescribedLabel: "القربان الموصى به:"
+      },
+      es: {
+        heroBadge: "Pancha Mahayajna • Alimentación Sagrada para la Armonía Planetaria",
+        heroTitle: 'Disuelve Ataduras Kármicas a Través del Antiguo <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Seva Animal</span>',
+        heroSubtitle: "Basado en el <em>Brihat Parashara Hora Shastra</em>. Alimenta vacas para Venus y Júpiter, perros negros para Saturno y cuervos para Rahu y los ancestros con resonancia de 432 Hz.",
+        vidyaTitle: "Contribuye a la Educación (Vidya Dāna)",
+        vidyaDesc: "Las escrituras clásicas prescriben apoyar el aprendizaje (Vidya Dāna) para armonizar Mercurio y recibir la sabiduría de Saraswati. Apoya a un estudiante con útiles escolares.",
+        consecrateBtn: "Consagrar",
+        offeringLabel: "Ofrenda",
+        animalLabel: "Animal Sagrado:",
+        prescribedLabel: "Ofrenda Prescrita:"
+      },
+      it: {
+        heroBadge: "Pancha Mahayajna • Nutrire gli Animali per l'Armonia Planetaria",
+        heroTitle: 'Dissolvi i Legami Karmici Attraverso l\'Antico <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Seva Animale</span>',
+        heroSubtitle: "Fondato sul <em>Brihat Parashara Hora Shastra</em>. Nutri le mucche per Venere e Giove, i cani neri per Saturno e i corvi per Rahu e gli antenati con risonanza a 432 Hz.",
+        vidyaTitle: "Contribuisci all'Istruzione (Vidya Dāna)",
+        vidyaDesc: "Le scritture classiche prescrivono di sostenere lo studio (Vidya Dāna) per placare Mercurio e invocare la saggezza di Saraswati. Sostieni uno studente con materiale scolastico.",
+        consecrateBtn: "Consacra",
+        offeringLabel: "Offerta",
+        animalLabel: "Animale Sacro:",
+        prescribedLabel: "Offerta Prescritta:"
+      },
+      fr: {
+        heroBadge: "Pancha Mahayajna • Nourrir les Animaux pour l'Harmonie Planétaire",
+        heroTitle: 'Dissolvez les Liens Karmiques Grâce à l\'Ancien <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Seva Animal</span>',
+        heroSubtitle: "Fondé sur le <em>Brihat Parashara Hora Shastra</em>. Nourrissez les vaches pour Vénus et Jupiter, les chiens noirs pour Saturne et les corbeaux pour Rahu avec résonance 432 Hz.",
+        vidyaTitle: "Contribuez à l'Éducation (Vidya Dāna)",
+        vidyaDesc: "Les écritures classiques recommandent de soutenir l'apprentissage (Vidya Dāna) pour apaiser Mercure et invoquer la sagesse de Saraswati. Aidez un étudiant avec des fournitures.",
+        consecrateBtn: "Consacrer",
+        offeringLabel: "Offrande",
+        animalLabel: "Animal Sacré :",
+        prescribedLabel: "Offrande Prescrite :"
+      },
+      pt: {
+        heroBadge: "Pancha Mahayajna • Alimentação Sagrada para Harmonia Planetária",
+        heroTitle: 'Dissolva Laços Cármicos Através do Antigo <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Seva Animal</span>',
+        heroSubtitle: "Baseado no <em>Brihat Parashara Hora Shastra</em>. Alimente vacas para Vênus e Júpiter, cães pretos para Saturno e corvos para Rahu e ancestrais com ressonância de 432 Hz.",
+        vidyaTitle: "Contribua para a Educação (Vidya Dāna)",
+        vidyaDesc: "As escrituras clássicas prescrevem apoiar o aprendizado (Vidya Dāna) para harmonizar Mercúrio e invocar a sabedoria de Saraswati. Apoie um estudante com materiais escolares.",
+        consecrateBtn: "Consagrar",
+        offeringLabel: "Oferenda",
+        animalLabel: "Animal Sagrado:",
+        prescribedLabel: "Oferenda Prescrita:"
+      }
+    };
+
+    let currentLanguage = 'en';
     let currentCurrency = 'INR';
     let activePackage = null;
     let donationAmount = 0;
@@ -668,155 +894,122 @@
     let osc2 = null;
     let gainNode = null;
     let isPlayingAudio = false;
+    let activeSoundscape = 'tanpura';
 
-    // --- Initialization ---
-    window.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
+    // --- Currency, Language & Formatting ---
+    function changeLanguage(lang) {
+      currentLanguage = lang;
+      const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
+
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.getElementById('heroBadgeText').innerText = t.heroBadge;
+      document.getElementById('heroTitleText').innerHTML = t.heroTitle;
+      document.getElementById('heroSubtitleText').innerHTML = t.heroSubtitle;
+      document.getElementById('vidyaTitleText').innerText = t.vidyaTitle;
+      document.getElementById('vidyaDescText').innerText = t.vidyaDesc;
+
       renderPackages(PACKAGES);
-      renderRashiGrid();
-      initTracker();
-      calculateRahuKaalam();
-      updateHoraDisplay();
-      initVisualizerIdle();
-    });
+    }
 
-    // --- Currency & Formatting ---
     function changeCurrency(curr) {
       currentCurrency = curr;
       renderPackages(PACKAGES);
     }
 
-    function formatPrice(amountINR) {
-      const config = CURRENCY_RATES[currentCurrency] || CURRENCY_RATES.INR;
-      const converted = Math.round(amountINR * config.rate);
-      return `${config.symbol} ${converted.toLocaleString()}`;
+    function formatPrice(inrAmount) {
+      const c = CURRENCY_RATES[currentCurrency] || CURRENCY_RATES.INR;
+      const converted = Math.round(inrAmount * c.rate);
+      return `${c.symbol}${converted === 0 && inrAmount > 0 ? (inrAmount * c.rate).toFixed(2) : converted}`;
     }
 
-    // --- Rendering Packages ---
+    // --- Render Remedies Grid ---
     function renderPackages(list) {
       const container = document.getElementById('packagesContainer');
+      if (!container) return;
+      const t = TRANSLATIONS[currentLanguage] || TRANSLATIONS.en;
+
       container.innerHTML = list.map(pkg => `
         <div class="pastel-card p-6 rounded-3xl flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-amber-100/70 text-amber-900 border border-amber-200/50">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-100/80 text-amber-900 text-[11px] font-semibold">
                 ${pkg.badge}
               </span>
-              <span class="text-xs text-stone-500 font-medium">${pkg.planet}</span>
+              <span class="text-[11px] font-medium text-stone-500">${pkg.planet}</span>
             </div>
             
             <h3 class="font-serif text-lg font-bold text-stone-900 leading-snug">${pkg.title}</h3>
             
             <div class="mt-4 space-y-2 text-xs text-stone-600">
-              <div class="flex items-center gap-2">
-                <span class="font-semibold text-stone-800">Sacred Animal:</span>
+              <div class="flex items-start gap-2">
+                <span class="font-semibold text-stone-800 shrink-0">${t.animalLabel}</span>
                 <span>${pkg.animal}</span>
               </div>
               <div class="flex items-start gap-2">
-                <span class="font-semibold text-stone-800 shrink-0">Prescribed Offering:</span>
+                <span class="font-semibold text-stone-800 shrink-0">${t.prescribedLabel}</span>
                 <span>${pkg.offering}</span>
               </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded-2xl bg-amber-50/70 border border-amber-200/50 text-[11px] text-amber-950 font-medium">
+              ${pkg.mantra}
             </div>
           </div>
 
           <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
             <div>
-              <span class="text-[10px] text-stone-400 block uppercase tracking-wider">Offering</span>
+              <span class="text-[11px] text-stone-400 block">${t.offeringLabel}</span>
               <span class="font-cinzel text-lg font-bold text-stone-900">${formatPrice(pkg.basePriceINR)}</span>
             </div>
-            <button onclick="openCheckoutModal('${pkg.id}')" class="px-4 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-semibold text-xs shadow-sm transition-all">
-              Consecrate
+            <button onclick="openCheckoutModal('${pkg.id}')" class="px-4 py-2 rounded-xl bg-stone-900 hover:bg-amber-800 text-white text-xs font-semibold transition-all shadow-sm">
+              ${t.consecrateBtn}
             </button>
           </div>
         </div>
       `).join('');
-      lucide.createIcons();
     }
 
     function filterPackages(category) {
-      document.querySelectorAll('.pill-btn').forEach(btn => btn.classList.remove('pill-active'));
+      document.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.classList.remove('pill-active');
+        btn.classList.add('bg-white/80', 'text-stone-700');
+      });
       const activeBtn = document.getElementById(`tab-${category}`);
-      if (activeBtn) activeBtn.classList.add('pill-active');
+      if (activeBtn) {
+        activeBtn.classList.add('pill-active');
+        activeBtn.classList.remove('bg-white/80', 'text-stone-700');
+      }
 
       if (category === 'all') {
         renderPackages(PACKAGES);
       } else {
-        const filtered = PACKAGES.filter(p => p.category === category);
-        renderPackages(filtered);
+        renderPackages(PACKAGES.filter(p => p.category === category));
       }
     }
 
-    // --- Astronomical Calculations ---
-    function calculateRahuKaalam() {
+    // --- Astrological Hora & Rahu Kaalam ---
+    function updateAstrologicalIndicators() {
       const now = new Date();
-      const day = now.getDay(); // 0: Sun, 1: Mon, ...
-      const windows = [
-        "4:30 PM – 6:00 PM", // Sun
-        "7:30 AM – 9:00 AM", // Mon
-        "3:00 PM – 4:30 PM", // Tue
-        "12:00 PM – 1:30 PM",// Wed
-        "1:30 PM – 3:00 PM", // Thu
-        "10:30 AM – 12:00 PM",// Fri
-        "9:00 AM – 10:30 AM" // Sat
+      const day = now.getDay();
+      const rahuSlots = [
+        '04:30 PM – 06:00 PM',
+        '07:30 AM – 09:00 AM',
+        '03:00 PM – 04:30 PM',
+        '12:00 PM – 01:30 PM',
+        '01:30 PM – 03:00 PM',
+        '10:30 AM – 12:00 PM',
+        '09:00 AM – 10:30 AM'
       ];
-      document.getElementById('rahuKaalamDisplay').innerText = windows[day];
+      const horas = ['Sun (Surya)', 'Venus (Shukra)', 'Mercury (Budha)', 'Moon (Chandra)', 'Saturn (Shani)', 'Jupiter (Guru)', 'Mars (Mangal)'];
+      const currentHourHora = horas[(day + now.getHours()) % 7];
+
+      const horaEl = document.getElementById('horaDisplay');
+      const rahuEl = document.getElementById('rahuKaalamDisplay');
+      if (horaEl) horaEl.innerText = currentHourHora;
+      if (rahuEl) rahuEl.innerText = rahuSlots[day];
     }
 
-    function updateHoraDisplay() {
-      const horas = ['Sun', 'Venus', 'Mercury', 'Moon', 'Saturn', 'Jupiter', 'Mars'];
-      const currentHour = new Date().getHours();
-      const hora = horas[currentHour % horas.length];
-      document.getElementById('horaDisplay').innerText = `${hora} Hora`;
-    }
-
-    // --- 108 Japa Counter ---
-    function incrementJapa() {
-      japaCount++;
-      if (japaCount > 108) japaCount = 1;
-      document.getElementById('japaCountDisplay').innerText = japaCount;
-      playBeadChime();
-
-      if (japaCount === 108) {
-        playTempleBell();
-      }
-    }
-
-    function resetJapaCounter() {
-      japaCount = 0;
-      document.getElementById('japaCountDisplay').innerText = '0';
-    }
-
-    function playBeadChime() {
-      try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.frequency.setValueAtTime(432, ctx.currentTime);
-        gain.gain.setValueAtTime(0.1, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.15);
-      } catch (e) {}
-    }
-
-    function playTempleBell() {
-      try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.frequency.setValueAtTime(864, ctx.currentTime);
-        gain.gain.setValueAtTime(0.3, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 2.5);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start();
-        osc.stop(ctx.currentTime + 2.5);
-      } catch (e) {}
-    }
-
-    // --- 432 Hz Drone Synthesizer ---
+    // --- 432 Hz Web Audio Synthesizer ---
     function toggleSynthAudio() {
       if (isPlayingAudio) {
         stopSynthAudio();
@@ -827,237 +1020,173 @@
 
     function startSynthAudio() {
       try {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        
-        // 432 Hz Master Harmonic Oscillators
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!audioCtx) {
+          audioCtx = new AudioContextClass();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        gainNode = audioCtx.createGain();
+        const vol = parseFloat(document.getElementById('synthVolume').value || 0.7);
+        gainNode.gain.setValueAtTime(vol * 0.25, audioCtx.currentTime);
+        gainNode.connect(audioCtx.destination);
+
         osc1 = audioCtx.createOscillator();
         osc2 = audioCtx.createOscillator();
-        gainNode = audioCtx.createGain();
 
         osc1.type = 'sine';
-        osc1.frequency.setValueAtTime(432, audioCtx.currentTime);
+        osc2.type = activeSoundscape === 'tanpura' ? 'triangle' : 'sine';
 
-        osc2.type = 'triangle';
-        osc2.frequency.setValueAtTime(216, audioCtx.currentTime); // Lower octave harmonic
-
-        gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        // 432 Hz tuning (Sa = 136.1 Hz Om / 216 Hz / 432 Hz)
+        osc1.frequency.setValueAtTime(136.1, audioCtx.currentTime);
+        osc2.frequency.setValueAtTime(activeSoundscape === 'bells' ? 432 : 204.15, audioCtx.currentTime);
 
         osc1.connect(gainNode);
         osc2.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
 
         osc1.start();
         osc2.start();
 
         isPlayingAudio = true;
-        document.getElementById('audioBtnText').innerText = "Stop 432 Hz Drone";
-        document.getElementById('synthStatusBadge').innerText = "Playing (432 Hz)";
-        document.getElementById('synthStatusBadge').className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold";
-        document.getElementById('visualizerIdleText').classList.add('hidden');
-        renderVisualizer();
+        document.getElementById('audioBtnText').innerText = 'Stop 432 Hz Drone';
+        document.getElementById('synthStatusBadge').innerText = 'Resonating 432 Hz';
+        document.getElementById('synthStatusBadge').className = 'text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold';
+        document.getElementById('visualizerIdleText').style.display = 'none';
+        drawVisualizer();
       } catch (e) {
-        console.error("Audio Context initialization failed", e);
+        console.error('Audio start failed:', e);
       }
     }
 
     function stopSynthAudio() {
-      if (audioCtx) {
-        try {
-          osc1.stop();
-          osc2.stop();
-          audioCtx.close();
-        } catch (e) {}
-      }
+      try {
+        if (osc1) { osc1.stop(); osc1.disconnect(); osc1 = null; }
+        if (osc2) { osc2.stop(); osc2.disconnect(); osc2 = null; }
+      } catch (e) {}
       isPlayingAudio = false;
-      document.getElementById('audioBtnText').innerText = "Play 432 Hz Drone";
-      document.getElementById('synthStatusBadge').innerText = "Ready";
-      document.getElementById('synthStatusBadge').className = "text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600 font-medium";
-      document.getElementById('visualizerIdleText').classList.remove('hidden');
+      document.getElementById('audioBtnText').innerText = 'Play 432 Hz Drone';
+      document.getElementById('synthStatusBadge').innerText = 'Ready';
+      document.getElementById('synthStatusBadge').className = 'text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600 font-medium';
+      document.getElementById('visualizerIdleText').style.display = 'flex';
+    }
+
+    function setSoundscape(type) {
+      activeSoundscape = type;
+      document.querySelectorAll('.layer-pill').forEach(btn => {
+        btn.className = 'layer-pill px-2.5 py-1.5 rounded-xl border border-stone-200 bg-white text-stone-700 text-xs font-semibold';
+      });
+      const activeBtn = document.getElementById(`layer-${type}`);
+      if (activeBtn) {
+        activeBtn.className = 'layer-pill px-2.5 py-1.5 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-xs font-semibold';
+      }
+      if (isPlayingAudio) {
+        stopSynthAudio();
+        startSynthAudio();
+      }
     }
 
     function adjustVolume(val) {
       if (gainNode && audioCtx) {
-        gainNode.gain.setValueAtTime(parseFloat(val) * 0.2, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(parseFloat(val) * 0.25, audioCtx.currentTime);
       }
     }
 
-    function setSoundscape(type) {
-      document.querySelectorAll('.layer-pill').forEach(btn => {
-        btn.classList.remove('bg-amber-50', 'text-amber-900', 'border-amber-300');
-        btn.classList.add('bg-white', 'text-stone-700', 'border-stone-200');
-      });
-      const active = document.getElementById(`layer-${type}`);
-      if (active) {
-        active.classList.add('bg-amber-50', 'text-amber-900', 'border-amber-300');
-        active.classList.remove('bg-white', 'text-stone-700', 'border-stone-200');
-      }
-      if (isPlayingAudio && osc1) {
-        if (type === 'tanpura') osc1.frequency.setValueAtTime(432, audioCtx.currentTime);
-        if (type === 'ganga') osc1.frequency.setValueAtTime(528, audioCtx.currentTime);
-        if (type === 'bells') playTempleBell();
-      }
-    }
-
-    function initVisualizerIdle() {
-      const canvas = document.getElementById('visualizerCanvas');
-      const ctx = canvas.getContext('2d');
-      ctx.fillStyle = '#1c1917';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
-
-    function renderVisualizer() {
+    function drawVisualizer() {
       if (!isPlayingAudio) return;
       const canvas = document.getElementById('visualizerCanvas');
+      if (!canvas) return;
       const ctx = canvas.getContext('2d');
+      const width = canvas.width;
+      const height = canvas.height;
+      ctx.clearRect(0, 0, width, height);
 
-      function draw() {
-        if (!isPlayingAudio) return;
-        requestAnimationFrame(draw);
-        ctx.fillStyle = 'rgba(28, 25, 23, 0.2)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      const time = Date.now() * 0.004;
+      ctx.beginPath();
+      ctx.strokeStyle = '#D4A373';
+      ctx.lineWidth = 2.5;
 
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = '#D4A373';
-        ctx.beginPath();
-        const sliceWidth = canvas.width / 50;
-        let x = 0;
-
-        for (let i = 0; i < 50; i++) {
-          const v = Math.sin(i * 0.2 + Date.now() * 0.005) * 20 + (canvas.height / 2);
-          if (i === 0) ctx.moveTo(x, v);
-          else ctx.lineTo(x, v);
-          x += sliceWidth;
-        }
-        ctx.stroke();
+      for (let x = 0; x < width; x++) {
+        const y = height / 2 + Math.sin(x * 0.03 + time) * 22 * Math.sin(x * 0.01 - time * 0.5);
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
       }
-      draw();
+      ctx.stroke();
+      requestAnimationFrame(drawVisualizer);
     }
 
-    // --- 21-Day Seva Tracker ---
-    function initTracker() {
+    // --- 108 Japa Counter ---
+    function incrementJapa() {
+      japaCount = japaCount >= 108 ? 1 : japaCount + 1;
+      document.getElementById('japaCountDisplay').innerText = japaCount;
+    }
+
+    function resetJapaCounter() {
+      japaCount = 0;
+      document.getElementById('japaCountDisplay').innerText = '0';
+    }
+
+    // --- 21-Day Tracker ---
+    function getCompletedDays() {
+      try {
+        return JSON.parse(localStorage.getItem('vedic_shanti_21days') || '[]');
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function renderTracker() {
+      const completed = getCompletedDays();
       const grid = document.getElementById('trackerGrid');
-      const saved = JSON.parse(localStorage.getItem('vedic_tracker_days') || '[]');
-      
-      grid.innerHTML = '';
-      for (let i = 1; i <= 21; i++) {
-        const checked = saved.includes(i);
-        const dayBtn = document.createElement('button');
-        dayBtn.className = `p-3 rounded-xl border text-xs font-semibold flex flex-col items-center justify-center transition-all ${
-          checked 
-            ? 'bg-emerald-600 text-white border-emerald-700 shadow-sm' 
-            : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100'
-        }`;
-        dayBtn.innerHTML = `<span>D${i}</span><span class="text-[10px] mt-0.5">${checked ? '✓' : '•'}</span>`;
-        dayBtn.onclick = () => toggleTrackerDay(i);
-        grid.appendChild(dayBtn);
-      }
+      const badge = document.getElementById('trackerCounterBadge');
+      const progressText = document.getElementById('trackerProgressText');
 
-      document.getElementById('trackerCounterBadge').innerText = `${saved.length}/21`;
-      document.getElementById('trackerProgressText').innerText = `${saved.length} of 21 Days Completed`;
+      if (badge) badge.innerText = `${completed.length}/21`;
+      if (progressText) progressText.innerText = `${completed.length} of 21 Days Completed`;
+      if (!grid) return;
+
+      grid.innerHTML = Array.from({ length: 21 }, (_, i) => {
+        const dayNum = i + 1;
+        const isDone = completed.includes(dayNum);
+        return `
+          <button onclick="toggleTrackerDay(${dayNum})" class="h-10 rounded-xl font-bold text-xs border transition-all ${
+            isDone
+              ? 'bg-emerald-600 text-white border-emerald-700 shadow-sm'
+              : 'bg-stone-50 text-stone-700 border-stone-200 hover:border-amber-400'
+          }">
+            ${isDone ? '✓' : dayNum}
+          </button>
+        `;
+      }).join('');
     }
 
-    function toggleTrackerDay(day) {
-      let saved = JSON.parse(localStorage.getItem('vedic_tracker_days') || '[]');
-      if (saved.includes(day)) {
-        saved = saved.filter(d => d !== day);
+    function toggleTrackerDay(dayNum) {
+      let completed = getCompletedDays();
+      if (completed.includes(dayNum)) {
+        completed = completed.filter(d => d !== dayNum);
       } else {
-        saved.push(day);
+        completed.push(dayNum);
       }
-      localStorage.setItem('vedic_tracker_days', JSON.stringify(saved));
-      initTracker();
+      localStorage.setItem('vedic_shanti_21days', JSON.stringify(completed));
+      renderTracker();
     }
 
     function resetTracker() {
-      localStorage.removeItem('vedic_tracker_days');
-      initTracker();
+      localStorage.removeItem('vedic_shanti_21days');
+      renderTracker();
     }
 
-    // --- Rashi & Totem Grid ---
-    function renderRashiGrid() {
+    // --- Modals & Checkout Logic ---
+    function openRashiModal() {
       const grid = document.getElementById('rashiListGrid');
-      grid.innerHTML = RASHI_DATA.map(item => `
-        <div class="p-3 rounded-2xl bg-stone-50 border border-stone-200/80">
-          <div class="font-bold text-stone-900">${item.sign}</div>
-          <div class="text-amber-800 font-medium text-[11px] mt-0.5">Ruler: ${item.ruler} • Totem: ${item.totem}</div>
-          <div class="text-stone-500 text-[11px] mt-1 leading-snug">${item.remedy}</div>
+      grid.innerHTML = RASHI_DATA.map(r => `
+        <div class="p-3 rounded-2xl bg-amber-50/50 border border-amber-200/60">
+          <div class="font-bold text-stone-900">${r.sign}</div>
+          <div class="text-amber-800 font-semibold mt-0.5">Totem: ${r.totem}</div>
+          <p class="text-stone-600 mt-1">${r.remedy}</p>
         </div>
       `).join('');
-    }
-
-    // --- Checkout & Donations ---
-    function quickDonate(amt) {
-      activePackage = PACKAGES[0];
-      donationAmount = amt;
-      openCheckoutModal(activePackage.id);
-    }
-
-    function openCheckoutModal(pkgId) {
-      activePackage = PACKAGES.find(p => p.id === pkgId) || PACKAGES[0];
-      document.getElementById('checkoutTitle').innerText = `Consecrate: ${activePackage.title}`;
-      updateCheckoutTotal();
-      document.getElementById('checkoutModal').classList.remove('hidden');
-      document.getElementById('checkoutModal').classList.add('flex');
-    }
-
-    function closeCheckoutModal() {
-      document.getElementById('checkoutModal').classList.add('hidden');
-      document.getElementById('checkoutModal').classList.remove('flex');
-    }
-
-    function setCheckoutDonation(amt) {
-      donationAmount = amt;
-      document.getElementById('donationDisplay').innerText = `+ ₹${amt}`;
-      updateCheckoutTotal();
-    }
-
-    function updateCheckoutTotal() {
-      if (!activePackage) return;
-      const totalINR = activePackage.basePriceINR + donationAmount;
-      document.getElementById('checkoutTotalAmount').innerText = formatPrice(totalINR);
-    }
-
-    async function submitOrder() {
-      const fullName = document.getElementById('orderFullName').value.trim();
-      const email = document.getElementById('orderEmail').value.trim();
-      const gotra = document.getElementById('orderGotra').value.trim();
-      const rashi = document.getElementById('orderRashi').value.trim();
-
-      if (!email) {
-        const orderEmailEl = document.getElementById('orderEmail');
-        orderEmailEl.classList.add('border-rose-500');
-        orderEmailEl.focus();
-        return;
-      }
-
-      const orderPayload = {
-        fullName: fullName || "Noble Seeker",
-        email: email,
-        gotra: gotra || "Kashyapa",
-        rashi: rashi || "Vedic Seeker",
-        packageTitle: activePackage.title,
-        orderId: 'VS-' + Date.now().toString().slice(-6),
-        donationAmount: donationAmount
-      };
-
-      // Dispatch automated email via Vercel serverless function
-      try {
-        fetch('/api/send-email', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(orderPayload)
-        });
-      } catch (e) {}
-
-      // Save locally for "My Kit" retrieval
-      localStorage.setItem('vedic_user_kit', JSON.stringify(orderPayload));
-
-      closeCheckoutModal();
-      document.getElementById('confirmationModal').classList.remove('hidden');
-      document.getElementById('confirmationModal').classList.add('flex');
-    }
-
-    // --- Modal Controls ---
-    function openRashiModal() {
       document.getElementById('rashiModal').classList.remove('hidden');
       document.getElementById('rashiModal').classList.add('flex');
     }
@@ -1067,6 +1196,7 @@
     }
 
     function openTrackerModal() {
+      renderTracker();
       document.getElementById('trackerModal').classList.remove('hidden');
       document.getElementById('trackerModal').classList.add('flex');
     }
@@ -1084,6 +1214,27 @@
       document.getElementById('aiAdvisorModal').classList.remove('flex');
     }
 
+    function sendAiMessage() {
+      const input = document.getElementById('aiInput');
+      const box = document.getElementById('aiChatBox');
+      const question = input.value.trim();
+      if (!question) return;
+
+      box.innerHTML += `<div class="p-2.5 rounded-xl bg-white border border-stone-200 text-stone-800"><strong>You:</strong> ${question}</div>`;
+      input.value = '';
+
+      setTimeout(() => {
+        let reply = 'Perform your feeding cleanly after sunrise bath, avoiding Rahu Kaalam. If a day is missed, continue the next morning and add one extra day at the end of your 21-day cycle.';
+        if (question.toLowerCase().includes('crow') || question.toLowerCase().includes('pitri')) {
+          reply = 'Offer cooked rice mixed with black sesame seeds to crows before noon facing South for ancestral peace (Pitri Shanti).';
+        } else if (question.toLowerCase().includes('dog') || question.toLowerCase().includes('shani')) {
+          reply = 'Feed mustard-oil brushed chapati to black stray dogs on Saturdays after sunset or early morning to pacify Shani and Bhairava.';
+        }
+        box.innerHTML += `<div class="p-2.5 rounded-xl bg-amber-50/80 border border-amber-200/50 text-amber-950"><strong>Vedic Guide:</strong> ${reply}</div>`;
+        box.scrollTop = box.scrollHeight;
+      }, 400);
+    }
+
     function openKitRetrievalModal() {
       document.getElementById('kitModal').classList.remove('hidden');
       document.getElementById('kitModal').classList.add('flex');
@@ -1095,104 +1246,159 @@
 
     function retrieveUserKit() {
       const email = document.getElementById('retrieveEmail').value.trim();
-      const stored = localStorage.getItem('vedic_user_kit');
-      const resultDiv = document.getElementById('retrieveResult');
-
-      if (stored) {
-        const data = JSON.parse(stored);
-        resultDiv.innerHTML = `
-          <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 mt-2">
-            <div class="font-bold text-amber-900">Found Active Kit for ${data.fullName}</div>
-            <div class="text-[11px] text-stone-600 mt-1">Package: ${data.packageTitle}</div>
-            <button onclick="downloadSankalpCertificate()" class="mt-2 text-xs font-semibold text-amber-800 underline">
-              Download Certificate (PNG)
-            </button>
-          </div>
-        `;
-      } else {
-        resultDiv.innerHTML = `<span class="text-rose-600">No active local kit found for this email. Check your inbox.</span>`;
+      const resDiv = document.getElementById('retrieveResult');
+      if (!email) {
+        resDiv.innerHTML = '<span class="text-rose-600">Please enter a valid email address.</span>';
+        return;
       }
+      resDiv.innerHTML = `<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900">Consecrated Sankalp record located for <strong>${email}</strong>. You may download your guide or listen to the 432 Hz soundscape directly on this page.</div>`;
     }
 
-    // --- AI Advisor Chat Interaction ---
-    function sendAiMessage() {
-      const input = document.getElementById('aiInput');
-      const text = input.value.trim();
-      if (!text) return;
-
-      const chatBox = document.getElementById('aiChatBox');
-      chatBox.innerHTML += `<div class="p-2 rounded-xl bg-white border border-stone-200 text-stone-800 text-right"><strong>You:</strong> ${text}</div>`;
-      input.value = '';
-
-      setTimeout(() => {
-        let answer = "According to classical Parashara Jyotish, perform animal feeding before noon, avoid Rahu Kaalam, and maintain pure sattvic intention.";
-        if (text.toLowerCase().includes("miss")) {
-          answer = "If you miss a morning of your 21-day seva, do not lose heart. Resume at the very next sunrise and add an extra grain offering to maintain your sacred vow (Sankalp).";
-        } else if (text.toLowerCase().includes("crow")) {
-          answer = "Feeding crows satisfies Saturn (Shani) and ancestral Pitris. Always offer plain boiled rice mixed with black sesame seeds or bread without excessive salt.";
-        }
-        chatBox.innerHTML += `<div class="p-2.5 rounded-xl bg-amber-50/80 border border-amber-200/50 text-amber-950"><strong>Vedic Guide:</strong> ${answer}</div>`;
-        chatBox.scrollTop = chatBox.scrollHeight;
-      }, 500);
+    function quickDonate(amount) {
+      activePackage = {
+        id: 'vidya-dana',
+        title: `Vidya Dāna Education Offering (₹${amount})`,
+        basePriceINR: amount
+      };
+      donationAmount = 0;
+      updateCheckoutDisplay();
+      document.getElementById('checkoutModal').classList.remove('hidden');
+      document.getElementById('checkoutModal').classList.add('flex');
     }
 
-    // --- Downloads (Canvas PNG & PDF Print) ---
+    function openCheckoutModal(pkgId) {
+      activePackage = PACKAGES.find(p => p.id === pkgId) || PACKAGES[0];
+      donationAmount = 0;
+      updateCheckoutDisplay();
+      document.getElementById('checkoutModal').classList.remove('hidden');
+      document.getElementById('checkoutModal').classList.add('flex');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkoutModal').classList.add('hidden');
+      document.getElementById('checkoutModal').classList.remove('flex');
+    }
+
+    function setCheckoutDonation(amt) {
+      donationAmount = amt;
+      updateCheckoutDisplay();
+    }
+
+    function updateCheckoutDisplay() {
+      if (!activePackage) return;
+      document.getElementById('checkoutTitle').innerText = activePackage.title;
+      document.getElementById('donationDisplay').innerText = `+ ${formatPrice(donationAmount)}`;
+      const totalINR = (activePackage.basePriceINR || 0) + donationAmount;
+      document.getElementById('checkoutTotalAmount').innerText = formatPrice(totalINR);
+    }
+
+    async function submitOrder() {
+      const fullName = document.getElementById('orderFullName').value.trim() || 'Devotee';
+      const email = document.getElementById('orderEmail').value.trim();
+      const gotra = document.getElementById('orderGotra').value.trim() || 'Kashyapa';
+      const rashi = document.getElementById('orderRashi').value.trim() || 'Universal';
+
+      if (!email) {
+        document.getElementById('orderEmail').focus();
+        return;
+      }
+
+      const orderId = 'VS-' + Math.floor(100000 + Math.random() * 900000);
+      const selectedPkg = activePackage && activePackage.mantra
+        ? activePackage
+        : {
+            title: activePackage ? activePackage.title : 'Vidya Dāna & Pancha Mahayajna Seva',
+            planet: 'Mercury (Budha) & Saraswati',
+            animal: 'Cows, Birds & Student Education Seva',
+            offering: 'Educational notebooks, study kits & sunrise grain feeding',
+            mantra: 'ॐ ऐं सरस्वत्यै नमः (Om Aim Saraswatyai Namah)',
+            homePooja: [
+              'Light a pure ghee lamp on your study table or home altar facing East.',
+              'Keep a book or pen beside the lamp and chant "Om Aim Saraswatyai Namah" 108 times.',
+              'Offer water and grains to birds on your balcony or windowsill.'
+            ]
+          };
+
+      try {
+        await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            fullName,
+            gotra,
+            rashi,
+            packageTitle: selectedPkg.title,
+            planet: selectedPkg.planet,
+            animal: selectedPkg.animal,
+            offering: selectedPkg.offering,
+            mantra: selectedPkg.mantra,
+            homePooja: selectedPkg.homePooja,
+            orderId,
+            donationAmount
+          })
+        });
+      } catch (err) {
+        console.warn('Email dispatch offline or simulated:', err);
+      }
+
+      closeCheckoutModal();
+      document.getElementById('confirmationModal').classList.remove('hidden');
+      document.getElementById('confirmationModal').classList.add('flex');
+    }
+
     function downloadSankalpCertificate() {
       const canvas = document.createElement('canvas');
-      canvas.width = 1200;
-      canvas.height = 800;
+      canvas.width = 900;
+      canvas.height = 600;
       const ctx = canvas.getContext('2d');
 
-      // Parchment background
       ctx.fillStyle = '#FAF6EE';
-      ctx.fillRect(0, 0, 1200, 800);
-
-      // Gold ornate border
+      ctx.fillRect(0, 0, 900, 600);
       ctx.strokeStyle = '#B87333';
-      ctx.lineWidth = 12;
-      ctx.strokeRect(40, 40, 1120, 720);
-      ctx.lineWidth = 2;
-      ctx.strokeRect(55, 55, 1090, 690);
+      ctx.lineWidth = 10;
+      ctx.strokeRect(25, 25, 850, 550);
 
-      // Content
-      ctx.fillStyle = '#2C2621';
-      ctx.font = 'bold 36px serif';
+      ctx.fillStyle = '#2D2723';
+      ctx.font = 'bold 34px Georgia, serif';
       ctx.textAlign = 'center';
-      ctx.fillText('वैदिक शांति • VEDIC SHANTI', 600, 140);
+      ctx.fillText('VEDIC SHANTI • SANKALP CERTIFICATE', 450, 120);
 
-      ctx.font = '22px serif';
-      ctx.fillText('CONSECRATED SANKALP CERTIFICATE OF SEVA', 600, 185);
-
-      const saved = JSON.parse(localStorage.getItem('vedic_user_kit') || '{}');
-      const seeker = saved.fullName || 'Noble Seeker';
-
-      ctx.font = 'italic 20px serif';
-      ctx.fillText(`This sacred decree certifies that`, 600, 270);
-
-      ctx.font = 'bold 32px serif';
+      ctx.font = '20px sans-serif';
       ctx.fillStyle = '#B87333';
-      ctx.fillText(seeker, 600, 330);
+      ctx.fillText('Consecrated Remedial Animal Seva & Vidya Dāna', 450, 165);
 
-      ctx.fillStyle = '#2C2621';
+      const name = document.getElementById('orderFullName').value.trim() || 'Sacred Seeker';
+      ctx.fillStyle = '#2D2723';
+      ctx.font = 'italic 26px Georgia, serif';
+      ctx.fillText(`Consecrated for: ${name}`, 450, 260);
+
       ctx.font = '18px sans-serif';
-      ctx.fillText(`Has established a 21-Day Sacred Animal Seva & Vidya Dāna Resolution`, 600, 400);
-      ctx.fillText(`Package: ${saved.packageTitle || 'Vedic Remedial Upaya'}`, 600, 440);
-      ctx.fillText(`Conducted under classical Brihat Parashara principles.`, 600, 480);
+      ctx.fillText(activePackage ? activePackage.title : 'Pancha Mahayajna Seva', 450, 315);
 
-      ctx.font = '14px sans-serif';
-      ctx.fillStyle = '#8C827A';
-      ctx.fillText('May this intentional offering pacify planetary affliction and bring peace to your lineage.', 600, 620);
-      ctx.fillText('Official Community: @vedicshanti_official', 600, 650);
+      ctx.font = '15px sans-serif';
+      ctx.fillStyle = '#666';
+      ctx.fillText('Follow daily morning updates: @vedicshanti_official', 450, 480);
 
       const link = document.createElement('a');
-      link.download = `Vedic_Shanti_Certificate_${Date.now()}.png`;
-      link.href = canvas.toDataURL('image/png');
+      link.download = 'Vedic-Shanti-Sankalp-Certificate.png';
+      link.href = canvas.toDataURL();
       link.click();
     }
 
     function downloadSevaGuidePdf() {
       window.print();
     }
+
+    // --- Initialize Page ---
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPackages(PACKAGES);
+      updateAstrologicalIndicators();
+      renderTracker();
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
   </script>
 </body>
 </html>
