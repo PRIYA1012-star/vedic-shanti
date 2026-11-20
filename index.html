@@ -15,6 +15,9 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Razorpay Standard Checkout SDK -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   
   <!-- Custom Spiritual Pastel Styling -->
   <style>
@@ -544,7 +547,7 @@
           <span id="checkoutTotalAmount" class="font-cinzel text-base font-bold text-amber-800">₹0</span>
         </div>
 
-        <button onclick="submitOrder()" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white font-bold text-xs shadow-md transition-all">
+        <button id="paySubmitBtn" onclick="submitOrder()" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white font-bold text-xs shadow-md transition-all">
           Complete Sacred Consecration
         </button>
       </div>
@@ -561,6 +564,7 @@
       <p class="text-xs text-stone-600 mt-2">
         Your morning seva has been recorded into our prayers. A confirmation has been dispatched to your email address.
       </p>
+      <p id="confirmedPaymentRef" class="text-[11px] font-mono text-amber-800 bg-amber-50/80 border border-amber-200/60 rounded-lg py-1 px-2.5 mt-2 inline-block hidden"></p>
 
       <!-- Instant Download Buttons -->
       <div class="mt-6 space-y-2.5">
@@ -585,6 +589,9 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
+    // --- Razorpay Configuration ---
+    const RAZORPAY_KEY_ID = 'rzp_live_TsyT9hu7UwEx1R';
+
     // --- Master Data ---
     const PACKAGES = [
       {
@@ -742,6 +749,7 @@
         heroTitle: 'ಪ್ರಾಚೀನ <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ಪ್ರಾಣಿ ಸೇವೆಯ</span> ಮೂಲಕ ಕರ್ಮ ಬಂಧನಗಳನ್ನು ನಿವಾರಿಸಿ',
         heroSubtitle: "<em>ಬೃಹತ್ ಪರಾಶರ ಹೋರಾ ಶಾಸ್ತ್ರ</em> ಆಧಾರಿತ. ಶುಕ್ರ ಮತ್ತು ಗುರುವಿಗಾಗಿ ಗೋ ಸೇವೆ, ಶನಿ ಮತ್ತು ಭೈರವನಿಗಾಗಿ ಶ್ವಾನ ಸೇವೆ, ರಾಹು ಮತ್ತು ಪಿತೃ ಶಾಂತಿಗಾಗಿ ಕಾಗೆಗಳಿಗೆ ಆಹಾರ ಮತ್ತು 432 Hz ಧ್ಯಾನ.",
         vidyaTitle: "ವಿದ್ಯಾ ದಾನ • ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಪವಿತ್ರ ಕೊಡುಗೆ",
+        heroDesc: "",
         vidyaDesc: "ಬುಧ ಗ್ರಹದ ಶಾಂತಿ ಮತ್ತು ಸರಸ್ವತಿ ದೇವಿಯ ಅನುಗ್ರಹಕ್ಕಾಗಿ ವಿದ್ಯಾ ದಾನ ಶ್ರೇಷ್ಠವಾಗಿದೆ. ₹1 ಅಥವಾ ₹50 ರ ಸಣ್ಣ ಕೊಡುಗೆಯ ಮೂಲಕ ವಿದ್ಯಾರ್ಥಿಗಳ ಶಿಕ್ಷಣಕ್ಕೆ ನೆರವಾಗಿ.",
         consecrateBtn: "ಸಂಕಲ್ಪ ಮಾಡಿ",
         offeringLabel: "ಸೇವಾ ಮೊತ್ತ",
@@ -1292,7 +1300,7 @@
       document.getElementById('checkoutTotalAmount').innerText = formatPrice(totalINR);
     }
 
-    async function submitOrder() {
+    function submitOrder() {
       const fullName = document.getElementById('orderFullName').value.trim() || 'Devotee';
       const email = document.getElementById('orderEmail').value.trim();
       const gotra = document.getElementById('orderGotra').value.trim() || 'Kashyapa';
@@ -1304,6 +1312,8 @@
       }
 
       const orderId = 'VS-' + Math.floor(100000 + Math.random() * 900000);
+      const totalINR = (activePackage ? (activePackage.basePriceINR || 0) : 0) + donationAmount;
+
       const selectedPkg = activePackage && activePackage.mantra
         ? activePackage
         : {
@@ -1319,32 +1329,81 @@
             ]
           };
 
-      try {
-        await fetch('/api/send-email', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email,
-            fullName,
-            gotra,
-            rashi,
-            packageTitle: selectedPkg.title,
-            planet: selectedPkg.planet,
-            animal: selectedPkg.animal,
-            offering: selectedPkg.offering,
-            mantra: selectedPkg.mantra,
-            homePooja: selectedPkg.homePooja,
-            orderId,
-            donationAmount
-          })
-        });
-      } catch (err) {
-        console.warn('Email dispatch offline or simulated:', err);
+      if (typeof Razorpay === 'undefined') {
+        alert('Payment gateway is still loading. Please check your internet connection and try again.');
+        return;
       }
 
-      closeCheckoutModal();
-      document.getElementById('confirmationModal').classList.remove('hidden');
-      document.getElementById('confirmationModal').classList.add('flex');
+      const options = {
+        key: RAZORPAY_KEY_ID,
+        amount: Math.round(totalINR * 100), // Convert ₹ INR to paise
+        currency: 'INR',
+        name: 'Vedic Shanti',
+        description: `${selectedPkg.title} (${orderId})`,
+        prefill: {
+          name: fullName,
+          email: email
+        },
+        notes: {
+          order_id: orderId,
+          package_title: selectedPkg.title,
+          gotra: gotra,
+          rashi: rashi,
+          vidya_dana_inr: String(donationAmount)
+        },
+        theme: {
+          color: '#B87333'
+        },
+        handler: async function (response) {
+          const paymentId = response.razorpay_payment_id;
+
+          try {
+            await fetch('/api/send-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                email,
+                fullName,
+                gotra,
+                rashi,
+                packageTitle: selectedPkg.title,
+                planet: selectedPkg.planet,
+                animal: selectedPkg.animal,
+                offering: selectedPkg.offering,
+                mantra: selectedPkg.mantra,
+                homePooja: selectedPkg.homePooja,
+                orderId,
+                razorpayPaymentId: paymentId,
+                amountINR: totalINR,
+                donationAmount
+              })
+            });
+          } catch (err) {
+            console.warn('Email dispatch offline or simulated:', err);
+          }
+
+          const refEl = document.getElementById('confirmedPaymentRef');
+          if (refEl) {
+            refEl.innerText = `Sankalp ID: ${orderId} • Payment Ref: ${paymentId}`;
+            refEl.classList.remove('hidden');
+          }
+
+          closeCheckoutModal();
+          document.getElementById('confirmationModal').classList.remove('hidden');
+          document.getElementById('confirmationModal').classList.add('flex');
+        },
+        modal: {
+          ondismiss: function () {
+            console.log('Razorpay checkout dismissed.');
+          }
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.on('payment.failed', function (response) {
+        alert(`Payment failed: ${response.error.description}`);
+      });
+      rzp.open();
     }
 
     function downloadSankalpCertificate() {
