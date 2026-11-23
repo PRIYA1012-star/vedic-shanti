@@ -16,8 +16,8 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Razorpay Standard Checkout SDK -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <!-- Cashfree Payments v3 SDK -->
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
   
   <!-- Custom Spiritual Pastel Styling -->
   <style>
@@ -353,7 +353,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer with Mandatory Payment Gateway Compliance Policies -->
   <footer class="border-t border-stone-200/80 bg-white/60 backdrop-blur-md pt-12 pb-8 text-stone-600 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -367,10 +367,14 @@
           <p class="text-xs text-stone-500 leading-relaxed max-w-sm">
             Rooted in classical Jyotish tradition. Consecrated remedial upayas, sacred animal seva, and Vidya Dāna to dissolve past karmic impressions and foster peaceful living.
           </p>
-          <div class="mt-4 flex items-center gap-3">
+          <div class="mt-4 flex flex-wrap items-center gap-3">
             <a href="https://instagram.com/vedicshanti_official" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-pink-200 bg-pink-50 text-pink-900 font-semibold transition-all">
               <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-700"></i>
               <span>@vedicshanti_official</span>
+            </a>
+            <a href="mailto:vedicshanti.seva@gmail.com" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-amber-200 bg-amber-50/70 text-amber-900 font-semibold transition-all">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-amber-700"></i>
+              <span>vedicshanti.seva@gmail.com</span>
             </a>
           </div>
         </div>
@@ -386,27 +390,41 @@
           </ul>
         </div>
 
-        <!-- Seva Accountability -->
+        <!-- Policies & Compliance -->
         <div>
-          <h4 class="font-bold text-stone-900 uppercase tracking-wider text-[11px] mb-3">Vidya & Seva Trust</h4>
-          <p class="text-stone-500 leading-relaxed mb-2">
-            Every grain, bread, and educational contribution is documented with morning seva updates on our official social channel.
-          </p>
-          <span class="inline-block px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200 text-[10px]">
-            100% Direct Animal Seva
-          </span>
+          <h4 class="font-bold text-stone-900 uppercase tracking-wider text-[11px] mb-3">Policies & Support</h4>
+          <ul class="space-y-2 text-amber-900 font-medium">
+            <li><button onclick="openPolicyModal('about')" class="hover:underline">About Us</button></li>
+            <li><button onclick="openPolicyModal('terms')" class="hover:underline">Terms & Conditions</button></li>
+            <li><button onclick="openPolicyModal('privacy')" class="hover:underline">Privacy Policy</button></li>
+            <li><button onclick="openPolicyModal('refund')" class="hover:underline">Refund & Cancellation Policy</button></li>
+            <li><button onclick="openPolicyModal('contact')" class="hover:underline">Contact Us</button></li>
+          </ul>
         </div>
 
       </div>
 
-      <div class="pt-6 border-t border-stone-200/60 flex flex-col sm:flex-row items-center justify-between text-stone-400 text-[11px] gap-2">
-        <p>© 2026 Vedic Shanti. Rooted in Brihat Parashara Hora Shastra.</p>
-        <p>Crafted for peaceful seekers worldwide.</p>
+      <div class="pt-6 border-t border-stone-200/60 flex flex-col sm:flex-row items-center justify-between text-stone-500 text-[11px] gap-2">
+        <p>© 2026 Vedic Shanti. All Offerings Priced in Indian Rupees (INR ₹).</p>
+        <p>Rooted in Brihat Parashara Hora Shastra • Crafted for peaceful seekers worldwide.</p>
       </div>
     </div>
   </footer>
 
   <!-- MODALS -->
+
+  <!-- 0. Compliance Policy Modal (About, Terms, Privacy, Refund, Contact) -->
+  <div id="policyModal" class="fixed inset-0 z-50 bg-stone-950/40 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="pastel-card bg-white p-6 rounded-3xl max-w-xl w-full max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-stone-100">
+        <h3 id="policyTitle" class="font-serif text-lg font-bold text-stone-900">Policy</h3>
+        <button onclick="closePolicyModal()" class="p-1 rounded-lg hover:bg-stone-100 text-stone-400 hover:text-stone-700">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <div id="policyBody" class="mt-4 space-y-3 text-xs text-stone-600 leading-relaxed"></div>
+    </div>
+  </div>
 
   <!-- 1. Moon Sign (Rashi) & 27 Nakshatras Animal Totem Modal -->
   <div id="rashiModal" class="fixed inset-0 z-50 bg-stone-950/40 backdrop-blur-sm hidden items-center justify-center p-4">
@@ -511,9 +529,15 @@
           <input type="text" id="orderFullName" placeholder="e.g. Ramesh Kumar" class="w-full px-3.5 py-2 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500/20">
         </div>
 
-        <div>
-          <label class="block font-medium text-stone-700 mb-1">Email Address (For Kit & Certificate Delivery)</label>
-          <input type="email" id="orderEmail" placeholder="ramesh@example.com" class="w-full px-3.5 py-2 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500/20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-medium text-stone-700 mb-1">Email Address (For Kit Delivery)</label>
+            <input type="email" id="orderEmail" placeholder="ramesh@example.com" class="w-full px-3.5 py-2 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500/20">
+          </div>
+          <div>
+            <label class="block font-medium text-stone-700 mb-1">Mobile Number (For Payment & SMS)</label>
+            <input type="tel" id="orderPhone" placeholder="e.g. 9876543210" class="w-full px-3.5 py-2 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500/20">
+          </div>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
@@ -589,8 +613,64 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // --- Razorpay Configuration ---
-    const RAZORPAY_KEY_ID = 'rzp_live_TsyT9hu7UwEx1R';
+    // --- Cashfree Configuration ---
+    const cashfree = typeof Cashfree !== 'undefined' ? Cashfree({ mode: 'production' }) : null;
+
+    // --- Compliance Policies Data ---
+    const POLICY_CONTENT = {
+      about: {
+        title: 'About Us — Vedic Shanti',
+        body: `
+          <p><strong>Vedic Shanti</strong> is an online spiritual seva and classical Jyotish remedial platform grounded in <em>Brihat Parashara Hora Shastra</em>. We facilitate personalized Sankalp consecrations, sunrise sacred animal feeding (Gau Seva, Shani/Bhairava Seva, Pitri Seva), Vidya Dāna offerings, and personalized Sankalp Kits across India.</p>
+          <p><strong>Proprietor:</strong> Priya Dodamani<br><strong>Operating Region:</strong> Karkala / Udupi, Karnataka, India</p>
+        `
+      },
+      terms: {
+        title: 'Terms & Conditions',
+        body: `
+          <p>By booking a Sankalp or ordering a Sankalp Kit on <strong>https://vedic-shanti-lovat.vercel.app</strong>, you agree to provide accurate seeker details (Full Name, Gotra, Rashi, email, and phone number).</p>
+          <p>All offerings are priced in Indian Rupees (INR ₹). Vedic Shanti provides traditional spiritual seva, digital guides, and sacred goods rooted in classical Vedic tradition.</p>
+        `
+      },
+      privacy: {
+        title: 'Privacy Policy',
+        body: `
+          <p>We collect only the details necessary to consecrate your personalized Sankalp and deliver your digital/physical kit (Name, Gotra, Rashi, email address, and mobile number).</p>
+          <p>All online payments are processed securely via PCI-DSS compliant payment gateways (Cashfree Payments). We do not store card/UPI credentials or sell your personal data to third parties. For privacy queries, write to <strong>vedicshanti.seva@gmail.com</strong>.</p>
+        `
+      },
+      refund: {
+        title: 'Refund & Cancellation Policy',
+        body: `
+          <p><strong>No Refunds or Cancellations:</strong> All Sankalp bookings, spiritual seva offerings, digital guides, and personalized Sankalp Kits on <strong>Vedic Shanti</strong> are custom-consecrated to the seeker's Name, Gotra, and Rashi immediately upon confirmation. Therefore, <strong>all payments are final, and no refunds or cancellations are permitted</strong> once an order is placed.</p>
+          <p><strong>Duplicate / Technical Errors:</strong> In the rare event of a verified duplicate payment due to a banking or technical error, please contact <strong>vedicshanti.seva@gmail.com</strong> within 48 hours with your transaction reference number for resolution.</p>
+        `
+      },
+      contact: {
+        title: 'Contact Us',
+        body: `
+          <p><strong>Brand Name:</strong> Vedic Shanti<br>
+          <strong>Proprietor:</strong> Priya Dodamani<br>
+          <strong>Address:</strong> Karkala / Udupi, Karnataka, India<br>
+          <strong>Email:</strong> <a href="mailto:vedicshanti.seva@gmail.com" class="text-amber-800 underline font-semibold">vedicshanti.seva@gmail.com</a><br>
+          <strong>Support Hours:</strong> Monday – Saturday, 9:00 AM – 6:00 PM IST</p>
+        `
+      }
+    };
+
+    function openPolicyModal(type) {
+      const content = POLICY_CONTENT[type];
+      if (!content) return;
+      document.getElementById('policyTitle').innerText = content.title;
+      document.getElementById('policyBody').innerHTML = content.body;
+      document.getElementById('policyModal').classList.remove('hidden');
+      document.getElementById('policyModal').classList.add('flex');
+    }
+
+    function closePolicyModal() {
+      document.getElementById('policyModal').classList.add('hidden');
+      document.getElementById('policyModal').classList.remove('flex');
+    }
 
     // --- Master Data ---
     const PACKAGES = [
@@ -749,7 +829,6 @@
         heroTitle: 'ಪ್ರಾಚೀನ <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ಪ್ರಾಣಿ ಸೇವೆಯ</span> ಮೂಲಕ ಕರ್ಮ ಬಂಧನಗಳನ್ನು ನಿವಾರಿಸಿ',
         heroSubtitle: "<em>ಬೃಹತ್ ಪರಾಶರ ಹೋರಾ ಶಾಸ್ತ್ರ</em> ಆಧಾರಿತ. ಶುಕ್ರ ಮತ್ತು ಗುರುವಿಗಾಗಿ ಗೋ ಸೇವೆ, ಶನಿ ಮತ್ತು ಭೈರವನಿಗಾಗಿ ಶ್ವಾನ ಸೇವೆ, ರಾಹು ಮತ್ತು ಪಿತೃ ಶಾಂತಿಗಾಗಿ ಕಾಗೆಗಳಿಗೆ ಆಹಾರ ಮತ್ತು 432 Hz ಧ್ಯಾನ.",
         vidyaTitle: "ವಿದ್ಯಾ ದಾನ • ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಪವಿತ್ರ ಕೊಡುಗೆ",
-        heroDesc: "",
         vidyaDesc: "ಬುಧ ಗ್ರಹದ ಶಾಂತಿ ಮತ್ತು ಸರಸ್ವತಿ ದೇವಿಯ ಅನುಗ್ರಹಕ್ಕಾಗಿ ವಿದ್ಯಾ ದಾನ ಶ್ರೇಷ್ಠವಾಗಿದೆ. ₹1 ಅಥವಾ ₹50 ರ ಸಣ್ಣ ಕೊಡುಗೆಯ ಮೂಲಕ ವಿದ್ಯಾರ್ಥಿಗಳ ಶಿಕ್ಷಣಕ್ಕೆ ನೆರವಾಗಿ.",
         consecrateBtn: "ಸಂಕಲ್ಪ ಮಾಡಿ",
         offeringLabel: "ಸೇವಾ ಮೊತ್ತ",
@@ -1300,9 +1379,10 @@
       document.getElementById('checkoutTotalAmount').innerText = formatPrice(totalINR);
     }
 
-    function submitOrder() {
+    async function submitOrder() {
       const fullName = document.getElementById('orderFullName').value.trim() || 'Devotee';
       const email = document.getElementById('orderEmail').value.trim();
+      const phone = document.getElementById('orderPhone').value.trim();
       const gotra = document.getElementById('orderGotra').value.trim() || 'Kashyapa';
       const rashi = document.getElementById('orderRashi').value.trim() || 'Universal';
 
@@ -1311,7 +1391,6 @@
         return;
       }
 
-      const orderId = 'VS-' + Math.floor(100000 + Math.random() * 900000);
       const totalINR = (activePackage ? (activePackage.basePriceINR || 0) : 0) + donationAmount;
 
       const selectedPkg = activePackage && activePackage.mantra
@@ -1329,81 +1408,91 @@
             ]
           };
 
-      if (typeof Razorpay === 'undefined') {
+      if (!cashfree) {
         alert('Payment gateway is still loading. Please check your internet connection and try again.');
         return;
       }
 
-      const options = {
-        key: RAZORPAY_KEY_ID,
-        amount: Math.round(totalINR * 100), // Convert ₹ INR to paise
-        currency: 'INR',
-        name: 'Vedic Shanti',
-        description: `${selectedPkg.title} (${orderId})`,
-        prefill: {
-          name: fullName,
-          email: email
-        },
-        notes: {
-          order_id: orderId,
-          package_title: selectedPkg.title,
-          gotra: gotra,
-          rashi: rashi,
-          vidya_dana_inr: String(donationAmount)
-        },
-        theme: {
-          color: '#B87333'
-        },
-        handler: async function (response) {
-          const paymentId = response.razorpay_payment_id;
+      const submitBtn = document.getElementById('paySubmitBtn');
+      const originalBtnText = submitBtn.innerText;
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Preparing Sacred Checkout...';
 
-          try {
-            await fetch('/api/send-email', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                email,
-                fullName,
-                gotra,
-                rashi,
-                packageTitle: selectedPkg.title,
-                planet: selectedPkg.planet,
-                animal: selectedPkg.animal,
-                offering: selectedPkg.offering,
-                mantra: selectedPkg.mantra,
-                homePooja: selectedPkg.homePooja,
-                orderId,
-                razorpayPaymentId: paymentId,
-                amountINR: totalINR,
-                donationAmount
-              })
-            });
-          } catch (err) {
-            console.warn('Email dispatch offline or simulated:', err);
-          }
+      try {
+        const orderRes = await fetch('/api/create-cashfree-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount: totalINR,
+            customerName: fullName,
+            customerEmail: email,
+            customerPhone: phone,
+            serviceName: selectedPkg.title
+          })
+        });
 
-          const refEl = document.getElementById('confirmedPaymentRef');
-          if (refEl) {
-            refEl.innerText = `Sankalp ID: ${orderId} • Payment Ref: ${paymentId}`;
-            refEl.classList.remove('hidden');
-          }
+        const orderData = await orderRes.json();
 
-          closeCheckoutModal();
-          document.getElementById('confirmationModal').classList.remove('hidden');
-          document.getElementById('confirmationModal').classList.add('flex');
-        },
-        modal: {
-          ondismiss: function () {
-            console.log('Razorpay checkout dismissed.');
-          }
+        if (!orderRes.ok || !orderData.payment_session_id) {
+          alert('Unable to initialize payment: ' + (orderData.error || 'Please verify Cashfree API keys in Vercel.'));
+          return;
         }
-      };
 
-      const rzp = new Razorpay(options);
-      rzp.on('payment.failed', function (response) {
-        alert(`Payment failed: ${response.error.description}`);
-      });
-      rzp.open();
+        const orderId = orderData.order_id;
+
+        cashfree.checkout({
+          paymentSessionId: orderData.payment_session_id,
+          redirectTarget: '_modal'
+        }).then(async (result) => {
+          if (result.error) {
+            alert('Payment failed or cancelled: ' + result.error.message);
+            return;
+          }
+
+          if (result.paymentDetails) {
+            try {
+              await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  email,
+                  fullName,
+                  gotra,
+                  rashi,
+                  packageTitle: selectedPkg.title,
+                  planet: selectedPkg.planet,
+                  animal: selectedPkg.animal,
+                  offering: selectedPkg.offering,
+                  mantra: selectedPkg.mantra,
+                  homePooja: selectedPkg.homePooja,
+                  orderId,
+                  paymentId: orderId,
+                  amountINR: totalINR,
+                  donationAmount
+                })
+              });
+            } catch (err) {
+              console.warn('Email dispatch offline or simulated:', err);
+            }
+
+            const refEl = document.getElementById('confirmedPaymentRef');
+            if (refEl) {
+              refEl.innerText = `Sankalp ID: ${orderId}`;
+              refEl.classList.remove('hidden');
+            }
+
+            closeCheckoutModal();
+            document.getElementById('confirmationModal').classList.remove('hidden');
+            document.getElementById('confirmationModal').classList.add('flex');
+          }
+        });
+      } catch (err) {
+        console.error('Checkout error:', err);
+        alert('Network error while connecting to payment gateway.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalBtnText;
+      }
     }
 
     function downloadSankalpCertificate() {
