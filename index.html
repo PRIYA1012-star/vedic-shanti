@@ -242,29 +242,82 @@
       </div>
     </section>
 
-    <!-- Vidya Dāna (Education Offering) Banner -->
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-      <div class="pastel-card p-6 sm:p-8 rounded-3xl border border-amber-200/80 bg-gradient-to-r from-amber-50/70 via-white/80 to-emerald-50/60 relative overflow-hidden">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div class="max-w-xl">
+    <!-- Sacred Dāna Offerings: Vidya Dāna & Anna Dāna (Donate as Your Wish) -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- 1. Vidya Dāna Card -->
+        <div class="pastel-card p-6 sm:p-7 rounded-3xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50/70 via-white/85 to-amber-50/50 flex flex-col justify-between gap-5">
+          <div>
             <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100/80 text-emerald-900 text-xs font-semibold mb-3">
               <i data-lucide="book-open" class="w-3.5 h-3.5 text-emerald-700"></i>
               <span>Saraswati & Budha Upaya • Vidya Dāna</span>
             </div>
-            <h3 id="vidyaTitleText" class="font-serif text-xl sm:text-2xl font-bold text-stone-900">Contribute Towards Education (Vidya Dāna)</h3>
-            <p id="vidyaDescText" class="mt-2 text-stone-600 text-xs sm:text-sm leading-relaxed">
-              Classical scriptures prescribe supporting learning (Vidya Dāna) to appease Mercury (Budha) and invoke Maa Saraswati's wisdom. You can support a student with notebooks, pens, and exam fees with a direct micro-donation.
+            <h3 id="vidyaTitleText" class="font-serif text-xl font-bold text-stone-900">Vidya Dāna (Education Offering)</h3>
+            <p id="vidyaDescText" class="mt-2 text-stone-600 text-xs leading-relaxed">
+              Appease Mercury (Budha) and invoke Maa Saraswati's wisdom by supporting students with notebooks, books, and study kits. Donate any amount as your wish.
             </p>
           </div>
-          <div class="flex flex-col sm:items-end gap-3 shrink-0">
-            <div class="flex items-center gap-2">
-              <button onclick="quickDonate(1)" class="px-3.5 py-2 rounded-xl border border-stone-300 bg-white hover:bg-amber-50 font-bold text-xs text-stone-800 transition-all">₹1 (Sankalp)</button>
-              <button onclick="quickDonate(50)" class="px-3.5 py-2 rounded-xl border border-amber-300 bg-amber-50 hover:bg-amber-100 font-bold text-xs text-amber-900 transition-all">₹50 (Notebooks)</button>
-              <button onclick="quickDonate(250)" class="px-3.5 py-2 rounded-xl border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 font-bold text-xs text-emerald-900 transition-all">₹250 (Full Kit)</button>
+          
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button onclick="quickDonate('vidya', 1)" class="px-2.5 py-1.5 rounded-xl border border-stone-300 bg-white hover:bg-emerald-50 font-bold text-xs text-stone-800 transition-all">₹1</button>
+              <button onclick="quickDonate('vidya', 50)" class="px-2.5 py-1.5 rounded-xl border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 font-bold text-xs text-emerald-900 transition-all">₹50</button>
+              <button onclick="quickDonate('vidya', 250)" class="px-2.5 py-1.5 rounded-xl border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 font-bold text-xs text-emerald-900 transition-all">₹250</button>
+              <button onclick="quickDonate('vidya', 1000)" class="px-2.5 py-1.5 rounded-xl border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 font-bold text-xs text-emerald-900 transition-all">₹1,000</button>
+              <button onclick="quickDonate('vidya', 5000)" class="px-2.5 py-1.5 rounded-xl border border-emerald-400 bg-emerald-100/70 hover:bg-emerald-200/70 font-bold text-xs text-emerald-950 transition-all">₹5,000</button>
+              <button onclick="quickDonate('vidya', 11000)" class="px-2.5 py-1.5 rounded-xl border border-emerald-400 bg-emerald-100/70 hover:bg-emerald-200/70 font-bold text-xs text-emerald-950 transition-all">₹11,000</button>
+              <button onclick="quickDonate('vidya', 51000)" class="px-2.5 py-1.5 rounded-xl border border-emerald-500 bg-emerald-100 hover:bg-emerald-200 font-bold text-xs text-emerald-950 transition-all">₹51,000</button>
+              <button onclick="quickDonate('vidya', 100000)" class="px-2.5 py-1.5 rounded-xl border border-emerald-700 bg-emerald-700 hover:bg-emerald-800 font-bold text-xs text-white transition-all">₹1,00,000</button>
             </div>
-            <span class="text-[11px] text-stone-500 italic">Included on your printable Sankalp Certificate</span>
+            <div class="flex items-center gap-2">
+              <div class="relative flex-grow">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-stone-500">₹</span>
+                <input type="number" id="customVidyaInput" min="1" step="1" placeholder="Donate as your wish (₹)" class="w-full pl-7 pr-3 py-2 rounded-xl border border-stone-300 bg-white text-xs font-semibold text-stone-800 focus:outline-none focus:ring-2 focus:ring-emerald-500/30">
+              </div>
+              <button onclick="submitCustomSevaDonate('vidya')" class="px-4 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs transition-all shrink-0">
+                Donate as Wish
+              </button>
+            </div>
           </div>
         </div>
+
+        <!-- 2. Anna Dāna Card -->
+        <div class="pastel-card p-6 sm:p-7 rounded-3xl border border-amber-300/80 bg-gradient-to-br from-amber-50/80 via-white/85 to-rose-50/40 flex flex-col justify-between gap-5">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100/90 text-amber-900 text-xs font-semibold mb-3">
+              <i data-lucide="utensils" class="w-3.5 h-3.5 text-amber-700"></i>
+              <span>Annapoorna & Pitri Mahadāna • Anna Dāna</span>
+            </div>
+            <h3 id="annaTitleText" class="font-serif text-xl font-bold text-stone-900">Anna Dāna (Sacred Food Offering)</h3>
+            <p id="annaDescText" class="mt-2 text-stone-600 text-xs leading-relaxed">
+              Vedic scriptures extol <em>Anna Dāna</em> as the highest charity—pacifying Surya, Chandra, Shani, and ancestral Pitris by nourishing hungry souls and sacred creatures. Donate any amount as your wish.
+            </p>
+          </div>
+          
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button onclick="quickDonate('anna', 1)" class="px-2.5 py-1.5 rounded-xl border border-stone-300 bg-white hover:bg-amber-50 font-bold text-xs text-stone-800 transition-all">₹1</button>
+              <button onclick="quickDonate('anna', 50)" class="px-2.5 py-1.5 rounded-xl border border-amber-300 bg-amber-50 hover:bg-amber-100 font-bold text-xs text-amber-900 transition-all">₹50</button>
+              <button onclick="quickDonate('anna', 250)" class="px-2.5 py-1.5 rounded-xl border border-amber-300 bg-amber-50 hover:bg-amber-100 font-bold text-xs text-amber-900 transition-all">₹250</button>
+              <button onclick="quickDonate('anna', 1000)" class="px-2.5 py-1.5 rounded-xl border border-amber-300 bg-amber-50 hover:bg-amber-100 font-bold text-xs text-amber-900 transition-all">₹1,000</button>
+              <button onclick="quickDonate('anna', 5000)" class="px-2.5 py-1.5 rounded-xl border border-amber-400 bg-amber-100/70 hover:bg-amber-200/70 font-bold text-xs text-amber-950 transition-all">₹5,000</button>
+              <button onclick="quickDonate('anna', 11000)" class="px-2.5 py-1.5 rounded-xl border border-amber-400 bg-amber-100/70 hover:bg-amber-200/70 font-bold text-xs text-amber-950 transition-all">₹11,000</button>
+              <button onclick="quickDonate('anna', 51000)" class="px-2.5 py-1.5 rounded-xl border border-amber-500 bg-amber-100 hover:bg-amber-200 font-bold text-xs text-amber-950 transition-all">₹51,000</button>
+              <button onclick="quickDonate('anna', 100000)" class="px-2.5 py-1.5 rounded-xl border border-amber-700 bg-amber-700 hover:bg-amber-800 font-bold text-xs text-white transition-all">₹1,00,000</button>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="relative flex-grow">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-stone-500">₹</span>
+                <input type="number" id="customAnnaInput" min="1" step="1" placeholder="Donate as your wish (₹)" class="w-full pl-7 pr-3 py-2 rounded-xl border border-stone-300 bg-white text-xs font-semibold text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-500/30">
+              </div>
+              <button onclick="submitCustomSevaDonate('anna')" class="px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs transition-all shrink-0">
+                Donate as Wish
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -365,7 +418,7 @@
             <span class="font-cinzel text-base font-bold text-stone-900">VEDIC SHANTI</span>
           </div>
           <p class="text-xs text-stone-500 leading-relaxed max-w-sm">
-            Rooted in classical Jyotish tradition. Consecrated remedial upayas, sacred animal seva, and Vidya Dāna to dissolve past karmic impressions and foster peaceful living.
+            Rooted in classical Jyotish tradition. Consecrated remedial upayas, sacred animal seva, Vidya Dāna, and Anna Dāna to dissolve past karmic impressions and foster peaceful living.
           </p>
           <div class="mt-4 flex flex-wrap items-center gap-3">
             <a href="https://instagram.com/vedicshanti_official" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-pink-200 bg-pink-50 text-pink-900 font-semibold transition-all">
@@ -384,7 +437,7 @@
           <h4 class="font-bold text-stone-900 uppercase tracking-wider text-[11px] mb-3">Vedic Guidelines</h4>
           <ul class="space-y-2 text-stone-500">
             <li>• Pancha Mahayajna offerings</li>
-            <li>• Sunrise animal feeding rules</li>
+            <li>• Vidya Dāna & Anna Dāna</li>
             <li>• Cord-cutting & Prem Shanti</li>
             <li>• Saturn Sade Sati remedies</li>
           </ul>
@@ -513,7 +566,7 @@
     </div>
   </div>
 
-  <!-- 5. Checkout & Consecration Modal -->
+  <!-- 5. Checkout & Consecration Modal (With Vidya Dāna & Anna Dāna Add-Ons) -->
   <div id="checkoutModal" class="fixed inset-0 z-50 bg-stone-950/40 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="pastel-card bg-white p-6 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-3 border-b border-stone-100">
@@ -551,17 +604,43 @@
           </div>
         </div>
 
-        <!-- Optional Vidya Dāna Micro-Donation -->
-        <div class="p-3 rounded-2xl bg-emerald-50/70 border border-emerald-200/70">
+        <!-- Add-On 1: Vidya Dāna (Education Offering) -->
+        <div id="vidyaAddonBox" class="p-3 rounded-2xl bg-emerald-50/70 border border-emerald-200/70">
           <div class="flex items-center justify-between">
-            <span class="font-bold text-emerald-900">Add Vidya Dāna (Student Education Offering)</span>
-            <span class="text-emerald-700 font-semibold" id="donationDisplay">+ ₹0</span>
+            <span class="font-bold text-emerald-900">Add Vidya Dāna (Education Offering)</span>
+            <span class="text-emerald-700 font-semibold" id="vidyaDonationDisplay">+ ₹0</span>
           </div>
-          <div class="mt-2 flex items-center gap-2">
-            <button onclick="setCheckoutDonation(0)" class="px-2.5 py-1 rounded-lg border border-stone-200 bg-white text-[11px]">None</button>
-            <button onclick="setCheckoutDonation(1)" class="px-2.5 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹1</button>
-            <button onclick="setCheckoutDonation(50)" class="px-2.5 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹50</button>
-            <button onclick="setCheckoutDonation(100)" class="px-2.5 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹100</button>
+          <div class="mt-2 flex flex-wrap items-center gap-1.5">
+            <button type="button" onclick="setVidyaDonation(0)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px]">None</button>
+            <button type="button" onclick="setVidyaDonation(1)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹1</button>
+            <button type="button" onclick="setVidyaDonation(50)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹50</button>
+            <button type="button" onclick="setVidyaDonation(250)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹250</button>
+            <button type="button" onclick="setVidyaDonation(1000)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹1,000</button>
+            <button type="button" onclick="setVidyaDonation(5000)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹5,000</button>
+            <button type="button" onclick="setVidyaDonation(11000)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹11,000</button>
+          </div>
+          <div class="mt-2">
+            <input type="number" id="checkoutCustomVidya" min="0" step="1" oninput="setCustomVidyaCheckout(this.value)" placeholder="Donate as your wish for Vidya Dāna (₹)" class="w-full px-3 py-1.5 rounded-lg border border-emerald-200 bg-white text-[11px] focus:outline-none">
+          </div>
+        </div>
+
+        <!-- Add-On 2: Anna Dāna (Sacred Food Offering) -->
+        <div id="annaAddonBox" class="p-3 rounded-2xl bg-amber-50/80 border border-amber-200/80">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-amber-950">Add Anna Dāna (Sacred Food Offering)</span>
+            <span class="text-amber-800 font-semibold" id="annaDonationDisplay">+ ₹0</span>
+          </div>
+          <div class="mt-2 flex flex-wrap items-center gap-1.5">
+            <button type="button" onclick="setAnnaDonation(0)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px]">None</button>
+            <button type="button" onclick="setAnnaDonation(1)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹1</button>
+            <button type="button" onclick="setAnnaDonation(50)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹50</button>
+            <button type="button" onclick="setAnnaDonation(250)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹250</button>
+            <button type="button" onclick="setAnnaDonation(1000)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹1,000</button>
+            <button type="button" onclick="setAnnaDonation(5000)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹5,000</button>
+            <button type="button" onclick="setAnnaDonation(11000)" class="px-2 py-1 rounded-lg border border-stone-200 bg-white text-[11px] font-bold">₹11,000</button>
+          </div>
+          <div class="mt-2">
+            <input type="number" id="checkoutCustomAnna" min="0" step="1" oninput="setCustomAnnaCheckout(this.value)" placeholder="Donate as your wish for Anna Dāna (₹)" class="w-full px-3 py-1.5 rounded-lg border border-amber-200 bg-white text-[11px] focus:outline-none">
           </div>
         </div>
 
@@ -594,7 +673,7 @@
       <div class="mt-6 space-y-2.5">
         <button onclick="downloadSankalpCertificate()" class="w-full py-2.5 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
           <i data-lucide="award" class="w-4 h-4"></i>
-          <span>Download Sankalp Certificate (PNG)</span>
+          <span>Download Sankalp Scroll (PNG)</span>
         </button>
         <button onclick="downloadSevaGuidePdf()" class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
           <i data-lucide="file-text" class="w-4 h-4"></i>
@@ -621,7 +700,7 @@
       about: {
         title: 'About Us — Vedic Shanti',
         body: `
-          <p><strong>Vedic Shanti</strong> is an online spiritual seva and classical Jyotish remedial platform grounded in <em>Brihat Parashara Hora Shastra</em>. We facilitate personalized Sankalp consecrations, sunrise sacred animal feeding (Gau Seva, Shani/Bhairava Seva, Pitri Seva), Vidya Dāna offerings, and personalized Sankalp Kits across India.</p>
+          <p><strong>Vedic Shanti</strong> is an online spiritual seva and classical Jyotish remedial platform grounded in <em>Brihat Parashara Hora Shastra</em>. We facilitate personalized Sankalp consecrations, sunrise sacred animal feeding (Gau Seva, Shani/Bhairava Seva, Pitri Seva), Vidya Dāna, and Anna Dāna offerings across India.</p>
         `
       },
       terms: {
@@ -803,8 +882,10 @@
         heroBadge: "Pancha Mahayajna • Animal Feeding as Planetary Dissolution",
         heroTitle: 'Dissolve Karmic Bondage Through Ancient <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Animal Seva</span>',
         heroSubtitle: "Grounded in <em>Brihat Parashara Hora Shastra</em>. Feed cows for Venus & Jupiter, black dogs for Saturn & Bhairava, and crows for Rahu & Pitris. Consecrate your intention with sacred 432 Hz resonance.",
-        vidyaTitle: "Contribute Towards Education (Vidya Dāna)",
-        vidyaDesc: "Classical scriptures prescribe supporting learning (Vidya Dāna) to appease Mercury (Budha) and invoke Maa Saraswati's wisdom. You can support a student with notebooks, pens, and exam fees with a direct micro-donation.",
+        vidyaTitle: "Vidya Dāna (Education Offering)",
+        vidyaDesc: "Appease Mercury (Budha) and invoke Maa Saraswati's wisdom by supporting students with notebooks, books, and study kits. Donate any amount as your wish.",
+        annaTitle: "Anna Dāna (Sacred Food Offering)",
+        annaDesc: "Vedic scriptures extol Anna Dāna as the highest charity—pacifying Surya, Chandra, Shani, and ancestral Pitris by nourishing hungry souls and sacred creatures. Donate any amount as your wish.",
         consecrateBtn: "Consecrate",
         offeringLabel: "Offering",
         animalLabel: "Sacred Animal:",
@@ -814,8 +895,10 @@
         heroBadge: "पंच महायज्ञ • ग्रह शांति हेतु पावन जीव सेवा",
         heroTitle: 'प्राचीन <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">जीव सेवा</span> के माध्यम से कर्म बंधनों का निवारण करें',
         heroSubtitle: "<em>बृहत् पाराशर होरा शास्त्र</em> पर आधारित। शुक्र और बृहस्पति के लिए गौ सेवा, शनि और भैरव के लिए श्वान सेवा, तथा राहु व पितरों की शांति हेतु काक बलि एवं 432 Hz नाद साधना।",
-        vidyaTitle: "विद्या दान • शिक्षा हेतु पावन सहयोग",
-        vidyaDesc: "शास्त्रों के अनुसार बुध ग्रह की शांति और माँ सरस्वती की कृपा हेतु विद्या दान सर्वश्रेष्ठ है। आप ₹1 या ₹50 के छोटे सहयोग से किसी विद्यार्थी की पुस्तकों और शिक्षा में सहायता कर सकते हैं।",
+        vidyaTitle: "विद्या दान • शिक्षा हेतु सहयोग",
+        vidyaDesc: "बुध ग्रह की शांति और माँ सरस्वती की कृपा हेतु विद्यार्थियों की पुस्तकों व शिक्षा में अपनी इच्छानुसार दान करें।",
+        annaTitle: "अन्न दान • महादान सेवा",
+        annaDesc: "शास्त्रों में अन्न दान को सर्वश्रेष्ठ महादान कहा गया है। अपनी इच्छानुसार दान कर पितरों और ग्रहों की कृपा प्राप्त करें।",
         consecrateBtn: "संकल्प लें",
         offeringLabel: "दक्षिणा / सेवा",
         animalLabel: "पवित्र जीव:",
@@ -825,151 +908,22 @@
         heroBadge: "ಪಂಚ ಮಹಾಯಜ್ಞ • ಗ್ರಹ ಶಾಂತಿಗಾಗಿ ಪವಿತ್ರ ಪ್ರಾಣಿ ಸೇವೆ",
         heroTitle: 'ಪ್ರಾಚೀನ <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ಪ್ರಾಣಿ ಸೇವೆಯ</span> ಮೂಲಕ ಕರ್ಮ ಬಂಧನಗಳನ್ನು ನಿವಾರಿಸಿ',
         heroSubtitle: "<em>ಬೃಹತ್ ಪರಾಶರ ಹೋರಾ ಶಾಸ್ತ್ರ</em> ಆಧಾರಿತ. ಶುಕ್ರ ಮತ್ತು ಗುರುವಿಗಾಗಿ ಗೋ ಸೇವೆ, ಶನಿ ಮತ್ತು ಭೈರವನಿಗಾಗಿ ಶ್ವಾನ ಸೇವೆ, ರಾಹು ಮತ್ತು ಪಿತೃ ಶಾಂತಿಗಾಗಿ ಕಾಗೆಗಳಿಗೆ ಆಹಾರ ಮತ್ತು 432 Hz ಧ್ಯಾನ.",
-        vidyaTitle: "ವಿದ್ಯಾ ದಾನ • ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಪವಿತ್ರ ಕೊಡುಗೆ",
-        vidyaDesc: "ಬುಧ ಗ್ರಹದ ಶಾಂತಿ ಮತ್ತು ಸರಸ್ವತಿ ದೇವಿಯ ಅನುಗ್ರಹಕ್ಕಾಗಿ ವಿದ್ಯಾ ದಾನ ಶ್ರೇಷ್ಠವಾಗಿದೆ. ₹1 ಅಥವಾ ₹50 ರ ಸಣ್ಣ ಕೊಡುಗೆಯ ಮೂಲಕ ವಿದ್ಯಾರ್ಥಿಗಳ ಶಿಕ್ಷಣಕ್ಕೆ ನೆರವಾಗಿ.",
+        vidyaTitle: "ವಿದ್ಯಾ ದಾನ • ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಕೊಡುಗೆ",
+        vidyaDesc: "ಬುಧ ಗ್ರಹದ ಶಾಂತಿ ಮತ್ತು ಸರಸ್ವತಿ ದೇವಿಯ ಅನುಗ್ರಹಕ್ಕಾಗಿ ನಿಮ್ಮ ಇಚ್ಛೆಯಂತೆ ದಾನ ಮಾಡಿ ವಿದ್ಯಾರ್ಥಿಗಳ ಶಿಕ್ಷಣಕ್ಕೆ ನೆರವಾಗಿ.",
+        annaTitle: "ಅನ್ನ ದಾನ • ಪವಿತ್ರ ಆಹಾರ ಸೇವೆ",
+        annaDesc: "ಶಾಸ್ತ್ರಗಳಲ್ಲಿ ಅನ್ನ ದಾನವನ್ನು ಶ್ರೇಷ್ಠ ಮಹಾದಾನವೆಂದು ಕರೆಯಲಾಗಿದೆ. ನಿಮ್ಮ ಇಚ್ಛೆಯಂತೆ ದಾನ ಮಾಡಿ ಪಿತೃಗಳು ಮತ್ತು ಗ್ರಹಗಳ ಅನುಗ್ರಹ ಪಡೆಯಿರಿ.",
         consecrateBtn: "ಸಂಕಲ್ಪ ಮಾಡಿ",
         offeringLabel: "ಸೇವಾ ಮೊತ್ತ",
         animalLabel: "ಪವಿತ್ರ ಪ್ರಾಣಿ:",
         prescribedLabel: "ನೈವೇದ್ಯ / ಆಹಾರ:"
-      },
-      ta: {
-        heroBadge: "பஞ்ச மகாயக்ஞம் • கிரக தோஷ நிவாரண ஜீவ சேவை",
-        heroTitle: 'பண்டைய <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ஜீவ சேவையின்</span> மூலம் கர்ம வினைகளை நீக்குங்கள்',
-        heroSubtitle: "<em>பிருஹத் பராசர ஹோரா சாஸ்திரம்</em> அடிப்படையிலானது. சுக்கிரன் மற்றும் குருவிற்கு கோ சேவை, சனி பகவானுக்கு நாய் சேவை, ராகு மற்றும் பித்ருக்களுக்கு காகத்திற்கு உணவளித்தல்.",
-        vidyaTitle: "வித்யா தானம் • கல்விக்கான புனித பங்களிப்பு",
-        vidyaDesc: "புதன் பகவானின் அருளையும் சரஸ்வதி தேவியின் கடாட்சத்தையும் பெற வித்யா தானம் சிறந்தது. ₹1 அல்லது ₹50 மூலம் மாணவர்களின் கல்விக்கு உதவுங்கள்.",
-        consecrateBtn: "சங்கல்பம் செய்",
-        offeringLabel: "காணிக்கை",
-        animalLabel: "புனித உயிரினம்:",
-        prescribedLabel: "உணவு முறை:"
-      },
-      te: {
-        heroBadge: "పంచ మహాయజ్ఞం • గ్రహ శాంతి కొరకు పవిత్ర జీవ సేవ",
-        heroTitle: 'ప్రాచీన <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">జీవ సేవ</span> ద్వారా కర్మ బంధాలను తొలగించుకోండి',
-        heroSubtitle: "<em>బృహత్ పరాశర హోరా శాస్త్రం</em> ఆధారంగా. శుక్ర మరియు గురు గ్రహాల కొరకు గో సేవ, శని మరియు భైరవుని కొరకు శునక సేవ, రాహు మరియు పితృ శాంతి కొరకు కాకులకు ఆహారం.",
-        vidyaTitle: "విద్యా దానం • విద్య కొరకు పవిత్ర సహాయం",
-        vidyaDesc: "బుధ గ్రహ శాంతి మరియు సరస్వతీ దేవి అనుగ్రహం కొరకు విద్యా దానం శ్రేష్ఠమైనది. ₹1 లేదా ₹50 చిన్న విరాళంతో విద్యార్థుల చదువుకు సహాయపడండి.",
-        consecrateBtn: "సంకల్పం చేయండి",
-        offeringLabel: "సేవా రుసుము",
-        animalLabel: "పవిత్ర ప్రాణి:",
-        prescribedLabel: "ఆహార నియమం:"
-      },
-      bn: {
-        heroBadge: "পঞ্চ মহাযজ্ঞ • গ্রহ শান্তির জন্য পবিত্র জীব সেবা",
-        heroTitle: 'প্রাচীন <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">জীব সেবার</span> মাধ্যমে কর্ম বন্ধন দূর করুন',
-        heroSubtitle: "<em>বৃহৎ পরাশর হোরা শাস্ত্র</em> অনুসারে। শুক্র ও বৃহস্পতির জন্য গো-সেবা, শনি ও ভৈরবের জন্য সারমেয় সেবা এবং রাহু ও পিতৃপুরুষের শান্তির জন্য কাকবলি ও ৪৩২ হার্জ সাধনা।",
-        vidyaTitle: "বিদ্যা দান • শিক্ষার জন্য পবিত্র অবদান",
-        vidyaDesc: "শাস্ত্রমতে বুধ গ্রহের শান্তি ও মা সরস্বতীর কৃপা লাভের জন্য বিদ্যা দান সর্বশ্রেষ্ঠ। ₹১ বা ₹৫০ ক্ষুদ্র অনুদানের মাধ্যমে শিক্ষার্থীদের বই ও শিক্ষায় সহায়তা করুন।",
-        consecrateBtn: "সংকল্প নিন",
-        offeringLabel: "সেবা মূল্য",
-        animalLabel: "পবিত্র প্রাণী:",
-        prescribedLabel: "নির্ধারিত খাদ্য:"
-      },
-      ml: {
-        heroBadge: "പഞ്ചമഹായജ്ഞം • ഗ്രഹശാന്തിക്കായി പവിത്രമായ ജീവസേവ",
-        heroTitle: 'പുരാതന <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ജീവസേവയിലൂടെ</span> കർമ്മബന്ധങ്ങൾ അകറ്റുക',
-        heroSubtitle: "<em>ബൃഹത് പരാശര ഹോരാശാസ്ത്രത്തെ</em> അടിസ്ഥാനമാക്കി. ശുക്രനും വ്യാഴത്തിനും ഗോസേവ, ശനിക്കും ഭൈരവനും ശ്വാനസേവ, രാഹുവിനും പിതൃക്കൾക്കും കാക്കകൾക്ക് അന്നദാനം.",
-        vidyaTitle: "വിദ്യാദാനം • വിദ്യാഭ്യാസത്തിനായി പവിത്രമായ സംഭാവന",
-        vidyaDesc: "ബുധഗ്രഹ പ്രീതിക്കും സരസ്വതി ദേവിയുടെ അനുഗ്രഹത്തിനുമായി വിദ്യാദാനം അത്യുത്തമമാണ്. ₹1 അല്ലെങ്കിൽ ₹50 ചെറിയ സംഭാവനയിലൂടെ വിദ്യാർത്ഥികളുടെ പഠനത്തെ സഹായിക്കാം.",
-        consecrateBtn: "സങ്കൽപ്പിക്കുക",
-        offeringLabel: "ദക്ഷിണ / സേവ",
-        animalLabel: "പവിത്ര ജീവി:",
-        prescribedLabel: "നിർദ്ദേശിച്ച ആഹാരം:"
-      },
-      gu: {
-        heroBadge: "પંચ મહાયજ્ઞ • ગ્રહ શાંતિ માટે પવિત્ર જીવ સેવા",
-        heroTitle: 'પ્રાચીન <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">જીવ સેવા</span> દ્વારા કર્મ બંધનોમાંથી મુક્તિ મેળવો',
-        heroSubtitle: "<em>બૃહત પારાશર હોરા શાસ્ત્ર</em> પર આધારિત. શુક્ર અને ગુરુ માટે ગૌ સેવા, શનિ અને ભૈરવ માટે શ્વાન સેવા, અને રાહુ તથા પિતૃ શાંતિ માટે કાગડાઓને ભોજન અને 432 Hz નાદ.",
-        vidyaTitle: "વિદ્યા દાન • શિક્ષણ માટે પવિત્ર સહયોગ",
-        vidyaDesc: "શાસ્ત્રો અનુસાર બુધ ગ્રહની શાંતિ અને મા સરસ્વતીની કૃપા માટે વિદ્યા દાન શ્રેષ્ઠ છે. ₹1 અથવા ₹50 ના નાના યોગદાનથી વિદ્યાર્થીઓના શિક્ષણમાં મદદ કરો.",
-        consecrateBtn: "સંકલ્પ લો",
-        offeringLabel: "સેવા રાશિ",
-        animalLabel: "પવિત્ર જીવ:",
-        prescribedLabel: "શાસ્ત્રીય ભોગ:"
-      },
-      mr: {
-        heroBadge: "पंच महायज्ञ • ग्रह शांतीसाठी पवित्र जीव सेवा",
-        heroTitle: 'प्राचीन <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">जीव सेवेद्वारे</span> कर्मबंधनांचे निवारण करा',
-        heroSubtitle: "<em>बृहत् पाराशर होरा शास्त्र</em> आधारित. शुक्र आणि गुरूसाठी गोसेवा, शनि आणि भैरवासाठी श्वान सेवा, तसेच राहू व पितृ शांतीसाठी काकबळी आणि 432 Hz नाद साधना.",
-        vidyaTitle: "विद्या दान • शिक्षणासाठी पवित्र योगदान",
-        vidyaDesc: "शास्त्रांनुसार बुध ग्रहाच्या शांतीसाठी आणि माता सरस्वतीच्या कृपेसाठी विद्या दान सर्वोत्तम आहे. ₹१ किंवा ₹५० च्या छोट्या योगदानाने विद्यार्थ्यांच्या शिक्षणास मदत करा.",
-        consecrateBtn: "संकल्प करा",
-        offeringLabel: "दक्षिणा / सेवा",
-        animalLabel: "पवित्र प्राणी:",
-        prescribedLabel: "विहित नैवेद्य:"
-      },
-      pa: {
-        heroBadge: "ਪੰਚ ਮਹਾਯੱਗ • ਗ੍ਰਹਿ ਸ਼ਾਂਤੀ ਲਈ ਪਵਿੱਤਰ ਜੀਵ ਸੇਵਾ",
-        heroTitle: 'ਪ੍ਰਾਚੀਨ <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ਜੀਵ ਸੇਵਾ</span> ਰਾਹੀਂ ਕਰਮ ਬੰਧਨਾਂ ਨੂੰ ਦੂਰ ਕਰੋ',
-        heroSubtitle: "<em>ਬ੍ਰਿਹਤ ਪਰਾਸ਼ਰ ਹੋਰਾ ਸ਼ਾਸਤਰ</em> ਤੇ ਅਧਾਰਿਤ। ਸ਼ੁੱਕਰ ਅਤੇ ਬ੍ਰਹਿਸਪਤੀ ਲਈ ਗਊ ਸੇਵਾ, ਸ਼ਨੀ ਅਤੇ ਭੈਰਵ ਲਈ ਕੁੱਤਿਆਂ ਦੀ ਸੇਵਾ, ਅਤੇ ਰਾਹੂ ਤੇ ਪਿਤਰਾਂ ਦੀ ਸ਼ਾਂਤੀ ਲਈ ਕਾਂਵਾਂ ਨੂੰ ਭੋਜਨ।",
-        vidyaTitle: "ਵਿੱਦਿਆ ਦਾਨ • ਸਿੱਖਿਆ ਲਈ ਪਵਿੱਤਰ ਸਹਿਯੋਗ",
-        vidyaDesc: "ਸ਼ਾਸਤਰਾਂ ਅਨੁਸਾਰ ਬੁੱਧ ਗ੍ਰਹਿ ਦੀ ਸ਼ਾਂਤੀ ਅਤੇ ਮਾਂ ਸਰਸਵਤੀ ਦੀ ਕਿਰਪਾ ਲਈ ਵਿੱਦਿਆ ਦਾਨ ਉੱਤਮ ਹੈ। ₹1 ਜਾਂ ₹50 ਦੇ ਛੋਟੇ ਯੋਗਦਾਨ ਨਾਲ ਵਿਦਿਆਰਥੀਆਂ ਦੀ ਪੜ੍ਹਾਈ ਵਿੱਚ ਮਦਦ ਕਰੋ।",
-        consecrateBtn: "ਸੰਕਲਪ ਲਓ",
-        offeringLabel: "ਸੇਵਾ ਭੇਟਾ",
-        animalLabel: "ਪਵਿੱਤਰ ਜੀਵ:",
-        prescribedLabel: "ਨਿਰਧਾਰਤ ਭੋਜਨ:"
-      },
-      ar: {
-        heroBadge: "بانشا ماهاياجنا • إطعام الكائنات لتطهير المسار الكوني",
-        heroTitle: 'تحرر من القيود الكرمية عبر <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">الرحمة وإطعام الكائنات</span>',
-        heroSubtitle: "مبني على النصوص الفيدية الكلاسيكية. إطعام الأبقار والكلاب والطيور بوعي روحي مع ترددات 432 هرتز المقدسة لجلب السلام الداخلي.",
-        vidyaTitle: "فيديا دانا • المساهمة في دعم التعليم",
-        vidyaDesc: "توصي النصوص القديمة بدعم التعلم لنشر الحكمة والبركة. يمكنك دعم طالب بالدفاتر والأقلام ورسوم الدراسة بمساهمة رمزية تبدأ من 1 روبية.",
-        consecrateBtn: "تأكيد النية",
-        offeringLabel: "التقدمة",
-        animalLabel: "الكائن المبارك:",
-        prescribedLabel: "القربان الموصى به:"
-      },
-      es: {
-        heroBadge: "Pancha Mahayajna • Alimentación Sagrada para la Armonía Planetaria",
-        heroTitle: 'Disuelve Ataduras Kármicas a Través del Antiguo <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Seva Animal</span>',
-        heroSubtitle: "Basado en el <em>Brihat Parashara Hora Shastra</em>. Alimenta vacas para Venus y Júpiter, perros negros para Saturno y cuervos para Rahu y los ancestros con resonancia de 432 Hz.",
-        vidyaTitle: "Contribuye a la Educación (Vidya Dāna)",
-        vidyaDesc: "Las escrituras clásicas prescriben apoyar el aprendizaje (Vidya Dāna) para armonizar Mercurio y recibir la sabiduría de Saraswati. Apoya a un estudiante con útiles escolares.",
-        consecrateBtn: "Consagrar",
-        offeringLabel: "Ofrenda",
-        animalLabel: "Animal Sagrado:",
-        prescribedLabel: "Ofrenda Prescrita:"
-      },
-      it: {
-        heroBadge: "Pancha Mahayajna • Nutrire gli Animali per l'Armonia Planetaria",
-        heroTitle: 'Dissolvi i Legami Karmici Attraverso l\'Antico <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Seva Animale</span>',
-        heroSubtitle: "Fondato sul <em>Brihat Parashara Hora Shastra</em>. Nutri le mucche per Venere e Giove, i cani neri per Saturno e i corvi per Rahu e gli antenati con risonanza a 432 Hz.",
-        vidyaTitle: "Contribuisci all'Istruzione (Vidya Dāna)",
-        vidyaDesc: "Le scritture classiche prescrivono di sostenere lo studio (Vidya Dāna) per placare Mercurio e invocare la saggezza di Saraswati. Sostieni uno studente con materiale scolastico.",
-        consecrateBtn: "Consacra",
-        offeringLabel: "Offerta",
-        animalLabel: "Animale Sacro:",
-        prescribedLabel: "Offerta Prescritta:"
-      },
-      fr: {
-        heroBadge: "Pancha Mahayajna • Nourrir les Animaux pour l'Harmonie Planétaire",
-        heroTitle: 'Dissolvez les Liens Karmiques Grâce à l\'Ancien <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Seva Animal</span>',
-        heroSubtitle: "Fondé sur le <em>Brihat Parashara Hora Shastra</em>. Nourrissez les vaches pour Vénus et Jupiter, les chiens noirs pour Saturne et les corbeaux pour Rahu avec résonance 432 Hz.",
-        vidyaTitle: "Contribuez à l'Éducation (Vidya Dāna)",
-        vidyaDesc: "Les écritures classiques recommandent de soutenir l'apprentissage (Vidya Dāna) pour apaiser Mercure et invoquer la sagesse de Saraswati. Aidez un étudiant avec des fournitures.",
-        consecrateBtn: "Consacrer",
-        offeringLabel: "Offrande",
-        animalLabel: "Animal Sacré :",
-        prescribedLabel: "Offrande Prescrite :"
-      },
-      pt: {
-        heroBadge: "Pancha Mahayajna • Alimentação Sagrada para Harmonia Planetária",
-        heroTitle: 'Dissolva Laços Cármicos Através do Antigo <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Seva Animal</span>',
-        heroSubtitle: "Baseado no <em>Brihat Parashara Hora Shastra</em>. Alimente vacas para Vênus e Júpiter, cães pretos para Saturno e corvos para Rahu e ancestrais com ressonância de 432 Hz.",
-        vidyaTitle: "Contribua para a Educação (Vidya Dāna)",
-        vidyaDesc: "As escrituras clássicas prescrevem apoiar o aprendizado (Vidya Dāna) para harmonizar Mercúrio e invocar a sabedoria de Saraswati. Apoie um estudante com materiais escolares.",
-        consecrateBtn: "Consagrar",
-        offeringLabel: "Oferenda",
-        animalLabel: "Animal Sagrado:",
-        prescribedLabel: "Oferenda Prescrita:"
       }
     };
 
     let currentLanguage = 'en';
     let currentCurrency = 'INR';
     let activePackage = null;
-    let donationAmount = 0;
+    let vidyaDonationAmount = 0;
+    let annaDonationAmount = 0;
     let japaCount = 0;
 
     // Web Audio Synthesizer State
@@ -991,6 +945,8 @@
       document.getElementById('heroSubtitleText').innerHTML = t.heroSubtitle;
       document.getElementById('vidyaTitleText').innerText = t.vidyaTitle;
       document.getElementById('vidyaDescText').innerText = t.vidyaDesc;
+      if (t.annaTitle) document.getElementById('annaTitleText').innerText = t.annaTitle;
+      if (t.annaDesc) document.getElementById('annaDescText').innerText = t.annaDesc;
 
       renderPackages(PACKAGES);
     }
@@ -1002,8 +958,11 @@
 
     function formatPrice(inrAmount) {
       const c = CURRENCY_RATES[currentCurrency] || CURRENCY_RATES.INR;
+      if (currentCurrency === 'INR') {
+        return `₹${Number(inrAmount).toLocaleString('en-IN')}`;
+      }
       const converted = Math.round(inrAmount * c.rate);
-      return `${c.symbol}${converted === 0 && inrAmount > 0 ? (inrAmount * c.rate).toFixed(2) : converted}`;
+      return `${c.symbol}${converted === 0 && inrAmount > 0 ? (inrAmount * c.rate).toFixed(2) : converted.toLocaleString('en-US')}`;
     }
 
     // --- Render Remedies Grid ---
@@ -1123,7 +1082,6 @@
         osc1.type = 'sine';
         osc2.type = activeSoundscape === 'tanpura' ? 'triangle' : 'sine';
 
-        // 432 Hz tuning (Sa = 136.1 Hz Om / 216 Hz / 432 Hz)
         osc1.frequency.setValueAtTime(136.1, audioCtx.currentTime);
         osc2.frequency.setValueAtTime(activeSoundscape === 'bells' ? 432 : 204.15, audioCtx.currentTime);
 
@@ -1338,21 +1296,51 @@
       resDiv.innerHTML = `<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900">Consecrated Sankalp record located for <strong>${email}</strong>. You may download your guide or listen to the 432 Hz soundscape directly on this page.</div>`;
     }
 
-    function quickDonate(amount) {
+    function quickDonate(type, amount) {
+      const cleanAmount = Math.max(1, Math.round(Number(amount) || 1));
+      const isAnna = type === 'anna';
       activePackage = {
-        id: 'vidya-dana',
-        title: `Vidya Dāna Education Offering (₹${amount})`,
-        basePriceINR: amount
+        id: isAnna ? 'anna-dana' : 'vidya-dana',
+        title: isAnna
+          ? `Anna Dāna Sacred Food Offering (₹${cleanAmount.toLocaleString('en-IN')})`
+          : `Vidya Dāna Education Offering (₹${cleanAmount.toLocaleString('en-IN')})`,
+        basePriceINR: cleanAmount,
+        planet: isAnna ? 'Surya, Chandra, Shani & Pitri Blessings' : 'Mercury (Budha) & Maa Saraswati',
+        animal: isAnna ? 'Sacred Anna Dāna & Sunrise Creature Feeding' : 'Student Education Seva & Sunrise Grain Feeding',
+        offering: isAnna ? 'Sattvic meals, grains & clean water at sunrise' : 'Notebooks, books, study kits & sunrise grain feeding',
+        mantra: isAnna ? 'ॐ अन्नपूर्णायै नमः (Om Annapoornayai Namah)' : 'ॐ ऐं सरस्वत्यै नमः (Om Aim Saraswatyai Namah)'
       };
-      donationAmount = 0;
+      vidyaDonationAmount = 0;
+      annaDonationAmount = 0;
+      const customVidyaField = document.getElementById('checkoutCustomVidya');
+      const customAnnaField = document.getElementById('checkoutCustomAnna');
+      if (customVidyaField) customVidyaField.value = '';
+      if (customAnnaField) customAnnaField.value = '';
       updateCheckoutDisplay();
       document.getElementById('checkoutModal').classList.remove('hidden');
       document.getElementById('checkoutModal').classList.add('flex');
     }
 
+    function submitCustomSevaDonate(type) {
+      const inputId = type === 'anna' ? 'customAnnaInput' : 'customVidyaInput';
+      const inputEl = document.getElementById(inputId);
+      const val = Number(inputEl.value);
+      if (!val || val < 1) {
+        alert('Please enter any donation amount of ₹1 or more as your wish.');
+        inputEl.focus();
+        return;
+      }
+      quickDonate(type, Math.round(val));
+    }
+
     function openCheckoutModal(pkgId) {
       activePackage = PACKAGES.find(p => p.id === pkgId) || PACKAGES[0];
-      donationAmount = 0;
+      vidyaDonationAmount = 0;
+      annaDonationAmount = 0;
+      const customVidyaField = document.getElementById('checkoutCustomVidya');
+      const customAnnaField = document.getElementById('checkoutCustomAnna');
+      if (customVidyaField) customVidyaField.value = '';
+      if (customAnnaField) customAnnaField.value = '';
       updateCheckoutDisplay();
       document.getElementById('checkoutModal').classList.remove('hidden');
       document.getElementById('checkoutModal').classList.add('flex');
@@ -1363,16 +1351,38 @@
       document.getElementById('checkoutModal').classList.remove('flex');
     }
 
-    function setCheckoutDonation(amt) {
-      donationAmount = amt;
+    function setVidyaDonation(amt) {
+      vidyaDonationAmount = Math.max(0, Math.round(Number(amt) || 0));
+      const customField = document.getElementById('checkoutCustomVidya');
+      if (customField) customField.value = vidyaDonationAmount > 0 ? vidyaDonationAmount : '';
+      updateCheckoutDisplay();
+    }
+
+    function setCustomVidyaCheckout(val) {
+      const num = Number(val);
+      vidyaDonationAmount = (!val || num < 0) ? 0 : Math.round(num);
+      updateCheckoutDisplay();
+    }
+
+    function setAnnaDonation(amt) {
+      annaDonationAmount = Math.max(0, Math.round(Number(amt) || 0));
+      const customField = document.getElementById('checkoutCustomAnna');
+      if (customField) customField.value = annaDonationAmount > 0 ? annaDonationAmount : '';
+      updateCheckoutDisplay();
+    }
+
+    function setCustomAnnaCheckout(val) {
+      const num = Number(val);
+      annaDonationAmount = (!val || num < 0) ? 0 : Math.round(num);
       updateCheckoutDisplay();
     }
 
     function updateCheckoutDisplay() {
       if (!activePackage) return;
       document.getElementById('checkoutTitle').innerText = activePackage.title;
-      document.getElementById('donationDisplay').innerText = `+ ${formatPrice(donationAmount)}`;
-      const totalINR = (activePackage.basePriceINR || 0) + donationAmount;
+      document.getElementById('vidyaDonationDisplay').innerText = `+ ${formatPrice(vidyaDonationAmount)}`;
+      document.getElementById('annaDonationDisplay').innerText = `+ ${formatPrice(annaDonationAmount)}`;
+      const totalINR = (activePackage.basePriceINR || 0) + vidyaDonationAmount + annaDonationAmount;
       document.getElementById('checkoutTotalAmount').innerText = formatPrice(totalINR);
     }
 
@@ -1388,20 +1398,21 @@
         return;
       }
 
-      const totalINR = (activePackage ? (activePackage.basePriceINR || 0) : 0) + donationAmount;
+      const totalDonationINR = vidyaDonationAmount + annaDonationAmount;
+      const totalINR = (activePackage ? (activePackage.basePriceINR || 0) : 0) + totalDonationINR;
 
       const selectedPkg = activePackage && activePackage.mantra
         ? activePackage
         : {
-            title: activePackage ? activePackage.title : 'Vidya Dāna & Pancha Mahayajna Seva',
-            planet: 'Mercury (Budha) & Saraswati',
-            animal: 'Cows, Birds & Student Education Seva',
-            offering: 'Educational notebooks, study kits & sunrise grain feeding',
-            mantra: 'ॐ ऐं सरस्वत्यै नमः (Om Aim Saraswatyai Namah)',
+            title: activePackage ? activePackage.title : 'Vidya Dāna & Anna Dāna Seva',
+            planet: 'Universal Planetary & Ancestral Harmony',
+            animal: 'Cows, Birds, Anna Dāna & Student Education Seva',
+            offering: 'Sattvic meals, study kits & sunrise grain feeding',
+            mantra: 'ॐ सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः',
             homePooja: [
-              'Light a pure ghee lamp on your study table or home altar facing East.',
-              'Keep a book or pen beside the lamp and chant "Om Aim Saraswatyai Namah" 108 times.',
-              'Offer water and grains to birds on your balcony or windowsill.'
+              'Light a pure ghee lamp on your home altar facing East or North.',
+              'Keep a clean copper vessel of water beside the lamp and chant your mantra 108 times.',
+              'Offer food and clean water to birds or stray animals near your home.'
             ]
           };
 
@@ -1465,7 +1476,9 @@
                   orderId,
                   paymentId: orderId,
                   amountINR: totalINR,
-                  donationAmount
+                  donationAmount: totalDonationINR,
+                  vidyaDonationAmount,
+                  annaDonationAmount
                 })
               });
             } catch (err) {
@@ -1492,47 +1505,307 @@
       }
     }
 
+    // --- 1. Ornate Crimson & Gold Temple Scroll (PNG Download) ---
     function downloadSankalpCertificate() {
       const canvas = document.createElement('canvas');
-      canvas.width = 900;
-      canvas.height = 600;
+      canvas.width = 1200;
+      canvas.height = 900;
       const ctx = canvas.getContext('2d');
 
-      ctx.fillStyle = '#FAF6EE';
-      ctx.fillRect(0, 0, 900, 600);
-      ctx.strokeStyle = '#B87333';
-      ctx.lineWidth = 10;
-      ctx.strokeRect(25, 25, 850, 550);
-
-      ctx.fillStyle = '#2D2723';
-      ctx.font = 'bold 34px Georgia, serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('VEDIC SHANTI • SANKALP CERTIFICATE', 450, 120);
-
-      ctx.font = '20px sans-serif';
-      ctx.fillStyle = '#B87333';
-      ctx.fillText('Consecrated Remedial Animal Seva & Vidya Dāna', 450, 165);
-
       const name = document.getElementById('orderFullName').value.trim() || 'Sacred Seeker';
-      ctx.fillStyle = '#2D2723';
-      ctx.font = 'italic 26px Georgia, serif';
-      ctx.fillText(`Consecrated for: ${name}`, 450, 260);
+      const gotra = document.getElementById('orderGotra').value.trim() || 'Kashyapa (Universal)';
+      const rashi = document.getElementById('orderRashi').value.trim() || 'Universal';
+      const pkgTitle = activePackage ? activePackage.title : 'Pancha Mahayajna Seva';
+      const planet = (activePackage && activePackage.planet) ? activePackage.planet : 'Universal Planetary Harmony';
+      const animal = (activePackage && activePackage.animal) ? activePackage.animal : 'Cows, Dogs, Crows & Wild Birds';
+      const offering = (activePackage && activePackage.offering) ? activePackage.offering : 'Sattvic grains, jaggery & clean water at sunrise';
+      const mantra = (activePackage && activePackage.mantra) ? activePackage.mantra : 'ॐ सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः';
+      const refText = document.getElementById('confirmedPaymentRef')?.innerText || `Sankalp ID: VS_${Date.now()}`;
+      const todayStr = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
 
-      ctx.font = '18px sans-serif';
-      ctx.fillText(activePackage ? activePackage.title : 'Pancha Mahayajna Seva', 450, 315);
+      // Royal Temple Silk & Saffron Parchment Background
+      const bgGrad = ctx.createLinearGradient(0, 0, 1200, 900);
+      bgGrad.addColorStop(0, '#FDF7EA');
+      bgGrad.addColorStop(0.5, '#FFFDF9');
+      bgGrad.addColorStop(1, '#F6E6C9');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 1200, 900);
 
+      // Top & Bottom Crimson Temple Bands
+      ctx.fillStyle = '#6B1D1D';
+      ctx.fillRect(24, 24, 1152, 14);
+      ctx.fillRect(24, 862, 1152, 14);
+
+      // Center Sri Yantra / Lotus Mandala Watermark
+      ctx.save();
+      ctx.translate(600, 465);
+      ctx.strokeStyle = 'rgba(184, 115, 51, 0.09)';
+      ctx.lineWidth = 2;
+      for (let r = 80; r <= 270; r += 48) {
+        ctx.beginPath();
+        ctx.arc(0, 0, r, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      for (let i = 0; i < 16; i++) {
+        ctx.rotate((Math.PI * 2) / 16);
+        ctx.beginPath();
+        ctx.ellipse(0, -155, 26, 100, 0, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      ctx.fillStyle = 'rgba(107, 29, 29, 0.06)';
+      ctx.font = 'bold 190px Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('ॐ', 0, 10);
+      ctx.restore();
+
+      // Double Ornate Gold Frame
+      const goldGrad = ctx.createLinearGradient(0, 0, 1200, 900);
+      goldGrad.addColorStop(0, '#9C5A1E');
+      goldGrad.addColorStop(0.5, '#D4A359');
+      goldGrad.addColorStop(1, '#8C4E16');
+
+      ctx.strokeStyle = goldGrad;
+      ctx.lineWidth = 8;
+      ctx.strokeRect(24, 24, 1152, 852);
+      ctx.lineWidth = 2;
+      ctx.strokeRect(42, 42, 1116, 816);
+
+      // Sacred Sanskrit Invocation & Brand Title
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#6B1D1D';
+      ctx.font = 'bold 18px Georgia, serif';
+      ctx.fillText('॥ श्री गणेशाय नमः  •  शुभमस्तु  •  हरिः ॐ तत् सत् ॥', 600, 88);
+
+      ctx.fillStyle = '#241E1A';
+      ctx.font = 'bold 42px Georgia, serif';
+      ctx.fillText('VEDIC SHANTI', 600, 140);
+
+      ctx.fillStyle = '#B87333';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.fillText('CONSECRATED DIGITAL SANKALP SCROLL & MANTRA BLESSING', 600, 172);
+
+      // Seeker Sankalp Declaration
+      ctx.fillStyle = '#5A4E44';
+      ctx.font = 'italic 20px Georgia, serif';
+      ctx.fillText('This sacred certificate affirms that a personalized sunrise Sankalp is consecrated for', 600, 218);
+
+      ctx.fillStyle = '#6B1D1D';
+      ctx.font = 'bold italic 44px Georgia, serif';
+      ctx.fillText(name, 600, 274);
+
+      // Gotra & Rashi Banner
+      ctx.fillStyle = 'rgba(107, 29, 29, 0.08)';
+      ctx.fillRect(280, 296, 640, 36);
+      ctx.fillStyle = '#4A1818';
+      ctx.font = 'bold 17px sans-serif';
+      ctx.fillText(`Gotra: ${gotra}    •    Rashi: ${rashi}`, 600, 320);
+
+      // Full Seva & Sankalp Details Box
+      ctx.fillStyle = 'rgba(255, 253, 249, 0.88)';
+      ctx.strokeStyle = '#D4A373';
+      ctx.lineWidth = 1.5;
+      ctx.fillRect(110, 352, 980, 156);
+      ctx.strokeRect(110, 352, 980, 156);
+
+      ctx.fillStyle = '#241E1A';
+      ctx.font = 'bold 23px Georgia, serif';
+      ctx.fillText(pkgTitle, 600, 388);
+
+      ctx.fillStyle = '#8C5219';
+      ctx.font = '600 16px sans-serif';
+      ctx.fillText(`Planetary Alignment: ${planet}`, 600, 418);
+
+      ctx.fillStyle = '#3D352E';
       ctx.font = '15px sans-serif';
-      ctx.fillStyle = '#666';
-      ctx.fillText('Follow daily morning updates: @vedicshanti_official', 450, 480);
+      ctx.fillText(`Sacred Seva: ${animal} — ${offering}`, 600, 446);
+
+      let danaList = [];
+      if (vidyaDonationAmount > 0) danaList.push(`Vidya Dāna: ₹${vidyaDonationAmount.toLocaleString('en-IN')}`);
+      if (annaDonationAmount > 0) danaList.push(`Anna Dāna: ₹${annaDonationAmount.toLocaleString('en-IN')}`);
+      ctx.fillStyle = '#1E5631';
+      ctx.font = 'bold 15px sans-serif';
+      ctx.fillText(
+        danaList.length > 0
+          ? `✦ Mahadāna Included: ${danaList.join('  |  ')} ✦`
+          : '✦ Consecrated with 432 Hz Vedic Resonance & Sunrise Prayers ✦',
+        600,
+        482
+      );
+
+      // Highlighted Consecrated Mantra Box
+      ctx.fillStyle = '#FEF6E6';
+      ctx.strokeStyle = '#B87333';
+      ctx.lineWidth = 2;
+      ctx.fillRect(110, 526, 980, 96);
+      ctx.strokeRect(110, 526, 980, 96);
+
+      ctx.fillStyle = '#9C5A1E';
+      ctx.font = 'bold 13px sans-serif';
+      ctx.fillText('YOUR CONSECRATED MANTRA (CHANT 108 TIMES DAILY)', 600, 554);
+
+      ctx.fillStyle = '#2D1A0E';
+      ctx.font = 'bold 21px Georgia, serif';
+      ctx.fillText(mantra, 600, 592);
+
+      // Footer Metadata & Embossed Gold Temple Seal
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#4A3F37';
+      ctx.font = '600 15px sans-serif';
+      ctx.fillText(`Date of Consecration: ${todayStr}`, 110, 685);
+      ctx.fillText(refText, 110, 713);
+      ctx.fillStyle = '#6B1D1D';
+      ctx.fillText('Daily Sunrise Seva Proofs: @vedicshanti_official', 110, 743);
+      ctx.fillStyle = '#7A6E65';
+      ctx.font = '14px sans-serif';
+      ctx.fillText('https://vedic-shanti-lovat.vercel.app', 110, 770);
+
+      // Gold Temple Seal (Bottom Right)
+      ctx.save();
+      ctx.translate(1010, 725);
+      const sealGrad = ctx.createRadialGradient(-15, -15, 10, 0, 0, 74);
+      sealGrad.addColorStop(0, '#F3D08A');
+      sealGrad.addColorStop(0.6, '#C4833B');
+      sealGrad.addColorStop(1, '#7A3E0E');
+
+      ctx.fillStyle = sealGrad;
+      ctx.beginPath();
+      ctx.arc(0, 0, 70, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#FFFDF8';
+      ctx.lineWidth = 2.5;
+      ctx.setLineDash([5, 4]);
+      ctx.beginPath();
+      ctx.arc(0, 0, 58, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = '#FFFDF8';
+      ctx.textAlign = 'center';
+      ctx.font = 'bold 12px sans-serif';
+      ctx.fillText('VEDIC SHANTI', 0, -14);
+      ctx.font = 'bold 18px Georgia, serif';
+      ctx.fillText('ॐ', 0, 8);
+      ctx.font = 'bold 10px sans-serif';
+      ctx.fillText('SANKALP VERIFIED', 0, 27);
+      ctx.restore();
 
       const link = document.createElement('a');
-      link.download = 'Vedic-Shanti-Sankalp-Certificate.png';
-      link.href = canvas.toDataURL();
+      link.download = `Vedic-Shanti-Sankalp-${name.replace(/\s+/g, '-')}.png`;
+      link.href = canvas.toDataURL('image/png');
       link.click();
     }
 
+    // --- 2. Multi-Page Printable Sadhana Manual (5-Page PDF Guide) ---
     function downloadSevaGuidePdf() {
-      window.print();
+      const name = document.getElementById('orderFullName').value.trim() || 'Sacred Seeker';
+      const gotra = document.getElementById('orderGotra').value.trim() || 'Kashyapa (Universal)';
+      const rashi = document.getElementById('orderRashi').value.trim() || 'Universal';
+      const pkgTitle = activePackage ? activePackage.title : 'Pancha Mahayajna Seva';
+      const planet = (activePackage && activePackage.planet) ? activePackage.planet : 'Universal Planetary & Ancestral Harmony';
+      const animal = (activePackage && activePackage.animal) ? activePackage.animal : 'Cows, Dogs, Crows & Wild Birds';
+      const offering = (activePackage && activePackage.offering) ? activePackage.offering : 'Sattvic grains, jaggery & clean water at sunrise';
+      const mantra = (activePackage && activePackage.mantra) ? activePackage.mantra : 'ॐ सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः';
+      const refText = document.getElementById('confirmedPaymentRef')?.innerText || `Sankalp ID: VS_${Date.now()}`;
+      const todayStr = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+      const poojaSteps = (activePackage && activePackage.homePooja) ? activePackage.homePooja : [
+        'Take a morning bath and light a pure ghee or sesame oil diya facing East or North.',
+        'Keep a small copper or brass bowl of clean water beside the lamp while chanting your mantra 108 times.',
+        'Offer a pinch of jaggery, soaked grains, or a small portion of your first meal to birds or animals near your home.',
+        'Pour the energized water at the root of a Tulsi plant or clean tree.'
+      ];
+
+      const printWin = window.open('', '_blank');
+      printWin.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Vedic Shanti - 5-Page Animal Seva & Sankalp Guide</title>
+          <style>
+            body { font-family: Georgia, serif; color: #2D2723; background: #FAF6EE; margin: 0; padding: 0; }
+            .page { page-break-after: always; padding: 48px; min-height: 90vh; box-sizing: border-box; border: 6px double #B87333; margin: 16px; background: #FFFDF9; }
+            .page:last-child { page-break-after: auto; }
+            h1, h2 { color: #B87333; text-align: center; }
+            .meta { text-align: center; font-size: 14px; color: #555; margin-bottom: 24px; }
+            .box { background: #FAF6EE; border: 1px solid #D4A373; border-radius: 10px; padding: 18px; margin: 16px 0; line-height: 1.7; }
+            .mantra-highlight { background: #FEF6E6; border-left: 5px solid #B87333; padding: 16px; margin: 18px 0; text-align: center; font-size: 17px; font-weight: bold; color: #5C3A18; }
+            table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; }
+            th, td { border: 1px solid #D4A373; padding: 10px; text-align: left; }
+            th { background: #FAF6EE; color: #5C3A18; }
+            .grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 20px; }
+            .day { border: 1px solid #B87333; padding: 14px 6px; text-align: center; font-size: 12px; border-radius: 6px; }
+          </style>
+        </head>
+        <body>
+          <div class="page">
+            <h1>VEDIC SHANTI</h1>
+            <h2>Official Sankalp Certificate & 5-Page Sadhana Guide</h2>
+            <p class="meta">Grounded in <em>Brihat Parashara Hora Shastra</em> • ${todayStr}</p>
+            <div class="box">
+              <p><strong>Consecrated Seeker:</strong> ${name}</p>
+              <p><strong>Gotra:</strong> ${gotra} &nbsp;|&nbsp; <strong>Rashi:</strong> ${rashi}</p>
+              <p><strong>Reference:</strong> ${refText}</p>
+              <p><strong>Chosen Remedy:</strong> ${pkgTitle}</p>
+              ${vidyaDonationAmount > 0 ? `<p><strong>Vidya Dāna Add-On:</strong> ₹${vidyaDonationAmount.toLocaleString('en-IN')}</p>` : ''}
+              ${annaDonationAmount > 0 ? `<p><strong>Anna Dāna Add-On:</strong> ₹${annaDonationAmount.toLocaleString('en-IN')}</p>` : ''}
+              <p><strong>Planetary Alignment:</strong> ${planet}</p>
+              <p><strong>Sacred Creature & Offering:</strong> ${animal} — ${offering}</p>
+            </div>
+            <div class="mantra-highlight">
+              <div style="font-size:11px; letter-spacing:1.5px; color:#9C5A1E; font-family:sans-serif; margin-bottom:6px;">CONSECRATED SANKALP MANTRA</div>
+              ${mantra}
+            </div>
+            <p style="text-align:center; margin-top:30px; font-size:13px; color:#666;">Official Morning Seva Proofs: @vedicshanti_official</p>
+          </div>
+          <div class="page">
+            <h2>Page 2: Pancha Mahayajna & Planetary Animal Seva</h2>
+            <p>In classical Jyotish, feeding creatures aligned with specific Grahas pacifies karmic afflictions without friction:</p>
+            <table>
+              <tr><th>Planet (Graha)</th><th>Sacred Animal</th><th>Prescribed Morning Offering</th></tr>
+              <tr><td>Sun (Surya)</td><td>Wild Birds & Cows</td><td>Wheat grains & jaggery before 8:00 AM</td></tr>
+              <tr><td>Moon (Chandra)</td><td>Cows & Water Fish</td><td>Rice-milk dough balls on Mondays</td></tr>
+              <tr><td>Mars (Mangal)</td><td>Monkeys & Stray Dogs</td><td>Roasted chana & organic jaggery on Tuesdays</td></tr>
+              <tr><td>Mercury (Budha)</td><td>Green Parrots & Birds</td><td>Soaked green moong & Vidya Dāna on Wednesdays</td></tr>
+              <tr><td>Jupiter (Guru)</td><td>Desi Indian Cows</td><td>Soaked yellow chana dal & turmeric roti on Thursdays</td></tr>
+              <tr><td>Venus (Shukra)</td><td>White Cows & Doves</td><td>Sweetened green fodder & millets on Fridays</td></tr>
+              <tr><td>Saturn (Shani)</td><td>Black Dogs & Crows</td><td>Mustard-oil brushed roti & black sesame on Saturdays</td></tr>
+              <tr><td>Rahu & Ketu</td><td>Crows, Fish & Ants</td><td>Flour-sugar pellets (Kasari) & sesame rice</td></tr>
+            </table>
+          </div>
+          <div class="page">
+            <h2>Page 3: Your Consecrated Mantra & 108 Japa Protocol</h2>
+            <div class="mantra-highlight">
+              ${mantra}
+            </div>
+            <div class="box">
+              <p><strong>1. Best Time:</strong> Brahma Muhurta or within 90 minutes after sunrise, strictly avoiding daily Rahu Kaalam.</p>
+              <p><strong>2. Posture & Breath:</strong> Sit facing East or North on a clean cotton or wool mat. Take 5 slow breaths before beginning.</p>
+              <p><strong>3. 108 Repetitions:</strong> Chant 108 times using your Rudraksha/Tulasi mala or the on-site 108 Japa Counter while listening to the 432 Hz drone.</p>
+            </div>
+          </div>
+          <div class="page">
+            <h2>Page 4: Home Altar Remedy Pooja Steps</h2>
+            <div class="box">
+              <ol style="line-height:1.9;">
+                ${poojaSteps.map(step => `<li>${step}</li>`).join('')}
+              </ol>
+            </div>
+            <p style="font-size:13px; color:#555;"><em>Note: If a day is missed due to travel or illness, resume the following sunrise and add one extra day at the end of your 21-day cycle.</em></p>
+          </div>
+          <div class="page">
+            <h2>Page 5: 21-Day Sunrise Seva Tracker</h2>
+            <p>Mark each day after completing your morning mantra and animal feeding:</p>
+            <div class="grid">
+              ${Array.from({ length: 21 }, (_, i) => `<div class="day">Day ${i + 1}<br><br>[ &nbsp; ]</div>`).join('')}
+            </div>
+            <p style="text-align:center; margin-top:40px; font-size:13px; color:#B87333;"><strong>Vedic Shanti • May Peace Prevail Across All Beings</strong></p>
+          </div>
+          <script>window.onload = function() { window.print(); };<\/script>
+        </body>
+        </html>
+      `);
+      printWin.document.close();
     }
 
     // --- Initialize Page ---
