@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Vedic Shanti | Classical Remedial Upayas & Sacred Seva</title>
+  <title>Vedic Shanti | Classical Remedial Upayas, Relationship & Marriage Kundli</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -69,7 +69,6 @@
       }
     }
 
-    /* Hide scrollbar for clean horizontal mobile swipe */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -78,7 +77,6 @@
       scrollbar-width: none;
     }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -94,7 +92,6 @@
       background: #B87333;
     }
 
-    /* Soft Tone Pills */
     .pill-active {
       background: linear-gradient(135deg, #B87333 0%, #D4A373 100%);
       color: #FFFFFF !important;
@@ -104,7 +101,7 @@
 </head>
 <body class="min-h-screen text-stone-800 antialiased flex flex-col justify-between selection:bg-amber-100 selection:text-amber-900">
 
-  <!-- Top Announcement Bar & Responsive Header (Mobile + Desktop) -->
+  <!-- Top Announcement Bar & Responsive Header -->
   <header class="w-full border-b border-stone-200/80 bg-white/85 backdrop-blur-md sticky top-0 z-40 transition-all">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
       
@@ -147,13 +144,12 @@
               <h1 class="font-cinzel text-base sm:text-xl font-bold tracking-wide text-stone-900 truncate">VEDIC SHANTI</h1>
               <span class="hidden xs:inline-block text-[10px] px-2 py-0.5 rounded-full bg-amber-100/80 text-amber-900 border border-amber-200/60 font-semibold shrink-0">वैदिक शांति</span>
             </div>
-            <p class="text-[10px] sm:text-[11px] text-stone-500 tracking-wide truncate">Classical Remedial Upayas & Seva</p>
+            <p class="text-[10px] sm:text-[11px] text-stone-500 tracking-wide truncate">Relationship Clarity, Marriage Kundli &amp; Seva</p>
           </div>
         </div>
 
         <!-- Controls: Language, Currency, Desktop Tools & My Kit -->
         <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-          <!-- Language Selector -->
           <select id="languageSelector" aria-label="Select Language" onchange="changeLanguage(this.value)" class="text-[11px] sm:text-xs rounded-xl border border-amber-200/80 bg-amber-50/60 px-2 py-1.5 text-amber-950 font-semibold hover:border-amber-400 focus:outline-none cursor-pointer max-w-[92px] sm:max-w-none">
             <option value="en">🌐 EN</option>
             <option value="hi">हिन्दी</option>
@@ -172,7 +168,6 @@
             <option value="pt">Português</option>
           </select>
 
-          <!-- Currency Selector -->
           <select id="currencySelector" aria-label="Select Currency" onchange="changeCurrency(this.value)" class="text-[11px] sm:text-xs rounded-xl border border-stone-200 bg-white/90 px-2 py-1.5 text-stone-700 font-medium hover:border-amber-400 focus:outline-none cursor-pointer">
             <option value="INR">₹ INR</option>
             <option value="USD">$ USD</option>
@@ -181,10 +176,9 @@
             <option value="AED">AED</option>
           </select>
 
-          <!-- Desktop Tool Buttons -->
           <button onclick="openRashiModal()" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-amber-200/80 bg-amber-50/70 hover:bg-amber-100/80 text-amber-900 text-xs font-semibold transition-all">
             <i data-lucide="compass" class="w-3.5 h-3.5 text-amber-700"></i>
-            <span>Moon Sign & Totem</span>
+            <span>Moon Sign &amp; Totem</span>
           </button>
 
           <button onclick="openAiAdvisorModal()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-stone-200 bg-white hover:bg-stone-50 text-stone-800 text-xs font-semibold shadow-2xs transition-all">
@@ -192,7 +186,6 @@
             <span>Jyotish Guide</span>
           </button>
 
-          <!-- My Kit Button (Always Visible) -->
           <button onclick="openKitRetrievalModal()" class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-[11px] sm:text-xs font-medium shadow-sm transition-all">
             <i data-lucide="download-cloud" class="w-3.5 h-3.5"></i>
             <span>My Kit</span>
@@ -200,14 +193,22 @@
         </div>
       </div>
 
-      <!-- Mobile Quick-Access Tools Strip (Visible on Phones & Tablets) -->
+      <!-- Mobile Quick-Access Tools Strip -->
       <div class="lg:hidden py-2 border-t border-stone-100 flex items-center gap-2 overflow-x-auto no-scrollbar text-[11px] font-semibold">
+        <button onclick="filterPackages('love')" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-pink-50 border border-pink-200/80 text-pink-900">
+          <i data-lucide="sparkles" class="w-3 h-3 text-pink-700"></i>
+          <span>GF Compatibility</span>
+        </button>
+        <button onclick="filterPackages('kundli')" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-rose-50 border border-rose-200/80 text-rose-900">
+          <i data-lucide="heart" class="w-3 h-3 text-rose-700"></i>
+          <span>Marriage Kundli</span>
+        </button>
         <button onclick="openRashiModal()" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 border border-amber-200/80 text-amber-900">
           <i data-lucide="compass" class="w-3 h-3 text-amber-700"></i>
-          <span>Moon Sign & Totem</span>
+          <span>Moon Sign &amp; Totem</span>
         </button>
         <button onclick="openAiAdvisorModal()" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-50 border border-stone-200 text-stone-800">
-          <i data-lucide="sparkles" class="w-3 h-3 text-amber-600"></i>
+          <i data-lucide="message-circle" class="w-3 h-3 text-amber-600"></i>
           <span>Jyotish Guide</span>
         </button>
         <button onclick="openTrackerModal()" class="sm:hidden shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900">
@@ -224,35 +225,72 @@
     <section class="relative pt-8 sm:pt-12 pb-10 sm:pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
       <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/70 text-amber-900 text-[11px] sm:text-xs font-semibold mb-4 sm:mb-5 shadow-2xs">
         <i data-lucide="sun" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
-        <span id="heroBadgeText">Pancha Mahayajna • Animal Feeding as Planetary Dissolution</span>
+        <span id="heroBadgeText">Classical Jyotish • Love Compatibility, Marriage Kundli &amp; Sacred Seva</span>
       </div>
       
       <h2 id="heroTitleText" class="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-stone-900 leading-tight">
-        Dissolve Karmic Bondage Through Ancient <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Animal Seva</span>
+        Relationship Clarity, <span class="text-rose-800">Marriage Kundli</span> &amp; Ancient <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Animal Seva</span>
       </h2>
       
       <p id="heroSubtitleText" class="mt-3 sm:mt-4 text-stone-600 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
-        Grounded in <em>Brihat Parashara Hora Shastra</em>. Feed cows for Venus & Jupiter, black dogs for Saturn & Bhairava, and crows for Rahu & Pitris. Consecrate your intention with sacred 432 Hz resonance.
+        Grounded in <em>Brihat Parashara Hora Shastra</em>. Check if your relationship with your girlfriend/partner is astrologically aligned with tailored remedies, explore 36-Gun Marriage Kundli matching, and consecrate morning seva.
       </p>
 
-      <!-- Responsive Category Filter Pills (Swipeable on Mobile, Centered on Desktop) -->
+      <!-- Responsive Category Filter Pills -->
       <div class="mt-6 sm:mt-8 flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs font-medium">
-        <button onclick="filterPackages('all')" id="tab-all" class="pill-btn pill-active shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-stone-200 transition-all">All Remedies</button>
-        <button onclick="filterPackages('love')" id="tab-love" class="pill-btn shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-stone-200 bg-white/80 hover:bg-rose-50 text-stone-700 transition-all">Prem Shanti (Love)</button>
-        <button onclick="filterPackages('planetary')" id="tab-planetary" class="pill-btn shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-stone-200 bg-white/80 hover:bg-amber-50 text-stone-700 transition-all">Shani, Mangal & Rahu</button>
-        <button onclick="filterPackages('wealth')" id="tab-wealth" class="pill-btn shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-stone-200 bg-white/80 hover:bg-emerald-50 text-stone-700 transition-all">Guru & Shukra Wealth</button>
-        <button onclick="filterPackages('lineage')" id="tab-lineage" class="pill-btn shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-stone-200 bg-white/80 hover:bg-stone-100 text-stone-700 transition-all">Pitri & Lineage Peace</button>
+        <button onclick="filterPackages('all')" id="tab-all" class="pill-btn pill-active shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-stone-200 transition-all">All Remedies &amp; Kundli</button>
+        <button onclick="filterPackages('love')" id="tab-love" class="pill-btn shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-pink-200 bg-pink-50/90 hover:bg-pink-100 text-pink-900 font-semibold transition-all">💕 GF &amp; Love Compatibility</button>
+        <button onclick="filterPackages('kundli')" id="tab-kundli" class="pill-btn shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-rose-200 bg-rose-50/90 hover:bg-rose-100 text-rose-900 font-semibold transition-all">💍 Marriage Kundli</button>
+        <button onclick="filterPackages('planetary')" id="tab-planetary" class="pill-btn shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-stone-200 bg-white/80 hover:bg-amber-50 text-stone-700 transition-all">Shani, Mangal &amp; Rahu</button>
+        <button onclick="filterPackages('wealth')" id="tab-wealth" class="pill-btn shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-stone-200 bg-white/80 hover:bg-emerald-50 text-stone-700 transition-all">Guru &amp; Shukra Wealth</button>
+        <button onclick="filterPackages('lineage')" id="tab-lineage" class="pill-btn shrink-0 px-3.5 sm:px-4 py-2 rounded-xl border border-stone-200 bg-white/80 hover:bg-stone-100 text-stone-700 transition-all">Pitri &amp; Lineage Peace</button>
       </div>
     </section>
 
-    <!-- Packages / Remedies Grid -->
+    <!-- Packages / Remedies & Compatibility Grid -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
       <div id="packagesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         <!-- Dynamically Rendered Via JavaScript -->
       </div>
     </section>
 
-    <!-- Sacred Dāna Offerings: Vidya Dāna & Anna Dāna (Responsive 4x2 Button Grid on Mobile) -->
+    <!-- Dedicated Relationship & Marriage Kundli Banner Showcase -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 sm:mb-16">
+      <div class="pastel-card p-6 sm:p-8 rounded-3xl border border-rose-200/80 bg-gradient-to-r from-pink-50/80 via-white/90 to-rose-50/70">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-100/90 text-pink-950 text-xs font-semibold mb-3">
+              <i data-lucide="heart" class="w-3.5 h-3.5 text-pink-700"></i>
+              <span>Love &amp; Vivah Jyotish • Girlfriend Compatibility + 36-Gun Milan</span>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-stone-900">Will Your Relationship Work? Love Compatibility &amp; Marriage Kundli</h3>
+            <p class="mt-2 text-stone-600 text-xs sm:text-sm leading-relaxed">
+              Submit both partners' Birth Date, Time, and Place to check Venus-Moon compatibility, communication friction, Nadi/Bhakoot alignment, and Mangal Dosha—complete with classical remedies and sunrise Sankalp.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5 w-full lg:w-72 shrink-0">
+            <button onclick="openCheckoutModal('gf-relationship-check')" class="w-full px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-700 to-rose-700 hover:from-pink-800 hover:to-rose-800 text-white text-xs font-bold flex items-center justify-between shadow-sm transition-all">
+              <span>💕 GF Relationship Check + Remedy</span>
+              <span class="font-cinzel" data-inr="299">₹299</span>
+            </button>
+            <button onclick="openCheckoutModal('breakup-patchup-clarity')" class="w-full px-4 py-2.5 rounded-xl bg-white hover:bg-pink-50 border border-pink-300 text-pink-950 text-xs font-bold flex items-center justify-between transition-all">
+              <span>Situationship / Patch-Up + Remedy</span>
+              <span class="font-cinzel text-amber-800" data-inr="399">₹399</span>
+            </button>
+            <button onclick="openCheckoutModal('kundli-gun-milan')" class="w-full px-4 py-2.5 rounded-xl bg-white hover:bg-rose-50 border border-rose-300 text-rose-950 text-xs font-bold flex items-center justify-between transition-all">
+              <span>💍 36-Gun Marriage Kundli Milan</span>
+              <span class="font-cinzel text-amber-800" data-inr="499">₹499</span>
+            </button>
+            <button onclick="openCheckoutModal('kundli-royal-dossier')" class="w-full px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-800 to-amber-800 hover:from-rose-900 hover:to-amber-900 text-white text-xs font-bold flex items-center justify-between shadow-sm transition-all">
+              <span>Royal Vivah Dossier</span>
+              <span class="font-cinzel" data-inr="1199">₹1,199</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sacred Dāna Offerings: Vidya Dāna & Anna Dāna -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 sm:mb-16">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
         
@@ -261,7 +299,7 @@
           <div>
             <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100/80 text-emerald-900 text-[11px] sm:text-xs font-semibold mb-2.5">
               <i data-lucide="book-open" class="w-3.5 h-3.5 text-emerald-700"></i>
-              <span>Saraswati & Budha Upaya • Vidya Dāna</span>
+              <span>Saraswati &amp; Budha Upaya • Vidya Dāna</span>
             </div>
             <h3 id="vidyaTitleText" class="font-serif text-lg sm:text-xl font-bold text-stone-900">Vidya Dāna (Education Offering)</h3>
             <p id="vidyaDescText" class="mt-1.5 text-stone-600 text-xs leading-relaxed">
@@ -297,7 +335,7 @@
           <div>
             <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100/90 text-amber-900 text-[11px] sm:text-xs font-semibold mb-2.5">
               <i data-lucide="utensils" class="w-3.5 h-3.5 text-amber-700"></i>
-              <span>Annapoorna & Pitri Mahadāna • Anna Dāna</span>
+              <span>Annapoorna &amp; Pitri Mahadāna • Anna Dāna</span>
             </div>
             <h3 id="annaTitleText" class="font-serif text-lg sm:text-xl font-bold text-stone-900">Anna Dāna (Sacred Food Offering)</h3>
             <p id="annaDescText" class="mt-1.5 text-stone-600 text-xs leading-relaxed">
@@ -334,7 +372,7 @@
     <!-- Interactive Spiritual Tools: 108 Mala & 432Hz Drone Synth -->
     <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
       <div class="text-center mb-6 sm:mb-8">
-        <h3 class="font-serif text-xl sm:text-2xl font-bold text-stone-900">Sadhana Audio & 108 Japa Sanctuary</h3>
+        <h3 class="font-serif text-xl sm:text-2xl font-bold text-stone-900">Sadhana Audio &amp; 108 Japa Sanctuary</h3>
         <p class="text-xs text-stone-500 mt-1">Immerse in pure 432 Hz harmonic drone frequencies while tracking your sacred daily japa.</p>
       </div>
 
@@ -351,7 +389,6 @@
               <span id="synthStatusBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600 font-medium">Ready</span>
             </div>
 
-            <!-- Canvas Frequency Visualizer -->
             <div class="relative w-full h-28 sm:h-32 rounded-2xl bg-stone-900 overflow-hidden shadow-inner flex items-center justify-center">
               <canvas id="visualizerCanvas" width="500" height="150" class="w-full h-full"></canvas>
               <div id="visualizerIdleText" class="absolute text-stone-400 text-xs flex items-center gap-1.5">
@@ -360,7 +397,6 @@
               </div>
             </div>
 
-            <!-- Audio Layer Controls -->
             <div class="mt-4 grid grid-cols-3 gap-2">
               <button onclick="setSoundscape('tanpura')" id="layer-tanpura" class="layer-pill px-2 py-2 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-xs font-semibold">Tanpura</button>
               <button onclick="setSoundscape('ganga')" id="layer-ganga" class="layer-pill px-2 py-2 rounded-xl border border-stone-200 bg-white text-stone-700 text-xs font-semibold">River Ganga</button>
@@ -368,7 +404,6 @@
             </div>
           </div>
 
-          <!-- Playback Actions -->
           <div class="mt-6 pt-4 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3">
             <button id="toggleAudioBtn" onclick="toggleSynthAudio()" class="px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white font-semibold text-xs flex items-center gap-2 shadow-sm transition-all">
               <i data-lucide="play" id="audioBtnIcon" class="w-3.5 h-3.5"></i>
@@ -395,7 +430,6 @@
               </button>
             </div>
 
-            <!-- Mala Bead Counter Orb -->
             <div class="my-3 flex flex-col items-center">
               <button onclick="incrementJapa()" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-amber-600 via-amber-700 to-amber-900 text-white shadow-xl flex flex-col items-center justify-center border-4 border-amber-200/60 active:scale-95 transition-transform">
                 <span id="japaCountDisplay" class="font-cinzel text-3xl font-bold">0</span>
@@ -405,7 +439,6 @@
             </div>
           </div>
 
-          <!-- Active Mantra Snippet -->
           <div class="w-full mt-4 p-3 rounded-2xl bg-amber-50/60 border border-amber-200/40 text-stone-800 text-xs">
             <span class="font-semibold text-amber-900">Active Chant:</span> 
             <span id="activeMantraText" class="italic ml-1">ॐ शं शनैश्चराय नमः (Om Sham Shanaishcharaya Namah)</span>
@@ -428,7 +461,7 @@
             <span class="font-cinzel text-base font-bold text-stone-900">VEDIC SHANTI</span>
           </div>
           <p class="text-xs text-stone-500 leading-relaxed max-w-sm">
-            Rooted in classical Jyotish tradition. Consecrated remedial upayas, sacred animal seva, Vidya Dāna, and Anna Dāna to dissolve past karmic impressions and foster peaceful living.
+            Rooted in classical Jyotish tradition. Relationship compatibility &amp; remedies, 36-Gun Marriage Kundli matching, sacred animal seva, Vidya Dāna, and Anna Dāna.
           </p>
           <div class="mt-4 flex flex-wrap items-center gap-2.5">
             <a href="https://instagram.com/vedicshanti_official" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-pink-200 bg-pink-50 text-pink-900 font-semibold transition-all">
@@ -444,23 +477,23 @@
 
         <!-- Classical Guidelines -->
         <div>
-          <h4 class="font-bold text-stone-900 uppercase tracking-wider text-[11px] mb-3">Vedic Guidelines</h4>
+          <h4 class="font-bold text-stone-900 uppercase tracking-wider text-[11px] mb-3">Vedic Offerings</h4>
           <ul class="space-y-2 text-stone-500">
-            <li>• Pancha Mahayajna offerings</li>
-            <li>• Vidya Dāna & Anna Dāna</li>
-            <li>• Cord-cutting & Prem Shanti</li>
-            <li>• Saturn Sade Sati remedies</li>
+            <li>• GF &amp; Love Compatibility + Remedy</li>
+            <li>• Marriage Kundli &amp; Gun Milan</li>
+            <li>• Pancha Mahayajna Seva</li>
+            <li>• Vidya Dāna &amp; Anna Dāna</li>
           </ul>
         </div>
 
         <!-- Policies & Compliance -->
         <div>
-          <h4 class="font-bold text-stone-900 uppercase tracking-wider text-[11px] mb-3">Policies & Support</h4>
+          <h4 class="font-bold text-stone-900 uppercase tracking-wider text-[11px] mb-3">Policies &amp; Support</h4>
           <ul class="space-y-2 text-amber-900 font-medium">
             <li><button onclick="openPolicyModal('about')" class="hover:underline">About Us</button></li>
-            <li><button onclick="openPolicyModal('terms')" class="hover:underline">Terms & Conditions</button></li>
+            <li><button onclick="openPolicyModal('terms')" class="hover:underline">Terms &amp; Conditions</button></li>
             <li><button onclick="openPolicyModal('privacy')" class="hover:underline">Privacy Policy</button></li>
-            <li><button onclick="openPolicyModal('refund')" class="hover:underline">Refund & Cancellation Policy</button></li>
+            <li><button onclick="openPolicyModal('refund')" class="hover:underline">Refund &amp; Cancellation Policy</button></li>
             <li><button onclick="openPolicyModal('contact')" class="hover:underline">Contact Us</button></li>
           </ul>
         </div>
@@ -493,7 +526,7 @@
   <div id="rashiModal" class="fixed inset-0 z-50 bg-stone-950/40 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4">
     <div class="pastel-card bg-white p-5 sm:p-6 rounded-3xl max-w-xl w-full max-h-[85vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-3 border-b border-stone-100">
-        <h3 class="font-serif text-base sm:text-lg font-bold text-stone-900">Vedic Moon Sign & Animal Totems</h3>
+        <h3 class="font-serif text-base sm:text-lg font-bold text-stone-900">Vedic Moon Sign &amp; Animal Totems</h3>
         <button onclick="closeRashiModal()" class="p-1.5 rounded-lg hover:bg-stone-100 text-stone-400 hover:text-stone-700">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
@@ -536,14 +569,14 @@
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
-      <p class="text-xs text-stone-500 mt-2">Ask questions regarding missed seva days, fast-breaking rules, or Rahu Kaalam timing:</p>
+      <p class="text-xs text-stone-500 mt-2">Ask questions regarding relationship compatibility, Marriage Kundli, or morning remedies:</p>
       <div id="aiChatBox" class="mt-4 p-3 rounded-2xl bg-stone-50 border border-stone-200/70 h-44 sm:h-48 overflow-y-auto space-y-2 text-xs">
         <div class="p-2.5 rounded-xl bg-amber-50/80 border border-amber-200/50 text-amber-950">
-          <strong>Vedic Guide:</strong> Hari Om! Which planetary affliction or animal offering do you wish to ask about today?
+          <strong>Vedic Guide:</strong> Hari Om! Ask about relationship compatibility with your girlfriend/partner, Marriage Kundli Gun Milan, or planetary remedies.
         </div>
       </div>
       <div class="mt-4 flex gap-2">
-        <input type="text" id="aiInput" placeholder="e.g. What if I missed Day 4?" class="flex-grow px-3.5 py-2 text-xs rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500/20">
+        <input type="text" id="aiInput" placeholder="e.g. Which remedy helps relationship misunderstandings?" class="flex-grow px-3.5 py-2 text-xs rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500/20">
         <button onclick="sendAiMessage()" class="px-4 py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-semibold shrink-0">Ask</button>
       </div>
     </div>
@@ -553,21 +586,21 @@
   <div id="kitModal" class="fixed inset-0 z-50 bg-stone-950/40 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4">
     <div class="pastel-card bg-white p-5 sm:p-6 rounded-3xl max-w-md w-full">
       <div class="flex items-center justify-between pb-3 border-b border-stone-100">
-        <h3 class="font-serif text-base sm:text-lg font-bold text-stone-900">Retrieve Consecrated Kit</h3>
+        <h3 class="font-serif text-base sm:text-lg font-bold text-stone-900">Retrieve Consecrated Kit &amp; Report</h3>
         <button onclick="closeKitModal()" class="p-1.5 rounded-lg hover:bg-stone-100 text-stone-400 hover:text-stone-700">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
-      <p class="text-xs text-stone-500 mt-2">Enter your email or order reference to retrieve your downloadable audio, Yantra, and PDF guide:</p>
+      <p class="text-xs text-stone-500 mt-2">Enter your email address to retrieve your Relationship/Marriage Kundli report, Sankalp scroll, or PDF guide:</p>
       <div class="mt-4 space-y-3">
         <input type="email" id="retrieveEmail" placeholder="yourname@gmail.com" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-amber-500/20 focus:outline-none">
-        <button onclick="retrieveUserKit()" class="w-full py-2.5 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-xl text-xs shadow-sm transition-all">Find My Kit</button>
+        <button onclick="retrieveUserKit()" class="w-full py-2.5 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-xl text-xs shadow-sm transition-all">Find My Report / Kit</button>
       </div>
       <div id="retrieveResult" class="mt-3 text-xs text-stone-600"></div>
     </div>
   </div>
 
-  <!-- 5. Checkout & Consecration Modal -->
+  <!-- 5. Checkout & Consecration Modal (With Partner Birth Fields for Relationship & Marriage Kundli) -->
   <div id="checkoutModal" class="fixed inset-0 z-50 bg-stone-950/40 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4">
     <div class="pastel-card bg-white p-5 sm:p-6 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-3 border-b border-stone-100">
@@ -579,18 +612,48 @@
 
       <div class="mt-4 space-y-3 text-xs">
         <div>
-          <label class="block font-medium text-stone-700 mb-1">Your Full Name (For Morning Sankalp)</label>
+          <label class="block font-medium text-stone-700 mb-1">Your Full Name (Seeker / Primary Applicant)</label>
           <input type="text" id="orderFullName" placeholder="e.g. Ramesh Kumar" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500/20">
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label class="block font-medium text-stone-700 mb-1">Email Address (For Kit Delivery)</label>
+            <label class="block font-medium text-stone-700 mb-1">Email Address (For Report Delivery)</label>
             <input type="email" id="orderEmail" placeholder="ramesh@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500/20">
           </div>
           <div>
-            <label class="block font-medium text-stone-700 mb-1">Mobile Number (For Payment & SMS)</label>
+            <label class="block font-medium text-stone-700 mb-1">Mobile Number (For Payment &amp; WhatsApp)</label>
             <input type="tel" id="orderPhone" placeholder="e.g. 9876543210" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-amber-500/20">
+          </div>
+        </div>
+
+        <!-- Conditional Couple Birth Details (Shown for Both Relationship Compatibility & Marriage Kundli) -->
+        <div id="kundliBirthFields" class="hidden p-3.5 rounded-2xl bg-rose-50/75 border border-rose-200/80 space-y-3">
+          <div class="font-bold text-rose-950 flex items-center gap-1.5">
+            <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-700"></i>
+            <span>Couple Birth Details (For Compatibility &amp; Remedy Analysis)</span>
+          </div>
+
+          <!-- Partner 1 -->
+          <div class="space-y-2 pt-1 border-t border-rose-200/60">
+            <span class="text-[11px] font-bold text-rose-900 uppercase tracking-wider block">Your Details (Partner 1)</span>
+            <input type="text" id="p1Name" placeholder="Your Full Name" class="w-full px-3 py-2 rounded-xl border border-rose-200 bg-white focus:outline-none">
+            <div class="grid grid-cols-2 gap-2">
+              <input type="date" id="p1Dob" aria-label="Your Date of Birth" class="w-full px-2.5 py-2 rounded-xl border border-rose-200 bg-white text-stone-700 focus:outline-none">
+              <input type="time" id="p1Tob" aria-label="Your Time of Birth" class="w-full px-2.5 py-2 rounded-xl border border-rose-200 bg-white text-stone-700 focus:outline-none">
+            </div>
+            <input type="text" id="p1Pob" placeholder="Your Birth City &amp; State (e.g. Udupi, Karnataka)" class="w-full px-3 py-2 rounded-xl border border-rose-200 bg-white focus:outline-none">
+          </div>
+
+          <!-- Partner 2 -->
+          <div class="space-y-2 pt-2 border-t border-rose-200/60">
+            <span class="text-[11px] font-bold text-rose-900 uppercase tracking-wider block">Girlfriend / Partner Details (Partner 2)</span>
+            <input type="text" id="p2Name" placeholder="Girlfriend / Partner Full Name" class="w-full px-3 py-2 rounded-xl border border-rose-200 bg-white focus:outline-none">
+            <div class="grid grid-cols-2 gap-2">
+              <input type="date" id="p2Dob" aria-label="Partner Date of Birth" class="w-full px-2.5 py-2 rounded-xl border border-rose-200 bg-white text-stone-700 focus:outline-none">
+              <input type="time" id="p2Tob" aria-label="Partner Time of Birth (Optional if unknown)" class="w-full px-2.5 py-2 rounded-xl border border-rose-200 bg-white text-stone-700 focus:outline-none">
+            </div>
+            <input type="text" id="p2Pob" placeholder="Partner Birth City &amp; State (e.g. Bengaluru, Karnataka)" class="w-full px-3 py-2 rounded-xl border border-rose-200 bg-white focus:outline-none">
           </div>
         </div>
 
@@ -666,11 +729,10 @@
       </div>
       <h3 class="font-serif text-xl sm:text-2xl font-bold text-stone-900">Sankalp Consecrated</h3>
       <p class="text-xs text-stone-600 mt-2">
-        Your morning seva has been recorded into our prayers. A confirmation has been dispatched to your email address.
+        Your booking has been recorded into our prayers. Your personalized compatibility analysis &amp; remedy guide have been initiated to your email.
       </p>
       <p id="confirmedPaymentRef" class="text-[11px] font-mono text-amber-800 bg-amber-50/80 border border-amber-200/60 rounded-lg py-1 px-2.5 mt-2 inline-block hidden"></p>
 
-      <!-- Instant Download Buttons -->
       <div class="mt-6 space-y-2.5">
         <button onclick="downloadSankalpCertificate()" class="w-full py-3 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
           <i data-lucide="award" class="w-4 h-4"></i>
@@ -678,7 +740,7 @@
         </button>
         <button onclick="downloadSevaGuidePdf()" class="w-full py-3 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 rounded-xl text-xs font-semibold flex items-center justify-center gap-2">
           <i data-lucide="file-text" class="w-4 h-4"></i>
-          <span>Print 5-Page Animal Seva Guide (PDF)</span>
+          <span>Print 5-Page Remedy &amp; Compatibility Guide (PDF)</span>
         </button>
       </div>
 
@@ -693,7 +755,6 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // --- Cashfree Configuration ---
     const cashfree = typeof Cashfree !== 'undefined' ? Cashfree({ mode: 'production' }) : null;
 
     // --- Compliance Policies Data ---
@@ -701,27 +762,27 @@
       about: {
         title: 'About Us — Vedic Shanti',
         body: `
-          <p><strong>Vedic Shanti</strong> is an online spiritual seva and classical Jyotish remedial platform grounded in <em>Brihat Parashara Hora Shastra</em>. We facilitate personalized Sankalp consecrations, sunrise sacred animal feeding (Gau Seva, Shani/Bhairava Seva, Pitri Seva), Vidya Dāna, and Anna Dāna offerings across India.</p>
+          <p><strong>Vedic Shanti</strong> is an online spiritual seva and classical Jyotish platform grounded in <em>Brihat Parashara Hora Shastra</em>. We facilitate relationship &amp; marriage compatibility reports, personalized Sankalp consecrations, sunrise sacred animal feeding (Gau Seva, Shani/Bhairava Seva, Pitri Seva), Vidya Dāna, and Anna Dāna offerings across India.</p>
         `
       },
       terms: {
         title: 'Terms & Conditions',
         body: `
-          <p>By booking a Sankalp or ordering a Sankalp Kit on <strong>https://vedic-shanti-lovat.vercel.app</strong>, you agree to provide accurate seeker details (Full Name, Gotra, Rashi, email, and phone number).</p>
-          <p>All offerings are priced in Indian Rupees (INR ₹). Vedic Shanti provides traditional spiritual seva, digital guides, and sacred goods rooted in classical Vedic tradition.</p>
+          <p>By booking a Sankalp, Relationship/Marriage Kundli report, or seva offering on <strong>https://vedic-shanti-lovat.vercel.app</strong>, you agree to provide accurate seeker/birth details (Full Name, Gotra, Rashi, Birth Date/Time/Place, email, and phone number).</p>
+          <p>All offerings are priced in Indian Rupees (INR ₹). Vedic Shanti provides traditional spiritual seva, digital Jyotish compatibility reports, and sacred guides rooted in classical Vedic tradition.</p>
         `
       },
       privacy: {
         title: 'Privacy Policy',
         body: `
-          <p>We collect only the details necessary to consecrate your personalized Sankalp and deliver your digital/physical kit (Name, Gotra, Rashi, email address, and mobile number).</p>
+          <p>We collect only the details necessary to consecrate your personalized Sankalp or prepare your Relationship/Marriage Kundli report (Name, Gotra, Rashi, birth date/time/place, email address, and mobile number).</p>
           <p>All online payments are processed securely via PCI-DSS compliant payment gateways (Cashfree Payments). We do not store card/UPI credentials or sell your personal data to third parties. For privacy queries, write to <strong>vedicshanti.seva@gmail.com</strong>.</p>
         `
       },
       refund: {
         title: 'Refund & Cancellation Policy',
         body: `
-          <p><strong>No Refunds or Cancellations:</strong> All Sankalp bookings, spiritual seva offerings, digital guides, and personalized Sankalp Kits on <strong>Vedic Shanti</strong> are custom-consecrated to the seeker's Name, Gotra, and Rashi immediately upon confirmation. Therefore, <strong>all payments are final, and no refunds or cancellations are permitted</strong> once an order is placed.</p>
+          <p><strong>No Refunds or Cancellations:</strong> All Sankalp bookings, Relationship &amp; Marriage Kundli compatibility reports, spiritual seva offerings, and digital guides on <strong>Vedic Shanti</strong> are custom-prepared to the seeker's Name, Gotra, Rashi, and birth details immediately upon confirmation. Therefore, <strong>all payments are final, and no refunds or cancellations are permitted</strong> once an order is placed.</p>
           <p><strong>Duplicate / Technical Errors:</strong> In the rare event of a verified duplicate payment due to a banking or technical error, please contact <strong>vedicshanti.seva@gmail.com</strong> within 48 hours with your transaction reference number for resolution.</p>
         `
       },
@@ -749,12 +810,101 @@
       document.getElementById('policyModal').classList.remove('flex');
     }
 
-    // --- Master Data ---
+    // --- Master Data (Relationship Compatibility + Marriage Kundli + Remedies) ---
     const PACKAGES = [
+      {
+        id: 'gf-relationship-check',
+        title: 'Girlfriend & Relationship Compatibility Check + Remedy',
+        category: 'love',
+        requiresCoupleBirth: true,
+        planet: 'Venus (Shukra), Moon & 5th/7th House',
+        animal: 'Will Your Relationship Work? Full Compatibility & Remedy',
+        offering: 'Venus-Moon harmony check, communication friction analysis & personalized Upaya',
+        mantra: 'ॐ शुं शुक्राय नमः • ॐ गौरी शङ्कराय नमः',
+        homePooja: [
+          'Light a pure cow-ghee diya on Friday morning facing East while wearing clean white or pastel clothing.',
+          'Place two white flowers and rock sugar (Mishri) before the lamp.',
+          'Chant "Om Shum Shukraya Namah" 108 times to soften ego clashes and deepen mutual trust.',
+          'Feed sweet green fodder or soaked white millet to cows or doves at sunrise.'
+        ],
+        basePriceINR: 299,
+        badge: '💕 GF Compatibility'
+      },
+      {
+        id: 'breakup-patchup-clarity',
+        title: 'Situationship, Breakup & Patch-Up Clarity + Remedy',
+        category: 'love',
+        requiresCoupleBirth: true,
+        planet: 'Venus, Rahu-Ketu & Mercury',
+        animal: 'Relationship Block Analysis & Reconciliation / Healing Upaya',
+        offering: 'Rahu-Ketu misunderstanding check, transit timeline & sunrise seva remedy',
+        mantra: 'ॐ कामदेवाय विद्महे पुष्पबाणाय धीमहि तन्नो अनङ्गः प्रचोदयात्',
+        homePooja: [
+          'Light a pure cow-ghee diya on Friday or Monday morning in a calm space.',
+          'Keep a small copper cup of clean water beside the lamp while chanting your mantra 108 times.',
+          'Offer sweetened green grass to a cow or scatter soaked grains for wild birds.',
+          'Pour the energized water at the base of a Tulsi plant.'
+        ],
+        basePriceINR: 399,
+        badge: '💕 Love & Patch-Up'
+      },
+      {
+        id: 'kundli-gun-milan',
+        title: '36-Gun Ashtakoota Marriage Kundli Milan',
+        category: 'kundli',
+        requiresCoupleBirth: true,
+        planet: 'Ashtakoota & Chandra Compatibility',
+        animal: 'Bride & Groom 36-Point Gun Milan Chart',
+        offering: 'Varna, Vashya, Tara, Yoni, Graha Maitri, Gana, Bhakoot & Nadi check',
+        mantra: 'ॐ गौरी शङ्कराय नमः (Om Gauri Shankaraya Namah)',
+        homePooja: [
+          'Light a pure cow-ghee diya together or individually on Monday/Friday morning facing East.',
+          'Offer white flowers and rock sugar (Mishri) before Lord Shiva and Maa Parvati.',
+          'Chant "Om Gauri Shankaraya Namah" 108 times for mutual harmony and understanding.',
+          'Feed sweet green fodder or soaked yellow dal to a cow for auspicious Vivah blessings.'
+        ],
+        basePriceINR: 499,
+        badge: '💍 Marriage Kundli'
+      },
+      {
+        id: 'kundli-manglik-muhurat',
+        title: 'Manglik Dosha & Vivah Muhurat Kundli',
+        category: 'kundli',
+        requiresCoupleBirth: true,
+        planet: 'Mars (Mangal), Venus & 7th House',
+        animal: 'Kuja Dosha Evaluation & Auspicious Vivah Dates',
+        offering: 'Navamsa (D9) spouse analysis, Mangal cancellation check & 5 Vivah Muhurats',
+        mantra: 'ॐ श्रीं ह्रीं क्लीं पार्वतीपतये नमः',
+        homePooja: [
+          'On Tuesday or Friday morning, light a pure ghee lamp with a red or white cotton wick.',
+          'Place turmeric (Haldi) and kumkum on a clean plate while chanting the Parvati-Pati mantra 108 times.',
+          'Offer organic jaggery and roasted chana on Tuesdays or sweet fodder to white cows on Fridays.'
+        ],
+        basePriceINR: 799,
+        badge: '💍 Vivah & Manglik'
+      },
+      {
+        id: 'kundli-royal-dossier',
+        title: 'Royal Vivah Kundli & Parivar Compatibility Dossier',
+        category: 'kundli',
+        requiresCoupleBirth: true,
+        planet: 'Complete Navagraha, D9 Navamsa & Dasha',
+        animal: '25+ Page Personalized Marriage & Lineage Report',
+        offering: 'Full 36-Gun Milan, Nadi/Bhakoot remedies, Dasha timeline & Sunrise Sankalp',
+        mantra: 'ॐ ह्रीं योगिनी योगिनी योगेश्वरी योग भयंकरी सकल स्थावर जंगमस्य मुख हृदयं मम वशं आकर्षय आकर्षय नमः',
+        homePooja: [
+          'Light a ghee lamp before your Kuldevta / Ishta Devta shrine on an auspicious morning.',
+          'Keep clean water in a copper vessel while chanting your Vivah Shanti mantra 108 times.',
+          'Perform sunrise Gau Seva and Anna Dāna to bless the upcoming union.'
+        ],
+        basePriceINR: 1199,
+        badge: '💍 Complete Dossier'
+      },
       {
         id: 'prem-shanti',
         title: 'Prem Shanti & Heartbreak Cord-Cutting',
         category: 'love',
+        requiresCoupleBirth: false,
         planet: 'Venus & Ketu',
         animal: 'White Cows & Spotted Doves',
         offering: 'Sweetened green fodder & soaked millets',
@@ -772,6 +922,7 @@
         id: 'shani-sade-sati',
         title: 'Shani Sade Sati Shanti Upaya',
         category: 'planetary',
+        requiresCoupleBirth: false,
         planet: 'Saturn (Shani Deva)',
         animal: 'Black Dogs & Crows',
         offering: 'Mustard oil roti & black sesame laddus',
@@ -789,6 +940,7 @@
         id: 'pitri-dosha',
         title: 'Pitri Dosha Nivaran & Lineage Peace',
         category: 'lineage',
+        requiresCoupleBirth: false,
         planet: 'Sun & Rahu (Ancestral)',
         animal: 'Crows & Fish',
         offering: 'Cooked rice balls with black sesame seeds',
@@ -803,26 +955,10 @@
         badge: 'Lineage Blessings'
       },
       {
-        id: 'sarpa-rahu-shanti',
-        title: 'Sarpa & Rahu-Ketu Shanti Upaya',
-        category: 'planetary',
-        planet: 'Rahu & Ketu',
-        animal: 'Fish & Ants',
-        offering: 'Flour sugar pellets (Kasari) at tree roots',
-        mantra: 'ॐ भ्रां भ्रीं भ्रौं सः राहवे नमः',
-        homePooja: [
-          'Light a sandalwood incense stick and a sesame oil diya at home during twilight.',
-          'Keep a glass of water covered with a copper plate while chanting the Rahu Beej mantra 108 times.',
-          'Mix roasted wheat flour with powdered jaggery/sugar and place small pinches near ant hills or tree roots outside.',
-          'Wash your hands and feet with clean water afterward to ground restless energy.'
-        ],
-        basePriceINR: 549,
-        badge: 'Mental Clarity'
-      },
-      {
         id: 'guru-shukra-wealth',
         title: 'Guru-Shukra Wealth & Abundance',
         category: 'wealth',
+        requiresCoupleBirth: false,
         planet: 'Jupiter & Venus',
         animal: 'Desi Indian Cows',
         offering: 'Soaked yellow chana dal & jaggery bread',
@@ -835,23 +971,6 @@
         ],
         basePriceINR: 799,
         badge: 'Prosperity & Grace'
-      },
-      {
-        id: 'mangal-shanti',
-        title: 'Mangal Dosha & Courage Upaya',
-        category: 'planetary',
-        planet: 'Mars (Mangal Deva)',
-        animal: 'Monkeys & Stray Animals',
-        offering: 'Roasted chickpeas (Chana) & Jaggery (Gud)',
-        mantra: 'ॐ अं अङ्गारकाय नमः',
-        homePooja: [
-          'On Tuesday morning, light a ghee lamp with a red cotton wick in your home shrine.',
-          'Offer a small piece of organic jaggery (Gud) and red flowers while chanting "Om Am Angarakaya Namah" 108 times.',
-          'Distribute roasted chana and jaggery to stray animals or monkeys, or share sweet food with siblings.',
-          'Keep calm speech throughout the day to honor Mangal Deva.'
-        ],
-        basePriceINR: 549,
-        badge: 'Vitality & Harmony'
       }
     ];
 
@@ -880,43 +999,43 @@
 
     const TRANSLATIONS = {
       en: {
-        heroBadge: "Pancha Mahayajna • Animal Feeding as Planetary Dissolution",
-        heroTitle: 'Dissolve Karmic Bondage Through Ancient <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Animal Seva</span>',
-        heroSubtitle: "Grounded in <em>Brihat Parashara Hora Shastra</em>. Feed cows for Venus & Jupiter, black dogs for Saturn & Bhairava, and crows for Rahu & Pitris. Consecrate your intention with sacred 432 Hz resonance.",
+        heroBadge: "Classical Jyotish • Love Compatibility, Marriage Kundli & Sacred Seva",
+        heroTitle: 'Relationship Clarity, <span class="text-rose-800">Marriage Kundli</span> &amp; Ancient <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">Animal Seva</span>',
+        heroSubtitle: "Grounded in <em>Brihat Parashara Hora Shastra</em>. Check if your relationship with your girlfriend/partner is astrologically aligned with tailored remedies, explore 36-Gun Marriage Kundli matching, and consecrate morning seva.",
         vidyaTitle: "Vidya Dāna (Education Offering)",
         vidyaDesc: "Appease Mercury (Budha) and invoke Maa Saraswati's wisdom by supporting students with notebooks, books, and study kits. Donate any amount as your wish.",
         annaTitle: "Anna Dāna (Sacred Food Offering)",
         annaDesc: "Vedic scriptures extol Anna Dāna as the highest charity—pacifying Surya, Chandra, Shani, and ancestral Pitris by nourishing hungry souls and sacred creatures. Donate any amount as your wish.",
-        consecrateBtn: "Consecrate",
-        offeringLabel: "Offering",
-        animalLabel: "Sacred Animal:",
-        prescribedLabel: "Prescribed Offering:"
+        consecrateBtn: "Check / Consecrate",
+        offeringLabel: "Amount",
+        animalLabel: "Focus:",
+        prescribedLabel: "Includes:"
       },
       hi: {
-        heroBadge: "पंच महायज्ञ • ग्रह शांति हेतु पावन जीव सेवा",
-        heroTitle: 'प्राचीन <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">जीव सेवा</span> के माध्यम से कर्म बंधनों का निवारण करें',
-        heroSubtitle: "<em>बृहत् पाराशर होरा शास्त्र</em> पर आधारित। शुक्र और बृहस्पति के लिए गौ सेवा, शनि और भैरव के लिए श्वान सेवा, तथा राहु व पितरों की शांति हेतु काक बलि एवं 432 Hz नाद साधना।",
+        heroBadge: "शास्त्रीय ज्योतिष • लव कम्पैटिबिलिटी, विवाह कुंडली एवं जीव सेवा",
+        heroTitle: 'रिश्तों की स्पष्टता, <span class="text-rose-800">विवाह कुंडली</span> एवं पावन <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">जीव सेवा</span>',
+        heroSubtitle: "<em>बृहत् पाराशर होरा शास्त्र</em> पर आधारित। अपने पार्टनर/गर्लफ्रेंड के साथ ग्रह मिलान और उपाय जानें, 36 गुण विवाह कुंडली मिलान करें, और सुबह की सेवा का संकल्प लें।",
         vidyaTitle: "विद्या दान • शिक्षा हेतु सहयोग",
         vidyaDesc: "बुध ग्रह की शांति और माँ सरस्वती की कृपा हेतु विद्यार्थियों की पुस्तकों व शिक्षा में अपनी इच्छानुसार दान करें।",
         annaTitle: "अन्न दान • महादान सेवा",
         annaDesc: "शास्त्रों में अन्न दान को सर्वश्रेष्ठ महादान कहा गया है। अपनी इच्छानुसार दान कर पितरों और ग्रहों की कृपा प्राप्त करें।",
-        consecrateBtn: "संकल्प लें",
-        offeringLabel: "दक्षिणा / सेवा",
-        animalLabel: "पवित्र जीव:",
-        prescribedLabel: "शास्त्रीय भोग:"
+        consecrateBtn: "संकल्प / चेक करें",
+        offeringLabel: "राशि",
+        animalLabel: "विवरण:",
+        prescribedLabel: "लाभ:"
       },
       kn: {
-        heroBadge: "ಪಂಚ ಮಹಾಯಜ್ಞ • ಗ್ರಹ ಶಾಂತಿಗಾಗಿ ಪವಿತ್ರ ಪ್ರಾಣಿ ಸೇವೆ",
-        heroTitle: 'ಪ್ರಾಚೀನ <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ಪ್ರಾಣಿ ಸೇವೆಯ</span> ಮೂಲಕ ಕರ್ಮ ಬಂಧನಗಳನ್ನು ನಿವಾರಿಸಿ',
-        heroSubtitle: "<em>ಬೃಹತ್ ಪರಾಶರ ಹೋರಾ ಶಾಸ್ತ್ರ</em> ಆಧಾರಿತ. ಶುಕ್ರ ಮತ್ತು ಗುರುವಿಗಾಗಿ ಗೋ ಸೇವೆ, ಶನಿ ಮತ್ತು ಭೈರವನಿಗಾಗಿ ಶ್ವಾನ ಸೇವೆ, ರಾಹು ಮತ್ತು ಪಿತೃ ಶಾಂತಿಗಾಗಿ ಕಾಗೆಗಳಿಗೆ ಆಹಾರ ಮತ್ತು 432 Hz ಧ್ಯಾನ.",
+        heroBadge: "ಶಾಸ್ತ್ರೀಯ ಜ್ಯೋತಿಷ್ಯ • ಪ್ರೀತಿ ಹೊಂದಾಣಿಕೆ, ವಿವಾಹ ಕುಂಡಲಿ ಮತ್ತು ಪ್ರಾಣಿ ಸೇವೆ",
+        heroTitle: 'ಸಂಬಂಧದ ಸ್ಪಷ್ಟತೆ, <span class="text-rose-800">ವಿವಾಹ ಕುಂಡಲಿ</span> ಮತ್ತು ಪವಿತ್ರ <span class="text-amber-800 underline decoration-amber-300 decoration-wavy decoration-1">ಪ್ರಾಣಿ ಸೇವೆ</span>',
+        heroSubtitle: "<em>ಬೃಹತ್ ಪರಾಶರ ಹೋರಾ ಶಾಸ್ತ್ರ</em> ಆಧಾರಿತ. ನಿಮ್ಮ ಸಂಗಾತಿ/ಗೆಳತಿಯೊಂದಿಗೆ ಗ್ರಹ ಹೊಂದಾಣಿಕೆ ಮತ್ತು ಪರಿಹಾರಗಳನ್ನು ತಿಳಿಯಿರಿ, 36 ಗುಣ ವಿವಾಹ ಕುಂಡಲಿ ಪರಿಶೀಲಿಸಿ.",
         vidyaTitle: "ವಿದ್ಯಾ ದಾನ • ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಕೊಡುಗೆ",
         vidyaDesc: "ಬುಧ ಗ್ರಹದ ಶಾಂತಿ ಮತ್ತು ಸರಸ್ವತಿ ದೇವಿಯ ಅನುಗ್ರಹಕ್ಕಾಗಿ ನಿಮ್ಮ ಇಚ್ಛೆಯಂತೆ ದಾನ ಮಾಡಿ ವಿದ್ಯಾರ್ಥಿಗಳ ಶಿಕ್ಷಣಕ್ಕೆ ನೆರವಾಗಿ.",
         annaTitle: "ಅನ್ನ ದಾನ • ಪವಿತ್ರ ಆಹಾರ ಸೇವೆ",
         annaDesc: "ಶಾಸ್ತ್ರಗಳಲ್ಲಿ ಅನ್ನ ದಾನವನ್ನು ಶ್ರೇಷ್ಠ ಮಹಾದಾನವೆಂದು ಕರೆಯಲಾಗಿದೆ. ನಿಮ್ಮ ಇಚ್ಛೆಯಂತೆ ದಾನ ಮಾಡಿ ಪಿತೃಗಳು ಮತ್ತು ಗ್ರಹಗಳ ಅನುಗ್ರಹ ಪಡೆಯಿರಿ.",
-        consecrateBtn: "ಸಂಕಲ್ಪ ಮಾಡಿ",
-        offeringLabel: "ಸೇವಾ ಮೊತ್ತ",
-        animalLabel: "ಪವಿತ್ರ ಪ್ರಾಣಿ:",
-        prescribedLabel: "ನೈವೇದ್ಯ / ಆಹಾರ:"
+        consecrateBtn: "ಪರಿಶೀಲಿಸಿ / ಸಂಕಲ್ಪ",
+        offeringLabel: "ಮೊತ್ತ",
+        animalLabel: "ವಿವರ:",
+        prescribedLabel: "ಒಳಗೊಂಡಿದೆ:"
       }
     };
 
@@ -955,6 +1074,9 @@
     function changeCurrency(curr) {
       currentCurrency = curr;
       renderPackages(PACKAGES);
+      document.querySelectorAll('[data-inr]').forEach(el => {
+        el.innerText = formatPrice(Number(el.getAttribute('data-inr')));
+      });
     }
 
     function formatPrice(inrAmount) {
@@ -966,17 +1088,29 @@
       return `${c.symbol}${converted === 0 && inrAmount > 0 ? (inrAmount * c.rate).toFixed(2) : converted.toLocaleString('en-US')}`;
     }
 
-    // --- Render Remedies Grid ---
+    // --- Render Remedies & Compatibility Grid ---
     function renderPackages(list) {
       const container = document.getElementById('packagesContainer');
       if (!container) return;
       const t = TRANSLATIONS[currentLanguage] || TRANSLATIONS.en;
 
-      container.innerHTML = list.map(pkg => `
-        <div class="pastel-card p-5 sm:p-6 rounded-3xl flex flex-col justify-between">
+      container.innerHTML = list.map(pkg => {
+        const isCoupleCard = pkg.requiresCoupleBirth;
+        const cardBorder = pkg.category === 'kundli'
+          ? 'border-rose-200/90 bg-gradient-to-b from-rose-50/40 to-white/85'
+          : (isCoupleCard ? 'border-pink-200/90 bg-gradient-to-b from-pink-50/40 to-white/85' : '');
+        const badgeStyle = pkg.category === 'kundli'
+          ? 'bg-rose-100 text-rose-900'
+          : (isCoupleCard ? 'bg-pink-100 text-pink-900' : 'bg-amber-100/80 text-amber-900');
+        const btnStyle = pkg.category === 'kundli'
+          ? 'bg-rose-900 hover:bg-rose-800'
+          : (isCoupleCard ? 'bg-pink-800 hover:bg-pink-900' : 'bg-stone-900 hover:bg-amber-800');
+
+        return `
+        <div class="pastel-card p-5 sm:p-6 rounded-3xl flex flex-col justify-between ${cardBorder}">
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="px-2.5 py-0.5 rounded-full bg-amber-100/80 text-amber-900 text-[11px] font-semibold">
+              <span class="px-2.5 py-0.5 rounded-full ${badgeStyle} text-[11px] font-semibold">
                 ${pkg.badge}
               </span>
               <span class="text-[11px] font-medium text-stone-500 text-right">${pkg.planet}</span>
@@ -1005,23 +1139,30 @@
               <span class="text-[11px] text-stone-400 block">${t.offeringLabel}</span>
               <span class="font-cinzel text-base sm:text-lg font-bold text-stone-900">${formatPrice(pkg.basePriceINR)}</span>
             </div>
-            <button onclick="openCheckoutModal('${pkg.id}')" class="px-4 py-2.5 rounded-xl bg-stone-900 hover:bg-amber-800 text-white text-xs font-semibold transition-all shadow-sm">
+            <button onclick="openCheckoutModal('${pkg.id}')" class="px-4 py-2.5 rounded-xl ${btnStyle} text-white text-xs font-semibold transition-all shadow-sm">
               ${t.consecrateBtn}
             </button>
           </div>
         </div>
-      `).join('');
+      `;
+      }).join('');
     }
 
     function filterPackages(category) {
       document.querySelectorAll('.pill-btn').forEach(btn => {
         btn.classList.remove('pill-active');
-        btn.classList.add('bg-white/80', 'text-stone-700');
+        if (btn.id === 'tab-kundli') {
+          btn.classList.add('bg-rose-50/90', 'text-rose-900');
+        } else if (btn.id === 'tab-love') {
+          btn.classList.add('bg-pink-50/90', 'text-pink-900');
+        } else {
+          btn.classList.add('bg-white/80', 'text-stone-700');
+        }
       });
       const activeBtn = document.getElementById(`tab-${category}`);
       if (activeBtn) {
         activeBtn.classList.add('pill-active');
-        activeBtn.classList.remove('bg-white/80', 'text-stone-700');
+        activeBtn.classList.remove('bg-white/80', 'text-stone-700', 'bg-rose-50/90', 'text-rose-900', 'bg-pink-50/90', 'text-pink-900');
       }
 
       if (category === 'all') {
@@ -1270,9 +1411,14 @@
 
       setTimeout(() => {
         let reply = 'Perform your feeding cleanly after sunrise bath, avoiding Rahu Kaalam. If a day is missed, continue the next morning and add one extra day at the end of your 21-day cycle.';
-        if (question.toLowerCase().includes('crow') || question.toLowerCase().includes('pitri')) {
+        const q = question.toLowerCase();
+        if (q.includes('girlfriend') || q.includes('gf') || q.includes('relationship') || q.includes('love') || q.includes('breakup')) {
+          reply = 'In Jyotish, Venus (Shukra) and Moon (Chandra) govern emotional bonding and trust. Offering sweet green fodder to white cows on Fridays and chanting "Om Shum Shukraya Namah" 108 times softens misunderstandings.';
+        } else if (q.includes('guna') || q.includes('kundli') || q.includes('marriage') || q.includes('manglik')) {
+          reply = 'In classical Ashtakoota Milan, 18+ out of 36 Gunas is considered compatible, alongside checking Nadi, Bhakoot, and Mangal/Kuja Dosha in both Rashi and Navamsa charts.';
+        } else if (q.includes('crow') || q.includes('pitri')) {
           reply = 'Offer cooked rice mixed with black sesame seeds to crows before noon facing South for ancestral peace (Pitri Shanti).';
-        } else if (question.toLowerCase().includes('dog') || question.toLowerCase().includes('shani')) {
+        } else if (q.includes('dog') || q.includes('shani')) {
           reply = 'Feed mustard-oil brushed chapati to black stray dogs on Saturdays after sunset or early morning to pacify Shani and Bhairava.';
         }
         box.innerHTML += `<div class="p-2.5 rounded-xl bg-amber-50/80 border border-amber-200/50 text-amber-950"><strong>Vedic Guide:</strong> ${reply}</div>`;
@@ -1296,7 +1442,7 @@
         resDiv.innerHTML = '<span class="text-rose-600">Please enter a valid email address.</span>';
         return;
       }
-      resDiv.innerHTML = `<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900">Consecrated Sankalp record located for <strong>${email}</strong>. You may download your guide or listen to the 432 Hz soundscape directly on this page.</div>`;
+      resDiv.innerHTML = `<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900">Consecrated Sankalp / Compatibility record located for <strong>${email}</strong>. You may download your scroll or listen to the 432 Hz soundscape directly on this page.</div>`;
     }
 
     function quickDonate(type, amount) {
@@ -1304,6 +1450,8 @@
       const isAnna = type === 'anna';
       activePackage = {
         id: isAnna ? 'anna-dana' : 'vidya-dana',
+        category: 'dana',
+        requiresCoupleBirth: false,
         title: isAnna
           ? `Anna Dāna Sacred Food Offering (₹${cleanAmount.toLocaleString('en-IN')})`
           : `Vidya Dāna Education Offering (₹${cleanAmount.toLocaleString('en-IN')})`,
@@ -1319,6 +1467,7 @@
       const customAnnaField = document.getElementById('checkoutCustomAnna');
       if (customVidyaField) customVidyaField.value = '';
       if (customAnnaField) customAnnaField.value = '';
+      toggleKundliFields(false);
       updateCheckoutDisplay();
       document.getElementById('checkoutModal').classList.remove('hidden');
       document.getElementById('checkoutModal').classList.add('flex');
@@ -1336,6 +1485,16 @@
       quickDonate(type, Math.round(val));
     }
 
+    function toggleKundliFields(show) {
+      const box = document.getElementById('kundliBirthFields');
+      if (!box) return;
+      if (show) {
+        box.classList.remove('hidden');
+      } else {
+        box.classList.add('hidden');
+      }
+    }
+
     function openCheckoutModal(pkgId) {
       activePackage = PACKAGES.find(p => p.id === pkgId) || PACKAGES[0];
       vidyaDonationAmount = 0;
@@ -1344,6 +1503,7 @@
       const customAnnaField = document.getElementById('checkoutCustomAnna');
       if (customVidyaField) customVidyaField.value = '';
       if (customAnnaField) customAnnaField.value = '';
+      toggleKundliFields(Boolean(activePackage.requiresCoupleBirth));
       updateCheckoutDisplay();
       document.getElementById('checkoutModal').classList.remove('hidden');
       document.getElementById('checkoutModal').classList.add('flex');
@@ -1389,16 +1549,41 @@
       document.getElementById('checkoutTotalAmount').innerText = formatPrice(totalINR);
     }
 
+    function getKundliSummaryString() {
+      if (!activePackage || !activePackage.requiresCoupleBirth) return '';
+      const p1n = document.getElementById('p1Name')?.value.trim() || '';
+      const p1d = document.getElementById('p1Dob')?.value || '';
+      const p1t = document.getElementById('p1Tob')?.value || '';
+      const p1p = document.getElementById('p1Pob')?.value.trim() || '';
+      const p2n = document.getElementById('p2Name')?.value.trim() || '';
+      const p2d = document.getElementById('p2Dob')?.value || '';
+      const p2t = document.getElementById('p2Tob')?.value || '';
+      const p2p = document.getElementById('p2Pob')?.value.trim() || '';
+      if (!p1n && !p2n) return '';
+      return `Partner 1: ${p1n} (${p1d} ${p1t}, ${p1p}) | Partner 2: ${p2n} (${p2d} ${p2t}, ${p2p})`;
+    }
+
     async function submitOrder() {
       const fullName = document.getElementById('orderFullName').value.trim() || 'Devotee';
       const email = document.getElementById('orderEmail').value.trim();
       const phone = document.getElementById('orderPhone').value.trim();
       const gotra = document.getElementById('orderGotra').value.trim() || 'Kashyapa';
       const rashi = document.getElementById('orderRashi').value.trim() || 'Universal';
+      const kundliDetails = getKundliSummaryString();
 
       if (!email) {
         document.getElementById('orderEmail').focus();
         return;
+      }
+
+      if (activePackage && activePackage.requiresCoupleBirth) {
+        const p1n = document.getElementById('p1Name').value.trim();
+        const p2n = document.getElementById('p2Name').value.trim();
+        if (!p1n || !p2n) {
+          alert('Please enter both your name and your girlfriend/partner name for compatibility analysis.');
+          document.getElementById('p1Name').focus();
+          return;
+        }
       }
 
       const totalDonationINR = vidyaDonationAmount + annaDonationAmount;
@@ -1473,7 +1658,7 @@
                   packageTitle: selectedPkg.title,
                   planet: selectedPkg.planet,
                   animal: selectedPkg.animal,
-                  offering: selectedPkg.offering,
+                  offering: kundliDetails ? `${selectedPkg.offering} (${kundliDetails})` : selectedPkg.offering,
                   mantra: selectedPkg.mantra,
                   homePooja: selectedPkg.homePooja,
                   orderId,
@@ -1481,7 +1666,8 @@
                   amountINR: totalINR,
                   donationAmount: totalDonationINR,
                   vidyaDonationAmount,
-                  annaDonationAmount
+                  annaDonationAmount,
+                  kundliDetails
                 })
               });
             } catch (err) {
@@ -1525,6 +1711,11 @@
       const mantra = (activePackage && activePackage.mantra) ? activePackage.mantra : 'ॐ सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः';
       const refText = document.getElementById('confirmedPaymentRef')?.innerText || `Sankalp ID: VS_${Date.now()}`;
       const todayStr = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+      const p1n = document.getElementById('p1Name')?.value.trim();
+      const p2n = document.getElementById('p2Name')?.value.trim();
+      const displayConsecratedName = (activePackage && activePackage.requiresCoupleBirth && p1n && p2n)
+        ? `${p1n} & ${p2n}`
+        : name;
 
       const bgGrad = ctx.createLinearGradient(0, 0, 1200, 900);
       bgGrad.addColorStop(0, '#FDF7EA');
@@ -1588,8 +1779,8 @@
       ctx.fillText('This sacred certificate affirms that a personalized sunrise Sankalp is consecrated for', 600, 218);
 
       ctx.fillStyle = '#6B1D1D';
-      ctx.font = 'bold italic 44px Georgia, serif';
-      ctx.fillText(name, 600, 274);
+      ctx.font = 'bold italic 40px Georgia, serif';
+      ctx.fillText(displayConsecratedName, 600, 274);
 
       ctx.fillStyle = 'rgba(107, 29, 29, 0.08)';
       ctx.fillRect(280, 296, 640, 36);
@@ -1609,11 +1800,11 @@
 
       ctx.fillStyle = '#8C5219';
       ctx.font = '600 16px sans-serif';
-      ctx.fillText(`Planetary Alignment: ${planet}`, 600, 418);
+      ctx.fillText(`Focus: ${planet}`, 600, 418);
 
       ctx.fillStyle = '#3D352E';
       ctx.font = '15px sans-serif';
-      ctx.fillText(`Sacred Seva: ${animal} — ${offering}`, 600, 446);
+      ctx.fillText(`${animal} — ${offering}`, 600, 446);
 
       let danaList = [];
       if (vidyaDonationAmount > 0) danaList.push(`Vidya Dāna: ₹${vidyaDonationAmount.toLocaleString('en-IN')}`);
@@ -1639,7 +1830,7 @@
       ctx.fillText('YOUR CONSECRATED MANTRA (CHANT 108 TIMES DAILY)', 600, 554);
 
       ctx.fillStyle = '#2D1A0E';
-      ctx.font = 'bold 21px Georgia, serif';
+      ctx.font = 'bold 20px Georgia, serif';
       ctx.fillText(mantra, 600, 592);
 
       ctx.textAlign = 'left';
@@ -1689,7 +1880,7 @@
       link.click();
     }
 
-    // --- 2. Multi-Page Printable Sadhana Manual (5-Page PDF Guide) ---
+    // --- 2. Multi-Page Printable Sadhana & Compatibility Manual (5-Page PDF Guide) ---
     function downloadSevaGuidePdf() {
       const name = document.getElementById('orderFullName').value.trim() || 'Sacred Seeker';
       const gotra = document.getElementById('orderGotra').value.trim() || 'Kashyapa (Universal)';
@@ -1701,6 +1892,7 @@
       const mantra = (activePackage && activePackage.mantra) ? activePackage.mantra : 'ॐ सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः';
       const refText = document.getElementById('confirmedPaymentRef')?.innerText || `Sankalp ID: VS_${Date.now()}`;
       const todayStr = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' });
+      const kundliDetails = getKundliSummaryString();
       const poojaSteps = (activePackage && activePackage.homePooja) ? activePackage.homePooja : [
         'Take a morning bath and light a pure ghee or sesame oil diya facing East or North.',
         'Keep a small copper or brass bowl of clean water beside the lamp while chanting your mantra 108 times.',
@@ -1713,7 +1905,7 @@
         <!DOCTYPE html>
         <html>
         <head>
-          <title>Vedic Shanti - 5-Page Animal Seva & Sankalp Guide</title>
+          <title>Vedic Shanti - 5-Page Seva & Compatibility Guide</title>
           <style>
             body { font-family: Georgia, serif; color: #2D2723; background: #FAF6EE; margin: 0; padding: 0; }
             .page { page-break-after: always; padding: 48px; min-height: 90vh; box-sizing: border-box; border: 6px double #B87333; margin: 16px; background: #FFFDF9; }
@@ -1738,11 +1930,12 @@
               <p><strong>Consecrated Seeker:</strong> ${name}</p>
               <p><strong>Gotra:</strong> ${gotra} &nbsp;|&nbsp; <strong>Rashi:</strong> ${rashi}</p>
               <p><strong>Reference:</strong> ${refText}</p>
-              <p><strong>Chosen Remedy:</strong> ${pkgTitle}</p>
+              <p><strong>Selected Offering:</strong> ${pkgTitle}</p>
+              ${kundliDetails ? `<p><strong>Couple Details:</strong> ${kundliDetails}</p>` : ''}
               ${vidyaDonationAmount > 0 ? `<p><strong>Vidya Dāna Add-On:</strong> ₹${vidyaDonationAmount.toLocaleString('en-IN')}</p>` : ''}
               ${annaDonationAmount > 0 ? `<p><strong>Anna Dāna Add-On:</strong> ₹${annaDonationAmount.toLocaleString('en-IN')}</p>` : ''}
-              <p><strong>Planetary Alignment:</strong> ${planet}</p>
-              <p><strong>Sacred Creature & Offering:</strong> ${animal} — ${offering}</p>
+              <p><strong>Astrological Focus:</strong> ${planet}</p>
+              <p><strong>Details:</strong> ${animal} — ${offering}</p>
             </div>
             <div class="mantra-highlight">
               <div style="font-size:11px; letter-spacing:1.5px; color:#9C5A1E; font-family:sans-serif; margin-bottom:6px;">CONSECRATED SANKALP MANTRA</div>
